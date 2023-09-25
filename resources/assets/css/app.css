@@ -1,0 +1,69 @@
+/* Base */
+:root {
+    --primary-color: #6daba2;
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #333;
+    --border-color: #dbdbdb;
+    --star-gold-color: #ffce3e;
+}
+
+/* Header */
+.header-margin {
+    margin: 10px 25px;
+}
+
+.nav-link-space {
+    font-weight: 700;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    font-size: 20px;
+}
+
+.btn-signup {
+    border: none;
+    border-radius: 25px;
+    background-color: var(--primary-color);
+    color: var(--white-color) !important;
+    margin-left: 12px;
+    padding: 8px 30px !important;
+}
+
+.btn-signup-cnt {
+    margin-top: 10px;
+    margin-left: 0;
+}
+
+.bg-image {
+    background-image: url('/resources/assets/img/services1.png');
+    height: 80vh;
+    margin-top: 40px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.navbar {
+    left: 0; /* Đặt phần bên trái */
+    right: 0; /* Đặt phần bên phải */
+}
+
+.navbar-brand img {
+    max-width: 100%;
+}
+
+.text-title {
+    font-size: 50px;
+    font-weight: 700;
+    margin-top: 130px;
+    margin-left: 80px;
+}
+
+.text-description {
+    margin-left: 80px;
+    font-size: 18px;
+}
+
+.text-des-signup {
+    font-weight: 600;
+    padding-right: 5px;
+}
