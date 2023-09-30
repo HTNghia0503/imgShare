@@ -1,6 +1,9 @@
 /* Base */
 :root {
-    --primary-color: #6daba2;
+    --primary-color: #5A5BF3;
+    --primary-gradient: linear-gradient(0deg, #5A5BF3, #91E7D9);
+    --primary-gradient-hover: linear-gradient(0deg, #91E7D9, #5A5BF3);
+    --link-color: #1378e8;
     --white-color: #fff;
     --black-color: #000;
     --text-color: #333;
@@ -23,10 +26,17 @@
 .btn-signup {
     border: none;
     border-radius: 25px;
-    background-color: var(--primary-color);
+    background: var(--primary-gradient);
     color: var(--white-color) !important;
     margin-left: 12px;
     padding: 8px 30px !important;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-signup:hover {
+    background: var(--primary-gradient-hover);
+    transform: scale(1.05); /* Phóng to nút một chút khi hover */
 }
 
 .btn-signup-cnt {
@@ -36,7 +46,7 @@
 
 .bg-image {
     background-image: url('/resources/assets/img/services1.png');
-    height: 80vh;
+    height: 70vh;
     margin-top: 40px;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -52,18 +62,171 @@
 }
 
 .text-title {
+    color: rgba(0, 0, 0, 0.65);
     font-size: 50px;
     font-weight: 700;
     margin-top: 130px;
-    margin-left: 80px;
+    margin-left: 70px;
 }
 
 .text-description {
-    margin-left: 80px;
+    margin-left: 75px;
     font-size: 18px;
 }
 
 .text-des-signup {
     font-weight: 600;
     padding-right: 5px;
+}
+
+/* Modal Đăng nhập - Đăng ký */
+/* Đăng nhập */
+.modal-content {
+    border-radius: 32px !important;
+}
+
+.modal-header {
+    border: none;
+    padding-bottom: 0;
+}
+
+.modal-body {
+    padding: 0 3.6rem 2rem;
+}
+
+.btn-close-form {
+    padding-top: 24px !important;
+    padding-right: 24px !important;
+}
+
+.login-logo {
+    text-align: center;
+    padding-right: 25px;
+}
+
+.login-logo img {
+    width: 25%; /* Đặt chiều rộng của logo là 20% so với phần tử chứa nó */
+}
+
+.login-welcome p {
+    margin-bottom: 0;
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.login-welcome div {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.modal-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.65);
+    margin-bottom: 24px;
+}
+
+.form-label-format {
+    margin-bottom: 4px;
+}
+
+.form-control-format {
+    border-radius: 8px;
+    padding: 8px 16px
+}
+
+.form-control-last {
+    margin-bottom: 8px;
+}
+
+.forgot-password {
+    text-decoration: none;
+}
+
+.btn-submit-login {
+    margin-top: 24px;
+    margin-bottom: 16px;
+    width: 100%;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.goto-signup {
+    text-align: center;
+    margin-bottom: 0;
+    margin-top: 8px
+}
+
+.goto-signup a {
+    text-decoration: none;
+}
+
+/* Đăng ký */
+.signup-logo {
+    text-align: center;
+    padding-right: 25px;
+}
+
+.signup-logo img {
+    width: 25%; /* Đặt chiều rộng của logo là 20% so với phần tử chứa nó */
+}
+
+.signup-welcome p {
+    margin-bottom: 0;
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.signup-welcome div {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.btn-submit-signup {
+    margin-top: 40px;
+    margin-bottom: 16px;
+    width: 100%;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.form-password {
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+    border-right: none;
+    padding: 8px 16px;
+}
+
+.show-pass {
+    border-left: none;
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.goto-login {
+    text-align: center;
+    margin-bottom: 0;
+    margin-top: 8px
+}
+
+.goto-login a {
+    text-decoration: none;
+}
+
+/* Footer */
+.footer-signature {
+    text-align: center;
+}
+
+.footer-signature p {
+    margin-bottom: 0;
+    color: rgba(0, 0, 0, 0.2);
 }
