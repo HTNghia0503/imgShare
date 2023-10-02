@@ -24,30 +24,126 @@
                 </div>
                 <div class="home-nav">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
+                        <li class="nav-item home-nav-item">
                             <a class="nav-link active" aria-current="page" href="#">Trang chủ</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Đăng tải</a>
+                        <li class="nav-item home-nav-item">
+                            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#uploadModal">Đăng tải</a>
                         </li>
                     </ul>
                 </div>
                 <div class="home-search flex-grow-1">
                     <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Nhập để tìm kiếm hình ảnh" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </button>
+                        <!-- <input type="text" placeholder="&#xF002; Search" style="font-family:Arial, FontAwesome" /> -->
+                        <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
+                        <input class="form-control me-2 home-search-bar" type="search" placeholder="&#xF002;  Nhập từ khóa tìm kiếm" style="font-family:Arial, FontAwesome" aria-label="Search">
                     </form>
                 </div>
                 <div class="home-profile">
                     <a href="">
-                        <img src="" alt="avt">
+                        <img src="/resources/assets/img/avt.jpg" alt="avt">
                     </a>
                 </div>
             </div>
           </nav>
     </header>
+
+    <main class=" img-wrapper">
+        <div class="img-item">
+            <a href="#">
+                <img src="/resources/assets/img/home-img/1.jpg" alt="image">
+            </a>
+        </div>
+        <div class="img-item">
+            <a href="#">
+                <img src="/resources/assets/img/home-img/2.jpg" alt="image">
+            </a>
+        </div>
+        <div class="img-item">
+            <a href="#">
+                <img src="/resources/assets/img/home-img/3.jpg" alt="image">
+            </a>
+        </div>
+        <div class="img-item">
+            <a href="#">
+                <img src="/resources/assets/img/home-img/4.jpg" alt="image">
+            </a>
+        </div>
+        <div class="img-item">
+            <a href="#">
+                <img src="/resources/assets/img/home-img/5.jpg" alt="image">
+            </a>
+        </div>
+        <div class="img-item">
+            <a href="#">
+                <img src="/resources/assets/img/home-img/6.jpg" alt="image">
+            </a>
+        </div>
+        <div class="img-item">
+            <a href="#">
+                <img src="/resources/assets/img/home-img/7.jpg" alt="image">
+            </a>
+        </div>
+        <div class="img-item">
+            <a href="#">
+                <img src="/resources/assets/img/home-img/8.jpg" alt="image">
+            </a>
+        </div>
+        <div class="img-item">
+            <a href="">
+                <img src="/resources/assets/img/home-img/9.jpg" alt="image">
+            </a>
+        </div>
+        <div class="img-item">
+            <a href="">
+                <img src="/resources/assets/img/home-img/10.jpg" alt="image">
+            </a>
+        </div>
+        <div class="img-item"></div>
+    </main>
+
+    <!-- Upload -->
+    <!-- Form LogIn - Start -->
+    <div class="modal fade" id="uploadModal">
+        <div class="modal-dialog modal-dialog-centered" data-bs-backdrop="static">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close btn-close-form" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="login-logo">
+                        <img src="/resources/assets/img/imgShare.png" alt="" width="35%" class="d-inline-block align-text-top">
+                    </div>
+                    <div class="login-welcome">
+                        <p>Chào mừng bạn trở lại với</p>
+                        <div>imgShare</div>
+                    </div>
+                    <div>
+                        <h5 class="modal-title" id="loginModalLabel">Đăng nhập</h5>
+                    </div>
+
+                    <!-- Form đăng nhập -->
+                    <form id="login">
+                        <div class="mb-3">
+                            <label for="emailLogin" class="form-label form-label-format">Email</label>
+                            <input type="email" class="form-control form-control-format" id="emailLogin" required>
+                        </div>
+                        <div>
+                            <label for="passwordLogin" class="form-label form-label-format">Mật khẩu</label>
+                            <input type="password" class="form-control form-control-format form-control-last" id="passwordLogin" required>
+                        </div>
+                        <a href="#" class="forgot-password">Quên mật khẩu?</a>
+                        <button type="submit" class="btn btn-primary btn-submit-login"><b>Đăng nhập</b></button>
+                        <p class="goto-signup">Bạn chưa có tài khoản? <a href="#">Đăng ký</a></p>
+                    </form>
+                    <!-- End Form đăng nhập -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Form LogIn - End -->
+    <!--  -->
 
     <!-- Footer -->
     <!-- <footer class="footer">

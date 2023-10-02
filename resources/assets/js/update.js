@@ -36,3 +36,10 @@ document.getElementById("togglePassword").addEventListener("click", function() {
         passwordIcon.classList.add("fa-eye-slash");
     }
 });
+
+// Hiển thị form Đăng tải khi nhấn nút Đăng tải
+document.getElementById("uploadLink").addEventListener("click", function(event) {
+    event.preventDefault();
+    var myModal = new bootstrap.Modal(document.getElementById('uploadModal'));
+    myModal.show();
+});
