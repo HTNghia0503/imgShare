@@ -62,3 +62,4 @@ document.getElementById("uploadLink").addEventListener("click", function(event) 
 //         label.textContent = "Chọn hình ảnh";
 //     }
 // });
+
