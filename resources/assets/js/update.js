@@ -43,3 +43,22 @@ document.getElementById("uploadLink").addEventListener("click", function(event) 
     var myModal = new bootstrap.Modal(document.getElementById('uploadModal'));
     myModal.show();
 });
+
+// Chọn hiển thị hình ảnh
+// document.getElementById("file-upload").addEventListener("change", function() {
+//     var selectedImage = document.getElementById("selected-image");
+//     var label = document.querySelector(".custom-file-label");
+
+//     if (this.files && this.files[0]) {
+//         var reader = new FileReader();
+//         reader.onload = function(e) {
+//             selectedImage.src = e.target.result;
+//             selectedImage.style.display = "block";
+//             label.textContent = "Hình ảnh đã chọn";
+//         };
+//         reader.readAsDataURL(this.files[0]);
+//     } else {
+//         selectedImage.style.display = "none";
+//         label.textContent = "Chọn hình ảnh";
+//     }
+// });

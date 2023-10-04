@@ -94,6 +94,10 @@
     padding: 0 3.6rem 2rem;
 }
 
+.modal-body-pd {
+    padding: 32px;
+}
+
 .btn-close-form {
     padding-top: 24px !important;
     padding-right: 24px !important;
@@ -264,7 +268,7 @@
 }
 
 .img-item {
-    height: 40vh;
+    height: 28vh;
     margin: 8px;
     flex-grow: 1;
 }
@@ -308,6 +312,83 @@
       min-width: 0;
     }
   } */
+
+/* Upload */
+.dropzone-background {
+    background-color: #efefef;
+    border-radius: 16px;
+    cursor: pointer;
+    height: 500px;
+}
+
+.drop-area {
+    border: 2px dashed #ccc;
+    padding: 16px;
+    text-align: center;
+    cursor: pointer;
+    margin: 16px;
+    height: calc(500px - 32px);
+}
+
+.drop-content {
+    margin-top: 100%;
+}
+
+.drop-content p {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.custom-file-upload {
+    font-size: 24px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: transparent;
+    color: #5f5f5f;
+    border: none;
+    width: 32%;
+    border-radius: 32px
+}
+
+.custom-file-upload input[type="file"] {
+    display: none;
+}
+
+.custom-file-label {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 80%;
+}
+
+/* .image-preview {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+.image-preview input[type="file"] {
+    display: none;
+}
+
+.image-preview label {
+    padding: 8px 12px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.image-preview img {
+    display: none;
+    max-width: 100%;
+} */
+
+
 
 /* Footer */
 .footer-signature {

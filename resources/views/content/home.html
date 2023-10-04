@@ -99,44 +99,64 @@
                 <img src="/resources/assets/img/home-img/10.jpg" alt="image">
             </a>
         </div>
+        <div class="img-item">
+            <a href="#">
+                <img src="/resources/assets/img/home-img/11.jpg" alt="image">
+            </a>
+        </div>
+        <div class="img-item">
+            <a href="">
+                <img src="/resources/assets/img/home-img/12.jpg" alt="image">
+            </a>
+        </div>
+        <div class="img-item">
+            <a href="">
+                <img src="/resources/assets/img/home-img/13.jpg" alt="image">
+            </a>
+        </div>
         <div class="img-item"></div>
     </main>
 
     <!-- Upload -->
     <!-- Form LogIn - Start -->
     <div class="modal fade" id="uploadModal">
-        <div class="modal-dialog modal-dialog-centered" data-bs-backdrop="static">
+        <div class="modal-dialog modal-lg modal-dialog-centered" data-bs-backdrop="static">
             <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="btn-close btn-close-form" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="login-logo">
-                        <img src="/resources/assets/img/imgShare.png" alt="" width="35%" class="d-inline-block align-text-top">
-                    </div>
-                    <div class="login-welcome">
-                        <p>Chào mừng bạn trở lại với</p>
-                        <div>imgShare</div>
-                    </div>
-                    <div>
-                        <h5 class="modal-title" id="loginModalLabel">Đăng nhập</h5>
-                    </div>
+                <div class="modal-body modal-body-pd">
 
-                    <!-- Form đăng nhập -->
-                    <form id="login">
-                        <div class="mb-3">
-                            <label for="emailLogin" class="form-label form-label-format">Email</label>
-                            <input type="email" class="form-control form-control-format" id="emailLogin" required>
+                    <div class="d-flex">
+                        <div class="col-md-4 dropzone-background">
+                            <div id="drop-area" class="drop-area">
+                                <div class="drop-content">
+                                    <div class="custom-file-upload image-preview">
+                                        <input id="file-upload" type="file" accept="image/*">
+                                        <label for="file-upload" class="custom-file-label"><i class="fa-solid fa-circle-arrow-up"></i></label>
+                                        <!-- <img id="selected-image" src="#" alt=""> -->
+                                    </div>
+                                    <p>Kéo thả hoặc nhấn vào để chọn hình ảnh</p>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <label for="passwordLogin" class="form-label form-label-format">Mật khẩu</label>
-                            <input type="password" class="form-control form-control-format form-control-last" id="passwordLogin" required>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-6">
+                            <div class="d-flex save-to-collection">
+                                <label for="">Chọn bảng lưu</label>
+                                <div class="btn-group-save">
+                                    <input type="text">
+                                    <button type="submit">Lưu</button>
+                                </div>
+                            </div>
+                            <div class="upload-title-post">
+
+                            </div>
+                            <div class="upload-description-post">
+
+                            </div>
+                            <div class="upload-btn">
+
+                            </div>
                         </div>
-                        <a href="#" class="forgot-password">Quên mật khẩu?</a>
-                        <button type="submit" class="btn btn-primary btn-submit-login"><b>Đăng nhập</b></button>
-                        <p class="goto-signup">Bạn chưa có tài khoản? <a href="#">Đăng ký</a></p>
-                    </form>
-                    <!-- End Form đăng nhập -->
+                    </div>
 
                 </div>
             </div>
