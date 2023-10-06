@@ -62,30 +62,3 @@ document.getElementById("uploadLink").addEventListener("click", function(event) 
 //         label.textContent = "Chọn hình ảnh";
 //     }
 // });
-
-// Hàm mở tab với tham số mặc định là "created" (Đã tạo)
-function openTab(evt, tabName = "created") {
-    var i, tabcontent, tablinks;
-
-    // Ẩn tất cả nội dung tab
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-
-    // Loại bỏ lớp "active" từ tất cả các tablinks
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].classList.remove("active");
-    }
-
-    // Hiển thị nội dung của tab được chọn và đánh dấu tablinks là active
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.classList.add("active");
-}
-
-// Mở tab mặc định (Đã tạo) khi trang web được nạp
-document.querySelector('.tablinks.active').click();
-
-
-
