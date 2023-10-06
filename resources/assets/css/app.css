@@ -459,6 +459,135 @@
     transform: scale(1.05); /* Phóng to nút một chút khi hover */
 }
 
+/* Profile */
+.profile-info {
+    height: 320px;
+}
+
+.profile-info-content {
+    text-align: center;
+}
+
+.profile-avt img {
+    width: 25%;
+    border-radius: 80px
+}
+
+.profile-username {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.profile-tool ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+.update-profile button {
+    width: 274px;
+    padding: 8px 16px;
+    border-radius: 32px;
+    margin-top: 16px;
+    background-image: var(--primary-gradient);
+    border: none;
+    color: var(--white-color);
+    font-weight: 500;
+}
+
+.update-profile button:hover {
+    background: var(--primary-gradient-hover);
+    transform: scale(1.05); /* Phóng to nút một chút khi hover */
+}
+
+.profile-tool li button {
+    padding: 8px 16px;
+    border-radius: 32px;
+    margin-top: 16px;
+    background-image: var(--primary-gradient);
+    border: none;
+    color: var(--white-color);
+    font-weight: 500;
+}
+
+.profile-tool li button:hover {
+    background: var(--primary-gradient-hover);
+    transform: scale(1.05); /* Phóng to nút một chút khi hover */
+}
+
+.profile-tool-add {
+    margin-right: 16px;
+}
+
+/* Profile - Tabmanage */
+/* Ẩn nội dung của tab Đã lưu, chỉ hiển thị nội dung của tab đầu tiên (Đã tạo) */
+#saved {
+    display: none;
+}
+
+/* Hiển thị tab mặc định */
+.profile-tabs .active {
+    font-weight: 600;
+    border-bottom: 2px solid #333 !important;
+}
+
+.profile-tabs {
+    text-align: center;
+    margin-top: 64px;
+}
+
+.profile-tabs button {
+    border: none;
+    background-color: #fff;
+    padding: 8px;
+}
+
+.profile-tabs button:hover {
+    background-color: #efefef;
+    border-radius: 8px;
+}
+
+.profile-tabs .tablinks:first-child {
+    margin-right: 16px;
+}
+
+.manage-collections {
+    margin: 32px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.collection-item {
+    width: 200px; /* Đảm bảo 6 mục trên mỗi hàng */
+    margin: 16px;
+    flex: 1 1 calc(16.66667% - 10px);
+    vertical-align: top;
+}
+
+.collection-item a {
+    text-decoration: none;
+    color: #333;
+}
+
+.collection-item-last {
+    flex-grow: 10;
+}
+
+.collection-item img {
+    border-radius: 16px;
+    height: 180px;
+}
+
+.collection-title-des {
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 8px;
+}
+
+
+
 
 /* Footer */
 .footer-signature {
