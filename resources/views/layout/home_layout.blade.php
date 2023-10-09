@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>imgShare</title>
     <!-- Link favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="/resources/assets/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/favicon.ico') }}">
     <!-- Link tới tệp CSS của Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Link tới tệp CSS tùy chỉnh thêm của bản thân -->
-    <link href="/resources/assets/css/app.css" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Liên kết đến Font Awesome qua CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
@@ -19,7 +19,7 @@
             <div class="container-fluid d-flex">
                 <div class="home-logo">
                     <a class="navbar-brand" href="#">
-                        <img src="/resources/assets/img/imgShare.png" alt="logo" width="80px">
+                        <img src="{{ asset('img/imgShare.png') }}" alt="logo" width="80px">
                     </a>
                 </div>
                 <div class="home-nav">
@@ -41,7 +41,7 @@
                 </div>
                 <div class="home-profile">
                     <a href="">
-                        <img src="/resources/assets/img/avt.jpg" alt="avt">
+                        <img src="{{ asset('img/avt.jpg') }}" alt="avt">
                     </a>
                 </div>
             </div>
@@ -60,6 +60,6 @@
     <!-- Thêm liên kết tới tệp JavaScript của Bootstrap 5 và jQuery (nếu cần) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script src="/resources/assets/js/edit.js"></script>
+    <script src="{{ asset('js/edit.js') }}"></script>
 </body>
 </html>

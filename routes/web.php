@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +17,11 @@ use App\Http\Controllers\Auth\LoginController;
 
 Route::get('/', function () {
     return view('content.welcome');
+});
+
+Route::match(['get', 'post'], '/login', [LoginController::class, 'login'])->name('login');
+// Route::post('/login', [LoginController::class, 'login'])->name('login');
+
+Route::middleware(['auth'])->group(function () {
+    Route::match(['get', 'post'], '/home', [HomeController::class, 'index'])->name('home');
 });

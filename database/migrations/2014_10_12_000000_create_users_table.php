@@ -9,14 +9,15 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('avatar')->nullable(); // Thêm cột avatar và cho phép giá trị null
+            $table->tinyInteger('permission')->default(0); // Thêm cột permission với giá trị mặc định là 0
             $table->rememberToken();
             $table->timestamps();
         });

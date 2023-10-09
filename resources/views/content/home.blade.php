@@ -4,67 +4,67 @@
     <main class="img-wrapper">
         <div class="img-item">
             <a href="#">
-                <img src="/resources/assets/img/home-img/1.jpg" alt="image">
+                <img src="{{ asset('img/home-img/1.jpg') }}" alt="image">
             </a>
         </div>
         <div class="img-item">
             <a href="#">
-                <img src="/resources/assets/img/home-img/2.jpg" alt="image">
+                <img src="{{ asset('img/home-img/2.jpg') }}" alt="image">
             </a>
         </div>
         <div class="img-item">
             <a href="#">
-                <img src="/resources/assets/img/home-img/3.jpg" alt="image">
+                <img src="{{ asset('img/home-img/3.jpg') }}" alt="image">
             </a>
         </div>
         <div class="img-item">
             <a href="#">
-                <img src="/resources/assets/img/home-img/4.jpg" alt="image">
+                <img src="{{ asset('img/home-img/4.jpg') }}" alt="image">
             </a>
         </div>
         <div class="img-item">
             <a href="#">
-                <img src="/resources/assets/img/home-img/5.jpg" alt="image">
+                <img src="{{ asset('img/home-img/5.jpg') }}" alt="image">
             </a>
         </div>
         <div class="img-item">
             <a href="#">
-                <img src="/resources/assets/img/home-img/6.jpg" alt="image">
+                <img src="{{ asset('img/home-img/6.jpg') }}" alt="image">
             </a>
         </div>
         <div class="img-item">
             <a href="#">
-                <img src="/resources/assets/img/home-img/7.jpg" alt="image">
+                <img src="{{ asset('img/home-img/7.jpg') }}" alt="image">
             </a>
         </div>
         <div class="img-item">
             <a href="#">
-                <img src="/resources/assets/img/home-img/8.jpg" alt="image">
+                <img src="{{ asset('img/home-img/8.jpg') }}" alt="image">
             </a>
         </div>
         <div class="img-item">
             <a href="">
-                <img src="/resources/assets/img/home-img/9.jpg" alt="image">
+                <img src="{{ asset('img/home-img/9.jpg') }}" alt="image">
             </a>
         </div>
         <div class="img-item">
             <a href="">
-                <img src="/resources/assets/img/home-img/10.jpg" alt="image">
+                <img src="{{ asset('img/home-img/10.jpg') }}" alt="image">
             </a>
         </div>
         <div class="img-item">
             <a href="#">
-                <img src="/resources/assets/img/home-img/11.jpg" alt="image">
+                <img src="{{ asset('img/home-img/11.jpg') }}" alt="image">
             </a>
         </div>
         <div class="img-item">
             <a href="">
-                <img src="/resources/assets/img/home-img/12.jpg" alt="image">
+                <img src="{{ asset('img/home-img/12.jpg') }}" alt="image">
             </a>
         </div>
         <div class="img-item">
             <a href="">
-                <img src="/resources/assets/img/home-img/13.jpg" alt="image">
+                <img src="{{ asset('img/home-img/13.jpg') }}" alt="image">
             </a>
         </div>
         <div class="img-item"></div>
