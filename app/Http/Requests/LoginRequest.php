@@ -11,7 +11,7 @@ class LoginRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,15 +22,15 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            // 'email' => 'required',
-            // 'password' => 'required',
+            'email' => 'required',
+            'password' => 'required',
         ];
     }
     public function messages()
     {
         return [
-            // 'email.required' => 'Email không được để trống!',
-            // 'password.required' => 'Mật khẩu không được để trống!',
+            'email.required' => 'Email không được để trống!',
+            'password.required' => 'Mật khẩu không được để trống!',
         ];
     }
 }

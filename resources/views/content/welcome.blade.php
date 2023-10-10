@@ -82,28 +82,72 @@
                     <form method="POST" action="{{ route('login') }}" id="loginForm">
                         @csrf
                         <div class="mb-3">
-                            <label for="emailLogin" class="form-label form-label-format">Email</label>
-                            <input type="email" name="email" class="form-control form-control-format" id="emailLogin" required>
+                            <label for="email" class="form-label form-label-format">Email</label>
+                            <input type="email" name="email" class="form-control form-control-format" id="email">
+                            @error('email')
+                                <small id="emailHelp" class="form-text text-danger">{{ $errors->first('email') }}</small>
+                            @enderror
+                            <div class="text-danger"></div>
                         </div>
                         <div>
-                            <label for="passwordLogin" class="form-label form-label-format">Mật khẩu</label>
+                            <label for="password" class="form-label form-label-format">Mật khẩu</label>
                             <div class="input-group">
-                                <input type="password" name="password" class="form-control form-password" id="passwordLogin" required>
+                                <input type="password" name="password" class="form-control form-password" id="password">
                                 <button class="btn btn-outline-secondary show-pass" type="button" id="togglePasswordLogin">
                                     <i id="passwordIconLogin" class="fa fa-eye-slash"></i>
                                 </button>
                             </div>
+                            @error('password')
+                                <small id="passwordHelp" class="form-text text-danger">{{ $errors->first('password') }}</small>
+                            @enderror
+                            <div class="text-danger"></div>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-submit-login"><b>Đăng nhập</b></button>
+                        <button id="loginSubmit" type="submit" class="btn btn-primary btn-submit-login"><b>Đăng nhập</b></button>
                         <p class="goto-signup">Bạn chưa có tài khoản? <a href="#modalSignup">Đăng ký</a></p>
-                        <!-- Thêm một div để hiển thị thông báo lỗi -->
-                        <div id="loginError" class="text-danger"></div>
                     </form>
                     <!-- End Form đăng nhập -->
+                    <div id="loginError" class="text-danger"></div>
                 </div>
             </div>
         </div>
     </div>
+
+    {{-- Xử lý lỗi đăng nhập --}}
+    <script>
+        $(document).ready(function() {
+        var checkExist = document.getElementByClassName('text-danger'); // Kiểm tra tồn tại
+
+        // Ngăn modal tắt đi khi xảy ra lỗi
+        $('#loginModal').on('hide.bs.modal', function (e) {
+            if (checkExist) {
+                e.preventDefault(); // Ngăn modal tắt đi
+            }
+        });
+
+        $('#loginForm').submit(function(e) {
+            e.preventDefault();
+            $.ajax({
+                url: "{{ route('login') }}",
+                type: "POST",
+                data: $(this).serialize(),
+                success: function(response) {
+                    if (response.success) {
+                        // Đăng nhập thành công, tùy chỉnh hành động ở đây
+                        window.location.href = "{{ route('home') }}";
+                    } else {
+                        // Đăng nhập thất bại, hiển thị thông báo lỗi
+                        $('#loginModal').modal('show'); // Hiển thị modal
+                    }
+                },
+                error: function(xhr) {
+                    // Xử lý lỗi đăng nhập
+                    $('#loginModal').modal('show'); // Hiển thị modal
+                }
+            });
+        });
+    });
+    </script>
+    {{-- End --}}
 
     <!-- Form LogIn - End -->
 
@@ -167,6 +211,7 @@
 
     <!-- Thêm liên kết tới tệp JavaScript của Bootstrap 5 và jQuery (nếu cần) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="{{ asset('js/edit.js') }}"></script>
 </body>
 </html>
