@@ -1,13 +1,4 @@
 /*--- Đăng nhập ---*/
-var elementLogin = document.getElementById("loginLink"); // Kiểm tra tồn tại
-// Nếu tồn tại -> Khi nhắn vào "Đăng nhập" -> Hiển thị Modal đăng nhập
-if (elementLogin) {
-    elementLogin.addEventListener("click", function() {
-        var myModal = new bootstrap.Modal(document.getElementById('loginModal'));
-        myModal.show();
-    });
-}
-
 // Lắng nghe sự kiện click nút Show/Hide Mật khẩu
 document.getElementById("togglePasswordLogin").addEventListener("click", function() {
     var passwordInput = document.getElementById("passwordLogin");

@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,13 +15,19 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', function () {
-    return view('content.welcome');
+Route::get('/', 'App\Http\Controllers\WelcomeController@index')->name('welcome');
+
+Route::group(['namespace' => 'App\Http\Controllers\Auth'], function () {
+    Route::get('/login', 'AuthController@login')->name('login');
+    Route::post('/login', 'AuthController@postLogin');
 });
 
-Route::match(['get', 'post'], '/login', [LoginController::class, 'login'])->name('login');
-// Route::post('/login', [LoginController::class, 'login'])->name('login');
+// Các route khi đăng nhập với quyền ADMIN
+Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'admin', 'middleware' => 'admin'], function () {
+    Route::get('/dashboard', 'AdminController@dashboard')->name('dashboard');
+});
 
-Route::middleware(['auth'])->group(function () {
-    Route::match(['get', 'post'], '/home', [HomeController::class, 'index'])->name('home');
+// Các route khi đăng nhập với quyền USER
+Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'user', 'middleware' => 'user'], function () {
+    Route::get('/home', 'HomeController@index')->name('home');
 });

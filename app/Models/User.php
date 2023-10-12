@@ -18,10 +18,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
         'email',
         'password',
-        'avatar',
     ];
 
     /**
@@ -46,6 +44,5 @@ class User extends Authenticatable
 
     const ROLE_USER = 'USER';
     const ROLE_ADMIN = 'ADMIN';
-
 
 }
