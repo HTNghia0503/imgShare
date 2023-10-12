@@ -1,0 +1,48 @@
+:root {
+    --main-primary-color: #5A5BF3;
+}
+
+.dashboard-logo-text {
+    color: var(--main-primary-color);
+    font-size: 40px;
+    font-family: fantasy;
+    text-shadow: 2px 2px #91E7D9;
+    margin-right: 8px;
+}
+
+.metismenu li a {
+    font-family: 'Roboto', sans-serif !important;
+    margin-left: 20px;
+}
+
+.metismenu li a i {
+    color: #8992a8;
+}
+
+.metismenu span {
+    font-size: 16px;
+}
+
+.user-profile .dropdown-menu a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px !important;
+    font-weight: 600;
+}
+
+.dropdown-menu-pf {
+    width: 50%;
+}
+
+.column-name {
+    font-size: 16px;
+}
+
+.column-content {
+    font-size: 16px;
+}
+
+
+.dashboard-footer {
+    text-align: center;
+    padding-top: 24px;
+}
