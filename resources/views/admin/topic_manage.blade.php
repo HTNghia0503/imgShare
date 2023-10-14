@@ -1,11 +1,11 @@
-@extends('layout.dashboard.account_manage')
+@extends('layout.dashboard.topic_manage')
 @section('content')
     <div class="main-content-inner">
         <div class="row">
             <div class="col-12 mt-5">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">Danh sách tài khoản</h4>
+                        <h4 class="header-title">Danh sách bài đăng</h4>
                         <div class="data-tables">
                             <table id="dataTable" class="text-center">
                                 <thead class="bg-light text-capitalize">
