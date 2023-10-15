@@ -20,6 +20,9 @@ Route::get('/', 'App\Http\Controllers\WelcomeController@index')->name('welcome')
 Route::group(['namespace' => 'App\Http\Controllers\Auth'], function () {
     Route::get('/login', 'AuthController@login')->name('login');
     Route::post('/login', 'AuthController@postLogin');
+
+    Route::get('/signup', 'AuthController@signup')->name('signup');
+    Route::post('/signup', 'AuthController@postSignup');
 });
 
 // Các route khi đăng nhập với quyền ADMIN

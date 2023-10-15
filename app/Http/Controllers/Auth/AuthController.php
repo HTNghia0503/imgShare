@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\Auth\AuthRequest;
+use App\Http\Requests\SignupRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
@@ -36,6 +37,15 @@ class AuthController extends Controller
         }
         // Đăng nhập thất bại
         return back()->withErrors(['message' => 'Email hoặc mật khẩu không đúng.'])->withInput();
+    }
+
+    public function signup()
+    {
+        return view('auth.signup');
+    }
+
+    public function postSignup(SignupRequest $request){
+
     }
 
     // public function logout(Request $request)

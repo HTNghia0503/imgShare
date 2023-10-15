@@ -37,6 +37,18 @@
                 </ul>
             </div>
         </nav>
+
+        <script>
+            // Lấy nút đăng ký bằng ID
+            const signupButton = document.getElementById('signupLink');
+
+            // Thêm sự kiện click cho nút đăng ký
+            signupButton.addEventListener('click', function() {
+                // Điều hướng đến trang đăng ký
+                window.location.href = "{{ route('signup') }}";
+            });
+        </script>
+
         <div class="row container-fluid">
             <div class="text-illustration col">
                 <div class="text-title">
@@ -59,55 +71,6 @@
         </div>
     </header>
 
-    <!-- Form SignUp - Start -->
-    {{-- <div class="modal fade" id="signupModal" data-bs-backdrop="static">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="btn-close btn-close-form" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="signup-logo">
-                        <img src="{{ asset('img/imgShare.png') }}" alt="" width="35%" class="d-inline-block align-text-top">
-                    </div>
-                    <div class="signup-welcome">
-                        <p>Chào mừng bạn đến với</p>
-                        <div>imgShare</div>
-                    </div>
-                    <div>
-                        <h5 class="modal-title" id="signupModalLabel">Đăng ký</h5>
-                    </div>
-
-                    <!-- Form đăng ký -->
-                    <form id="signup">
-                        <div class="mb-3">
-                            <label for="name" class="form-label form-label-format">Tên người dùng</label>
-                            <input type="text" class="form-control form-control-format" id="name" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="emailSignUp" class="form-label form-label-format">Email</label>
-                            <input type="email" class="form-control form-control-format" id="emailSignUp" required>
-                        </div>
-                        <div>
-                            <label for="passwordSignUp" class="form-label form-label-format">Mật khẩu</label>
-                            <div class="input-group">
-                                <input type="password" class="form-control form-password" id="passwordSignUp" required>
-                                <button class="btn btn-outline-secondary show-pass" type="button" id="togglePassword">
-                                    <i id="passwordIcon" class="fa fa-eye-slash"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-submit-signup"><b>Đăng ký</b></button>
-                        <p class="goto-login">Bạn đã có tài khoản? <a href="#">Đăng nhập</a></p>
-                    </form>
-                    <!-- End Form đăng ký -->
-
-                </div>
-            </div>
-        </div>
-    </div> --}}
-
-    <!-- Form SignUp - End -->
     {{-- <div style="width: 100%; height: 50px;"></div> --}}
     <!-- Footer -->
     <footer class="footer">
