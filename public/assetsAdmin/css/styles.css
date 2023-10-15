@@ -91,6 +91,7 @@
 .main-content {
     width: 100%;
     background: #F3F8FB;
+    font-family: 'Roboto', sans-serif !important;
 }
 
 .main-content-inner {

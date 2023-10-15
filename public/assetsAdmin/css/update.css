@@ -41,6 +41,11 @@
     font-size: 16px;
 }
 
+.column-des {
+    padding: 8px 48px 8px 48px;
+    text-align: justify;
+}
+
 
 .dashboard-footer {
     text-align: center;

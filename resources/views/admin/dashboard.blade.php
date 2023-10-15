@@ -8,14 +8,13 @@
                         <h4 class="header-title">Danh sách tài khoản</h4>
                         <div class="data-tables">
                             <table id="dataTable" class="text-center">
-                                <thead class="bg-light text-capitalize">
+                                <thead class="text-capitalize" style="background-color: var(--main-primary-color) !important; color: #fff;">
                                     <tr>
                                         <th class="column-name">ID</th>
                                         <th class="column-name">Name</th>
                                         <th class="column-name">Email</th>
                                         <th class="column-name">Permission</th>
                                         <th class="column-name">Action</th>
-                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -39,7 +38,6 @@
                                                             class="text-danger"><i class="ti-trash"></i></a></li>
                                                 </ul>
                                             </td>
-                                            <td></td>
                                         </tr>
                                     @endforeach
                                 </tbody>

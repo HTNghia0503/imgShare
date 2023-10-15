@@ -59,8 +59,6 @@
         </div>
     </header>
 
-    <!-- Form LogIn - End -->
-
     <!-- Form SignUp - Start -->
     {{-- <div class="modal fade" id="signupModal" data-bs-backdrop="static">
         <div class="modal-dialog modal-dialog-centered">
@@ -110,8 +108,7 @@
     </div> --}}
 
     <!-- Form SignUp - End -->
-
-    <div style="width: 100%; height: 50px;"></div>
+    {{-- <div style="width: 100%; height: 50px;"></div> --}}
     <!-- Footer -->
     <footer class="footer">
         <div class="container-fluid footer-signature">

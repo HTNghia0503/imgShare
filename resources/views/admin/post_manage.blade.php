@@ -8,7 +8,7 @@
                         <h4 class="header-title">Danh sách bài đăng</h4>
                         <div class="data-tables">
                             <table id="dataTable" class="text-center">
-                                <thead class="bg-light text-capitalize">
+                                <thead class="text-capitalize" style="background-color: var(--main-primary-color) !important; color: #fff;">
                                     <tr>
                                         <th class="column-name">ID</th>
                                         <th class="column-name">Title</th>
@@ -24,7 +24,7 @@
                                         <tr>
                                             <td class="column-content">{{ $item->id }}</td>
                                             <td class="column-content">{{ $item->title }}</td>
-                                            <td class="column-content">{{ $item->description }}</td>
+                                            <td class="column-content column-des">{{ $item->description }}</td>
                                             <td class="column-content">{{ $item->user->name }}</td>
                                         <th class="column-name">{{ $item->likequantity }}</th>
                                             <td class="column-content">
