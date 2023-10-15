@@ -51,9 +51,9 @@
                 <div class="menu-inner">
                     <nav>
                         <ul class="metismenu" id="menu">
-                            <li class="active"><a href="#"><i class="ti-user"></i><span>Quản lý tài khoản</span></a></li>
-                            <li><a href="#"><i class="ti-image"></i> <span>Quản lý bài đăng</span></a></li>
-                            <li><a href="#"><i class="ti-folder"></i> <span>Quản lý chủ đề</span></a></li>
+                            <li class="active"><a href="{{ route('dashboard') }}"><i class="ti-user"></i><span>Quản lý tài khoản</span></a></li>
+                            <li><a href="{{ route('post') }}"><i class="ti-image"></i> <span>Quản lý bài đăng</span></a></li>
+                            <li><a href="{{ route('topic') }}"><i class="ti-folder"></i> <span>Quản lý chủ đề</span></a></li>
                         </ul>
                     </nav>
                 </div>

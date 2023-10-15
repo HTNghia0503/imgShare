@@ -30,6 +30,15 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('users')->insert([
+            'name' => 'Hoàng Duy',
+            'email' => 'duy@gmail.com',
+            'password' => bcrypt('987654321'),
+            'avatar' => 'null',
+            'permission' => 0, // Type USER
+            'created_at' => Carbon::now()
+        ]);
+
+        DB::table('users')->insert([
             'name' => 'Admin',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('123456789'),

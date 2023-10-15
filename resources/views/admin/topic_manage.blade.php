@@ -5,32 +5,24 @@
             <div class="col-12 mt-5">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">Danh sách bài đăng</h4>
+                        <h4 class="header-title">Danh sách chủ đề</h4>
                         <div class="data-tables">
                             <table id="dataTable" class="text-center">
                                 <thead class="bg-light text-capitalize">
                                     <tr>
                                         <th class="column-name">ID</th>
-                                        <th class="column-name">Name</th>
-                                        <th class="column-name">Email</th>
-                                        <th class="column-name">Permission</th>
+                                        <th class="column-name">Title</th>
+                                        <th class="column-name">Description</th>
                                         <th class="column-name">Action</th>
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($users ?? [] as $item)
+                                    @foreach ($topics ?? [] as $item)
                                         <tr>
                                             <td class="column-content">{{ $item->id }}</td>
-                                            <td class="column-content">{{ $item->name }}</td>
-                                            <td class="column-content">{{ $item->email }}</td>
-                                            <td class="column-content">
-                                                @if($item->permission == 0)
-                                                    User
-                                                @elseif($item->permission == 1)
-                                                    Admin
-                                                @endif
-                                            </td>
+                                            <td class="column-content">{{ $item->title }}</td>
+                                            <td class="column-content">{{ $item->description }}</td>
                                             <td class="column-content">
                                                 <ul class="d-flex justify-content-center">
                                                     <li class="mr-2"><a href=""

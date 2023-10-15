@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Topic extends Model
 {
     use HasFactory;
+
+    protected $table = 'topics';
+
+    protected $fillable = [
+        'title',
+        'description',
+    ];
+
+    // public function post()
+    // {
+    //     return $this->belongsTo(Post::class);
+    // }
+
 }
