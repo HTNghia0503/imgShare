@@ -1,4 +1,4 @@
-@extends('layout.home_layout')
+@extends('layout.home.home_layout')
 @section('content')
 
     <main class="img-wrapper">
@@ -71,7 +71,6 @@
     </main>
 
     <!-- Upload -->
-    <!-- Form LogIn - Start -->
     <div class="modal fade" id="uploadModal">
         <div class="modal-dialog modal-lg modal-dialog-centered" data-bs-backdrop="static">
             <div class="modal-content">
@@ -121,7 +120,6 @@
             </div>
         </div>
     </div>
-    <!-- Form LogIn - End -->
     <!--  -->
 
 @stop

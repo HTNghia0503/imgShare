@@ -8,6 +8,7 @@
     --white-color: #fff;
     --black-color: #000;
     --text-color: #333;
+    --gray-color: #f1f1f1;
     --border-color: #dbdbdb;
     --star-gold-color: #ffce3e;
 }
@@ -404,152 +405,6 @@
     }
   } */
 
-/* Upload */
-.dropzone-background {
-    background-color: #efefef;
-    border-radius: 16px;
-    cursor: pointer;
-    height: 500px;
-}
-
-.drop-area {
-    border: 2px dashed #ccc;
-    padding: 16px;
-    text-align: center;
-    cursor: pointer;
-    margin: 16px;
-    height: calc(500px - 32px);
-}
-
-.drop-content {
-    margin-top: 100%;
-}
-
-.drop-content p {
-    font-size: 14px;
-    font-weight: 600;
-}
-
-.custom-file-upload {
-    font-size: 24px;
-    display: inline-block;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    background-color: transparent;
-    color: #5f5f5f;
-    border: none;
-    width: 32%;
-    border-radius: 32px
-}
-
-.custom-file-upload input[type="file"] {
-    display: none;
-}
-
-.custom-file-label {
-    display: inline-block;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    max-width: 80%;
-}
-
-/* .image-preview {
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
-}
-
-.image-preview input[type="file"] {
-    display: none;
-}
-
-.image-preview label {
-    padding: 8px 12px;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.image-preview img {
-    display: none;
-    max-width: 100%;
-} */
-
-.save-to-collection label {
-    font-size: 16px;
-    font-weight: 600;
-    padding-top: 8px
-}
-
-.btn-group-save select {
-    padding: 8px 8px 8px 16px;
-    border-top-left-radius: 32px;
-    border-bottom-left-radius: 32px;
-    background-color: #efefef;
-    border: none;
-    width: 70%;
-    outline: none;
-}
-
-.btn-group-save button {
-    padding: 8px;
-    /* background-color: var(--primary-color); */
-    background-image: var(--primary-gradient);
-    color: #fff;
-    border-top-right-radius: 32px;
-    border-bottom-right-radius: 32px;
-    width: 24%;
-    border: none;
-    font-weight: 600;
-}
-
-.btn-group-save button:hover {
-    background: var(--primary-gradient-hover);
-    transform: scale(1.05); /* Phóng to nút một chút khi hover */
-}
-
-.upload-title-post input {
-    font-size: 48px;
-    font-weight: 600;
-    border: none;
-    width: 100%;
-    padding: 16px 8px 0 0;
-    outline: none;
-}
-
-.separate {
-    border-bottom: 1px solid #c6c6c6;
-}
-
-.upload-description-post textarea {
-    border: none;
-    resize: none;
-    outline: none;
-}
-
-.upload-btn button {
-    width: 100%;
-    height: 40px;
-    line-height: 2;
-    border-radius: 32px;
-    margin-top: 31px;
-    border: none;
-    background-image: var(--primary-gradient) !important;
-    color: var(--white-color);
-    font-weight: 600;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    transition: background-image 0.3s ease, transform 0.2s ease;
-}
-
-.upload-btn button:hover {
-    background: var(--primary-gradient-hover);
-    transform: scale(1.05); /* Phóng to nút một chút khi hover */
-}
-
 /* Profile */
 .profile-info {
     height: 320px;
@@ -693,7 +548,189 @@
     box-shadow: 0 0 0 0.25rem rgba(13,110,253,.25);
 }
 
-/* Admin */
+/* Profile - Update */
+.update-frame {
+    padding-top: 32px !important;
+}
+
+.update-title {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.update-info-grp {
+    padding: 24px 24px 0 24px;
+    text-align: center;
+}
+
+.update-btn {
+    margin: 16px 0 0 0 !important;
+    font-weight: 500;
+}
+
+.cfm-update-btn {
+    text-align: center;
+    margin-top: 32px;
+    border-top: 1px solid #efefef;
+}
+
+.cfm-update-btn button {
+    font-weight: 600;
+}
+
+.btn-save-update {
+    margin: 32px 0 0 0 !important;
+}
+
+/* Upload */
+.upload-main-bg {
+    justify-content: center;
+    background-color: var(--gray-color);
+    height: 90vh;
+}
+
+.upload-main-area {
+    width: 50%;
+    height: 75%;
+    background-color: #fff;
+    border-radius: 16px;
+    margin-top: 48px;
+    margin-bottom: 220px;
+    padding: 48px;
+}
+
+.dropzone-background {
+    background-color: #efefef;
+    border-radius: 16px;
+    cursor: pointer;
+    height: calc(60.5vh - 32px);
+}
+
+.drop-area {
+    border: 2px dashed #ccc;
+    padding: 16px;
+    text-align: center;
+    cursor: pointer;
+    margin: 16px;
+    height: calc(57vh - 32px);
+}
+
+.drop-content {
+    margin-top: 80%;
+}
+
+.drop-content p {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.custom-file-upload {
+    font-size: 24px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: transparent;
+    color: #5f5f5f;
+    border: none;
+    width: 32%;
+    border-radius: 32px
+}
+
+.custom-file-upload input[type="file"] {
+    display: none;
+}
+
+.custom-file-label {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 80%;
+}
+
+/* .image-preview {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+.image-preview input[type="file"] {
+    display: none;
+}
+
+.image-preview label {
+    padding: 8px 12px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.image-preview img {
+    display: none;
+    max-width: 100%;
+} */
+
+.save-to-collection label {
+    font-size: 16px;
+    font-weight: 600;
+    padding-top: 8px
+}
+
+.btn-group-save select {
+    padding: 8px 8px 8px 16px;
+    border-radius: 32px;
+    background-color: #efefef;
+    border: none;
+    width: 100%;
+    outline: none;
+
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23131313%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px top 52%;
+    background-size: 0.65rem auto;
+}
+
+.upload-title-post input {
+    font-size: 48px;
+    font-weight: 600;
+    border: none;
+    width: 100%;
+    padding: 48px 8px 0 0;
+    outline: none;
+}
+
+.separate {
+    border-bottom: 1px solid #c6c6c6;
+}
+
+.upload-description-post textarea {
+    border: none;
+    resize: none;
+    outline: none;
+}
+
+.upload-btn button {
+    width: 100%;
+    height: 40px;
+    line-height: 2;
+    border-radius: 32px;
+    margin-top: 28px;
+    border: none;
+    background-image: var(--primary-gradient) !important;
+    color: var(--white-color);
+    font-weight: 600;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-image 0.3s ease, transform 0.2s ease;
+}
+
+.upload-btn button:hover {
+    background: var(--primary-gradient-hover);
+    transform: scale(1.05); /* Phóng to nút một chút khi hover */
+}
 
 
 /* Footer */

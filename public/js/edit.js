@@ -42,18 +42,3 @@ if (showPassRegister) {
         }
     });
 }
-
-/*-------------------------------------------------------*/
-
-/*--- Đăng tải ---*/
-// Hiển thị form Đăng tải khi nhấn nút Đăng tải
-var elementUpload = document.getElementById('uploadLink'); // Kiểm tra tồn tại của nút Đăng tải
-// Nếu tồn tại -> Nhấn "Đăng tải" -> Hiển thị Modal Đăng tải
-if (elementUpload) {
-    elementUpload.addEventListener("click", function() {
-        var myModal = new bootstrap.Modal(document.getElementById('uploadModal'));
-        myModal.show();
-    });
-}
-
-

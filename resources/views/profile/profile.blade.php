@@ -1,59 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>imgShare</title>
-    <!-- Link favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="/resources/assets/img/favicon.ico">
-    <!-- Link tới tệp CSS của Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!-- Link tới tệp CSS tùy chỉnh thêm của bản thân -->
-    <link href="/resources/assets/css/app.css" rel="stylesheet">
-    <!-- Liên kết đến Font Awesome qua CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-</head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <div class="container-fluid d-flex">
-                <div class="home-logo">
-                    <a class="navbar-brand" href="#">
-                        <img src="/resources/assets/img/imgShare.png" alt="logo" width="80px">
-                    </a>
-                </div>
-                <div class="home-nav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item home-nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Trang chủ</a>
-                        </li>
-                        <li class="nav-item home-nav-item">
-                            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#uploadModal">Đăng tải</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="home-search flex-grow-1">
-                    <form class="d-flex">
-                        <!-- <input type="text" placeholder="&#xF002; Search" style="font-family:Arial, FontAwesome" /> -->
-                        <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
-                        <input class="form-control me-2 home-search-bar" type="search" placeholder="&#xF002;  Nhập từ khóa tìm kiếm" style="font-family:Arial, FontAwesome" aria-label="Search">
-                    </form>
-                </div>
-                <div class="home-profile">
-                    <a href="">
-                        <img src="/resources/assets/img/avt.jpg" alt="avt">
-                    </a>
-                </div>
-            </div>
-          </nav>
-    </header>
-
+@extends('layout.profile.profile')
+@section('content')
     <main class="profile-container">
         <div class="row profile-info">
             <div class="col-4"></div>
             <div class="col-4 profile-info-content">
                 <div class="profile-avt">
-                    <img src="/resources/assets/img/profile.jpg" alt="avt">
+                    <img src="{{ asset('img/profile.jpg') }}" alt="IMAGEavt">
                 </div>
                 <div class="profile-username">
                     Hà Trung Nghĩa
@@ -63,10 +15,16 @@
                 </div>
                 <div class="profile-tool">
                     <div class="update-profile">
-                        <button>
+                        <button id="updateProfile">
                             Chỉnh sửa thông tin
                         </button>
                     </div>
+                    <script>
+                        const updateBtn = document.getElementById('updateProfile');
+                        updateBtn.addEventListener('click', function() {
+                            window.location.href = "{{ route('update') }}";
+                        });
+                    </script>
                     <ul>
                         <li>
                             <button id="collectionLink" class="profile-tool-add" type="button">
@@ -95,7 +53,7 @@
                 <div class="collection-item">
                     <a href="#">
                         <div class="collection-avt">
-                            <img src="/resources/assets/img/home-img/1.jpg" width="100%" alt="">
+                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
                         </div>
                         <div class="collection-title-des">
                             Phong cảnh
@@ -105,7 +63,7 @@
                 <div class="collection-item">
                     <a href="#">
                         <div class="collection-avt">
-                            <img src="/resources/assets/img/home-img/2.jpg" width="100%" alt="">
+                            <img src="{{ asset('img/home-img/2.jpg') }}" width="100%" alt="IMAGE">
                         </div>
                         <div class="collection-title-des">
                             Gia đình
@@ -115,7 +73,7 @@
                 <div class="collection-item">
                     <a href="#">
                         <div class="collection-avt">
-                            <img src="/resources/assets/img/home-img/3.jpg" width="100%" alt="">
+                            <img src="{{ asset('img/home-img/3.jpg') }}" width="100%" alt="IMAGE">
                         </div>
                         <div class="collection-title-des">
                             Động vật
@@ -125,7 +83,7 @@
                 <div class="collection-item">
                     <a href="#">
                         <div class="collection-avt">
-                            <img src="/resources/assets/img/home-img/4.jpg" width="100%" alt="">
+                            <img src="{{ asset('img/home-img/4.jpg') }}" width="100%" alt="IMAGE">
                         </div>
                         <div class="collection-title-des">
                             Thực vật
@@ -135,7 +93,7 @@
                 <div class="collection-item">
                     <a href="#">
                         <div class="collection-avt">
-                            <img src="/resources/assets/img/home-img/5.jpg" width="100%" alt="">
+                            <img src="{{ asset('img/home-img/5.jpg') }}" width="100%" alt="IMAGE">
                         </div>
                         <div class="collection-title-des">
                             Kiến trúc
@@ -145,7 +103,7 @@
                 <div class="collection-item">
                     <a href="#">
                         <div class="collection-avt">
-                            <img src="/resources/assets/img/home-img/6.jpg" width="100%" alt="">
+                            <img src="{{ asset('img/home-img/6.jpg') }}" width="100%" alt="IMAGE">
                         </div>
                         <div class="collection-title-des">
                             Phong cảnh
@@ -155,7 +113,7 @@
                 <div class="collection-item">
                     <a href="#">
                         <div class="collection-avt">
-                            <img src="/resources/assets/img/home-img/7.jpg" width="100%" alt="">
+                            <img src="{{ asset('img/home-img/7.jpg') }}" width="100%" alt="IMAGE">
                         </div>
                         <div class="collection-title-des">
                             Phong cảnh
@@ -165,7 +123,7 @@
                 <div class="collection-item">
                     <a href="#">
                         <div class="collection-avt">
-                            <img src="/resources/assets/img/home-img/8.jpg" width="100%" alt="">
+                            <img src="{{ asset('img/home-img/8.jpg') }}" width="100%" alt="IMAGE">
                         </div>
                         <div class="collection-title-des">
                             Phong cảnh
@@ -175,7 +133,7 @@
                 <div class="collection-item">
                     <a href="#">
                         <div class="collection-avt">
-                            <img src="/resources/assets/img/home-img/9.jpg" width="100%" alt="">
+                            <img src="{{ asset('img/home-img/9.jpg') }}" width="100%" alt="IMAGE">
                         </div>
                         <div class="collection-title-des">
                             Phong cảnh
@@ -185,7 +143,7 @@
                 <div class="collection-item">
                     <a href="#">
                         <div class="collection-avt">
-                            <img src="/resources/assets/img/home-img/10.jpg" width="100%" alt="">
+                            <img src="{{ asset('img/home-img/10.jpg') }}" width="100%" alt="IMAGE">
                         </div>
                         <div class="collection-title-des">
                             Phong cảnh
@@ -195,7 +153,7 @@
                 <div class="collection-item">
                     <a href="#">
                         <div class="collection-avt">
-                            <img src="/resources/assets/img/home-img/11.jpg" width="100%" alt="">
+                            <img src="{{ asset('img/home-img/11.jpg') }}" width="100%" alt="IMAGE">
                         </div>
                         <div class="collection-title-des">
                             Phong cảnh
@@ -205,7 +163,7 @@
                 <div class="collection-item">
                     <a href="#">
                         <div class="collection-avt">
-                            <img src="/resources/assets/img/home-img/12.jpg" width="100%" alt="">
+                            <img src="{{ asset('img/home-img/12.jpg') }}" width="100%" alt="IMAGE">
                         </div>
                         <div class="collection-title-des">
                             Phong cảnh
@@ -215,7 +173,7 @@
                 <div class="collection-item">
                     <a href="#">
                         <div class="collection-avt">
-                            <img src="/resources/assets/img/home-img/1.jpg" width="100%" alt="">
+                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
                         </div>
                         <div class="collection-title-des">
                             Phong cảnh
@@ -225,7 +183,7 @@
                 <div class="collection-item">
                     <a href="#">
                         <div class="collection-avt">
-                            <img src="/resources/assets/img/home-img/1.jpg" width="100%" alt="">
+                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
                         </div>
                         <div class="collection-title-des">
                             Phong cảnh
@@ -242,7 +200,7 @@
                 <div class="collection-item">
                     <a href="#">
                         <div class="collection-avt">
-                            <img src="/resources/assets/img/home-img/2.jpg" width="100%" alt="">
+                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
                         </div>
                         <div class="collection-title-des">
                             Gia đình
@@ -252,7 +210,7 @@
                 <div class="collection-item">
                     <a href="#">
                         <div class="collection-avt">
-                            <img src="/resources/assets/img/home-img/1.jpg" width="100%" alt="">
+                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
                         </div>
                         <div class="collection-title-des">
                             Phong cảnh
@@ -262,7 +220,7 @@
                 <div class="collection-item">
                     <a href="#">
                         <div class="collection-avt">
-                            <img src="/resources/assets/img/home-img/3.jpg" width="100%" alt="">
+                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
                         </div>
                         <div class="collection-title-des">
                             Động vật
@@ -272,7 +230,7 @@
                 <div class="collection-item">
                     <a href="#">
                         <div class="collection-avt">
-                            <img src="/resources/assets/img/home-img/4.jpg" width="100%" alt="">
+                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
                         </div>
                         <div class="collection-title-des">
                             Thực vật
@@ -282,7 +240,7 @@
                 <div class="collection-item">
                     <a href="#">
                         <div class="collection-avt">
-                            <img src="/resources/assets/img/home-img/5.jpg" width="100%" alt="">
+                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
                         </div>
                         <div class="collection-title-des">
                             Kiến trúc
@@ -292,7 +250,7 @@
                 <div class="collection-item">
                     <a href="#">
                         <div class="collection-avt">
-                            <img src="/resources/assets/img/home-img/6.jpg" width="100%" alt="">
+                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
                         </div>
                         <div class="collection-title-des">
                             Phong cảnh
@@ -302,7 +260,7 @@
                 <div class="collection-item">
                     <a href="#">
                         <div class="collection-avt">
-                            <img src="/resources/assets/img/home-img/7.jpg" width="100%" alt="">
+                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
                         </div>
                         <div class="collection-title-des">
                             Phong cảnh
@@ -312,7 +270,7 @@
                 <div class="collection-item">
                     <a href="#">
                         <div class="collection-avt">
-                            <img src="/resources/assets/img/home-img/8.jpg" width="100%" alt="">
+                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
                         </div>
                         <div class="collection-title-des">
                             Phong cảnh
@@ -322,7 +280,7 @@
                 <div class="collection-item">
                     <a href="#">
                         <div class="collection-avt">
-                            <img src="/resources/assets/img/home-img/9.jpg" width="100%" alt="">
+                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
                         </div>
                         <div class="collection-title-des">
                             Phong cảnh
@@ -332,7 +290,7 @@
                 <div class="collection-item">
                     <a href="#">
                         <div class="collection-avt">
-                            <img src="/resources/assets/img/home-img/10.jpg" width="100%" alt="">
+                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
                         </div>
                         <div class="collection-title-des">
                             Phong cảnh
@@ -342,7 +300,7 @@
                 <div class="collection-item">
                     <a href="#">
                         <div class="collection-avt">
-                            <img src="/resources/assets/img/home-img/11.jpg" width="100%" alt="">
+                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
                         </div>
                         <div class="collection-title-des">
                             Phong cảnh
@@ -352,7 +310,7 @@
                 <div class="collection-item">
                     <a href="#">
                         <div class="collection-avt">
-                            <img src="/resources/assets/img/home-img/12.jpg" width="100%" alt="">
+                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
                         </div>
                         <div class="collection-title-des">
                             Phong cảnh
@@ -362,7 +320,7 @@
                 <div class="collection-item">
                     <a href="#">
                         <div class="collection-avt">
-                            <img src="/resources/assets/img/home-img/1.jpg" width="100%" alt="">
+                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
                         </div>
                         <div class="collection-title-des">
                             Phong cảnh
@@ -372,7 +330,7 @@
                 <div class="collection-item">
                     <a href="#">
                         <div class="collection-avt">
-                            <img src="/resources/assets/img/home-img/1.jpg" width="100%" alt="">
+                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
                         </div>
                         <div class="collection-title-des">
                             Phong cảnh
@@ -421,17 +379,4 @@
     </div>
     <!-- Modal Tạo bảng lưu - End -->
 
-    <!-- Footer -->
-    <!-- <footer class="footer">
-        <div class="container-fluid footer-signature">
-            <p>&copy; Đồ án Website Chia Sẻ Hình Ảnh Tích Hợp DeepLearning - Hà Trung Nghĩa</p>
-        </div>
-    </footer> -->
-
-    <!-- Thêm liên kết tới tệp JavaScript của Bootstrap 5 và jQuery (nếu cần) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script src="/resources/assets/js/profile.js"></script>
-    <!-- <script src="/resources/assets/js/update.js"></script> -->
-</body>
-</html>
+@stop

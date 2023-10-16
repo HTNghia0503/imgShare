@@ -25,10 +25,10 @@
                 <div class="home-nav">
                     <ul class="navbar-nav">
                         <li class="nav-item home-nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Trang chủ</a>
+                            <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Trang chủ</a>
                         </li>
                         <li class="nav-item home-nav-item">
-                            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#uploadModal">Đăng tải</a>
+                            <a class="nav-link" href="{{ route('upload') }}">Đăng tải</a>
                         </li>
                     </ul>
                 </div>
@@ -40,7 +40,7 @@
                     </form>
                 </div>
                 <div class="home-profile">
-                    <a href="">
+                    <a href="{{ route('profile') }}">
                         <img src="{{ asset('img/avt.jpg') }}" alt="avt">
                     </a>
                 </div>
