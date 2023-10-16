@@ -45,7 +45,7 @@
                                 <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
                             @enderror
                         </div>
-                        <div class="field-group">
+                        <div class="field-group-ex">
                             <label for="passwordLogin" class="form-label form-label-login">Mật khẩu</label>
                             <div class="input-group">
                                 <input type="password" name="password" class="form-control form-password" id="passwordLogin" >
@@ -62,7 +62,7 @@
                         </div>
                         <button type="submit" class="btn btn-submit-login"><b>Đăng nhập</b></button>
                     </form>
-                    <p class="goto-signup">Bạn chưa có tài khoản? <a href="#">Đăng ký</a></p>
+                    <p class="goto-signup">Bạn chưa có tài khoản? <a href="{{ route('register') }}">Đăng ký</a></p>
                 </div>
             </div>
         </div>

@@ -185,6 +185,10 @@
 }
 
 .field-group {
+    margin-top: 8px;
+}
+
+.field-group-ex {
     margin-top: 16px;
 }
 
@@ -283,6 +287,11 @@
     padding: 8px;
     background-color: var(--primary-color);
     color: var(--white-color);
+}
+
+.signup-mrg {
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
 }
 
 .btn-submit-signup:hover {

@@ -41,14 +41,12 @@
         <script>
             // Lấy nút đăng ký bằng ID
             const signupButton = document.getElementById('signupLink');
-
             // Thêm sự kiện click cho nút đăng ký
             signupButton.addEventListener('click', function() {
                 // Điều hướng đến trang đăng ký
-                window.location.href = "{{ route('signup') }}";
+                window.location.href = "{{ route('register') }}";
             });
         </script>
-
         <div class="row container-fluid">
             <div class="text-illustration col">
                 <div class="text-title">
@@ -70,6 +68,17 @@
             </div>
         </div>
     </header>
+    <script>
+        // Lấy đối tượng nút "Đăng ký ngay" bằng ID
+        const signupNowLink = document.getElementById('signupNowLink');
+
+        // Bắt sự kiện khi nút "Đăng ký ngay" được click
+        signupNowLink.addEventListener('click', function() {
+            // Thực hiện điều hướng đến trang đăng ký
+            window.location.href = '{{ route("register") }}';
+        });
+    </script>
+
 
     {{-- <div style="width: 100%; height: 50px;"></div> --}}
     <!-- Footer -->

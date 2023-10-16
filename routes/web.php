@@ -21,8 +21,8 @@ Route::group(['namespace' => 'App\Http\Controllers\Auth'], function () {
     Route::get('/login', 'AuthController@login')->name('login');
     Route::post('/login', 'AuthController@postLogin');
 
-    Route::get('/signup', 'AuthController@signup')->name('signup');
-    Route::post('/signup', 'AuthController@postSignup');
+    Route::get('/register', 'RegisterController@register')->name('register');
+    Route::post('/register', 'RegisterController@postRegister');
 });
 
 // Các route khi đăng nhập với quyền ADMIN

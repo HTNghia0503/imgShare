@@ -33,28 +33,28 @@
                     <div>
                         <h5 class="login-form-title" id="signupFormLabel">Đăng ký</h5>
                     </div>
-                    <form id="signup-form" action="{{ route('signup') }}" method="POST">
+                    <form id="signup-form" action="{{ route('register') }}" method="POST">
                         @csrf
                         <div class="field-name">
-                            <label for="nameSignup" class="form-label form-label-login" value="{{ old('name') }}">Name</label>
-                            <input type="text" name="name" class="form-control form-control-format" id="nameSignup" >
+                            <label for="nameRegister" class="form-label form-label-login" value="{{ old('name') }}">Username</label>
+                            <input type="text" name="name" class="form-control form-control-format" id="nameRegister" >
                             @error('name')
                                 <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
                             @enderror
                         </div>
                         <div class="field-email field-group">
-                            <label for="emailSignup" class="form-label form-label-login" value="{{ old('email') }}">Email</label>
-                            <input type="email" name="email" class="form-control form-control-format" id="emailSignup" >
+                            <label for="emailRegister" class="form-label form-label-login" value="{{ old('email') }}">Email</label>
+                            <input type="email" name="email" class="form-control form-control-format" id="emailRegister" >
                             @error('email')
                                 <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
                             @enderror
                         </div>
                         <div class="field-group">
-                            <label for="passwordSignup" class="form-label form-label-login">Mật khẩu</label>
+                            <label for="passwordRegister" class="form-label form-label-login">Mật khẩu</label>
                             <div class="input-group">
-                                <input type="password" name="password" class="form-control form-password" id="passwordSignup" >
-                                <button class="btn btn-outline-secondary show-pass" type="button" id="togglePasswordLogin">
-                                    <i id="passwordIconLogin" class="fa fa-eye-slash"></i>
+                                <input type="password" name="password" class="form-control form-password" id="passwordRegister" >
+                                <button class="btn btn-outline-secondary show-pass" type="button" id="togglePasswordRegister">
+                                    <i id="passwordIconRegister" class="fa fa-eye-slash"></i>
                                 </button>
                             </div>
                             @error('password')
@@ -66,18 +66,26 @@
                         </div>
                         <button type="submit" class="btn btn-submit-signup"><b>Đăng ký</b></button>
                     </form>
-                    <p class="goto-signup">Bạn đã có tài khoản? <a href="#">Đăng nhập</a></p>
+                    <p class="goto-signup">Bạn đã có tài khoản? <a href="{{ route('login') }}">Đăng nhập</a></p>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        var errors = document.querySelectorAll(".text-danger");
+        var btn = document.querySelector(".btn-submit-signup");
+
+        if (errors.length > 0) {
+            btn.classList.add("signup-mrg");
+        }
+    </script>
 
 <!-- Footer -->
-<!-- <footer class="footer">
+{{-- <footer class="footer">
     <div class="container-fluid footer-signature">
         <p>&copy; Đồ án Website Chia Sẻ Hình Ảnh Tích Hợp DeepLearning - Hà Trung Nghĩa</p>
     </div>
-</footer> -->
+</footer> --}}
 
 <!-- Thêm liên kết tới tệp JavaScript của Bootstrap 5 và jQuery (nếu cần) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
