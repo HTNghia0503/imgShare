@@ -40,9 +40,11 @@
                     </form>
                 </div>
                 <div class="home-profile">
-                    <a href="{{ route('profile') }}">
-                        <img src="{{ asset('img/avt.jpg') }}" alt="avt">
-                    </a>
+                    @if (Auth::check())
+                        <a href="{{ route('profile') }}">
+                            <img src="{{ asset('img/avt-user/' . Auth::user()->avatar) }}" alt="Avatar" height="56px" width="56px" style="border-radius: 50%; object-fit: cover;">
+                        </a>
+                    @endif
                 </div>
             </div>
           </nav>
