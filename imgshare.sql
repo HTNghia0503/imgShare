@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 15, 2023 lúc 02:44 PM
+-- Thời gian đã tạo: Th10 17, 2023 lúc 03:28 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -164,9 +164,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `avatar`, `permission`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Trung Nghĩa', 'nghia@gmail.com', '$2y$10$tDvp/mxQ24rmro7qc3bDh.nFDnanx5yELGLVbRbMp3iPT./lqssN2', 'null', 0, NULL, '2023-10-15 09:05:44', NULL),
+(1, 'Trung Nghĩa', 'nghia@gmail.com', '$2y$10$tDvp/mxQ24rmro7qc3bDh.nFDnanx5yELGLVbRbMp3iPT./lqssN2', 'avt.jpg', 0, NULL, '2023-10-15 09:05:44', NULL),
 (2, 'Admin', 'admin@gmail.com', '$2y$10$hhK29DEBKXuN5IJ4dgPnHuE9pJmOSGFqs.lgsAFd345xvQTr4SmZC', 'null', 1, NULL, '2023-10-15 09:05:44', NULL),
-(4, 'Hoàng Duy', 'duy@gmail.com', '$2y$10$GHK9A8E/qFl.bhtJZqT0geII2DOfuibUohZ86ypWIZsvrcu9qed9S', 'null', 0, NULL, '2023-10-15 12:23:51', NULL);
+(4, 'Hoàng Duy', 'duy@gmail.com', '$2y$10$GHK9A8E/qFl.bhtJZqT0geII2DOfuibUohZ86ypWIZsvrcu9qed9S', 'tiger.jpg', 0, NULL, '2023-10-15 12:23:51', NULL),
+(5, 'Thông Thái', 'thai@gmail.com', '$2y$10$Xx0RyP1/jEBHtOvljyR7BOk0MAQxJ5GJGDn1RUzNQQzxSIEkm8zLq', 'gundam.jpg', 0, NULL, '2023-10-17 13:22:16', NULL);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -257,7 +258,7 @@ ALTER TABLE `topics`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
