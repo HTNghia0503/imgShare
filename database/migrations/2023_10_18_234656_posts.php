@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('title');
-            $table->text('description');
-            $table->string('img_path');
-            $table->string('status');
+            $table->text('description')->nullable;
+            $table->string('img_path')->nullable;
+            $table->string('status')->nullable;
             $table->integer('likequantity')->default(0); // Giá trị mặc định là 0
 
             $table->foreign('user_id')->references('id')->on('users'); // Liên kết user_id với bảng users
@@ -29,7 +29,7 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('posts');
     }

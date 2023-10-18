@@ -5,17 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Collection extends Model
 {
     use HasFactory;
 
-    protected $table = 'posts';
+    protected $table = "collections";
 
     protected $fillable = [
-        'user_id',
-        'title',
-        'description',
-        'img_path',
+        "title",
+        "description",
     ];
 
     public function user()
@@ -23,8 +21,8 @@ class Post extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function topic()
+    public function post()
     {
-        return $this->belongsTo(Topic::class, 'topic_id');
+        return $this->belongsTo(Post::class, 'post_id');
     }
 }

@@ -35,9 +35,16 @@ Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'admin', 'middl
 // Các route khi đăng nhập với quyền USER
 Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'user', 'middleware' => 'user'], function () {
     Route::get('/home', 'HomeController@index')->name('home');
-    Route::get('/upload', 'HomeController@upload')->name('upload');
     Route::get('/profile', 'ProfileController@profile')->name('profile');
 
     Route::get('/update', 'ProfileController@showUpdate')->name('update');
+
+    // Post (Bài đăng)
+    Route::get('/create-post', 'PostController@create')->name('createPost');
+    Route::post('/create-post', 'PostController@store')->name('storePost');
+
+    // Collection (Bộ sưu tập)
+    Route::post('/create-collection', 'CollectionController@createCollection')->name('createCollection');
+    Route::get('/get-collection', 'CollectionController@getCollection')->name('getCollection');
 
 });

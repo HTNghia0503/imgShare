@@ -732,6 +732,30 @@
     transform: scale(1.05); /* Phóng to nút một chút khi hover */
 }
 
+/* Modal Collection */
+.modal-body-collection {
+    padding: 0px 32px 8px 32px !important;
+}
+
+.modal-title-collection {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 24px;
+}
+
+.btn-collection {
+    margin-top: 16px !important;
+    width: 32%;
+    float: right;
+    border-radius: 32px !important;
+}
+
+.collection-note {
+    font-size: 14px;
+    font-weight: 600;
+    padding-left: 4px
+}
+
 
 /* Footer */
 .footer-signature {

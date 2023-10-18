@@ -346,37 +346,33 @@
         </div> -->
     </main>
 
-    <!-- Modal Tạo bảng lưu - Start -->
-    <div class="modal fade" id="collectionModal">
-        <div class="modal-dialog modal-dialog-centered" data-bs-backdrop="static">
+    <!-- Modal Tạo bộ sưu tập - Start -->
+    <div class="modal fade" id="createCollectionModal" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="btn-close btn-close-form" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body modal-body-collection">
                     <div>
-                        <h5 class="modal-title" id="collectionModalLabel">Tạo bảng lưu</h5>
+                        <h5 class="modal-title modal-title-collection" id="collectionModalLabel">Tạo bộ sưu tập</h5>
                     </div>
 
-                    <!-- Form bảng lưu - Start -->
+                    <!-- Form bộ sưu tập - Start -->
                     <form id="collection">
-                        <div class="mb-3">
-                            <label for="collectionName" class="form-label form-label-format">Tên bảng lưu</label>
-                            <input type="text" class="form-control form-control-format" id="collectionName" required>
+                        <div class="mb-2">
+                            <label for="collectionName" class="form-label form-label-format">Tên bộ sưu tập</label>
+                            <input type="text" name="title" class="form-control form-control-format" id="collectionName" required>
                         </div>
-                        <div>
-                            <label for="collectionDesc" class="form-label form-label-format">Mô tả bảng lưu</label><br>
-                            <!-- <input type="text" class="form-control form-control-format form-control-last" id="collectionDesc" required> -->
-                            <textarea class="collection-description" name="" id="" cols="45" rows="3"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-submit-login"><b>Khởi tạo</b></button>
+                        <p class="collection-note">Bạn nên đặt tên bộ sưu tập là cụm từ đại diện dễ nhớ, dễ hiểu nhé !</p>
+                        <button type="submit" id="createCollectionBtn" class="btn btn-primary btn-submit-login btn-collection"><b>Khởi tạo</b></button>
                     </form>
-                    <!-- Form bảng lưu - End -->
+                    <!-- Form bộ sưu tập - End -->
 
                 </div>
             </div>
         </div>
     </div>
-    <!-- Modal Tạo bảng lưu - End -->
+    <!-- Modal Tạo bộ sưu tập - End -->
 
 @stop
