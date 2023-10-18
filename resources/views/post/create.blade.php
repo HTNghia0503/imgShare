@@ -25,10 +25,7 @@
                                 <div class="col-md-8 btn-group-save">
                                     <select name="collection" id="pickCollection">
                                         @foreach ($collections as $collection)
-                                            <option value="{{ $collection->id }}"
-                                                {{ (old('collection') == $collection->id) ? 'selected' : '' }}>
-                                                {{ $collection->title }}
-                                            </option>
+                                            <option value="{{ $collection->id }}">{{ $collection->title }}</option>
                                         @endforeach
                                         <option value="create-new-collection" class="create-collection-option" data-toggle="modal" data-target="#createCollectionModal">Tạo bộ sưu tập mới</option>
                                     </select>

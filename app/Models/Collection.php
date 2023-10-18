@@ -12,8 +12,8 @@ class Collection extends Model
     protected $table = "collections";
 
     protected $fillable = [
+        "user_id",
         "title",
-        "description",
     ];
 
     public function user()
@@ -21,8 +21,9 @@ class Collection extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function post()
+    public function posts()
     {
-        return $this->belongsTo(Post::class, 'post_id');
+        return $this->belongsToMany(Post::class);
     }
+
 }

@@ -27,4 +27,9 @@ class Post extends Model
     {
         return $this->belongsTo(Topic::class, 'topic_id');
     }
+
+    public function collections()
+    {
+        return $this->belongsToMany(Collection::class);
+    }
 }

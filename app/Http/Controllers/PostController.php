@@ -34,6 +34,13 @@ class PostController extends Controller
             $data['img_path'] = $path;
             $posts = Post::create($data);
 
+            // Lấy giá trị collection_id từ request
+            $collectionId = $request->input('collection');
+
+            // Gán bài đăng vào bộ sưu tập thông qua mối quan hệ
+            $posts->collections()->attach($collectionId);
+            // dd($posts);
+
             toastr()->success('Đăng thành công!', 'Thông báo', ['timeOut' => 2000]);
 
         } catch (\Exception $exception) {
