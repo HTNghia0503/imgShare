@@ -8,6 +8,7 @@ use App\Models\Collection;
 use App\Models\User;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -25,7 +26,12 @@ class PostController extends Controller
             $data = $request->all(); // Lấy dữ liệu từ $request gửi lên
             $data['user_id'] = auth()->user()->id; // Lấy ID của người đăng nhập
             $data['created_at'] = Carbon::now();
-            // dd($data);
+            $image = $request->file('img_path');
+            // Lưu trữ tệp ảnh vào thư mục public/img/home-img
+            $path = $image->store('', 'home_img');
+
+            // Lưu đường dẫn của tệp vào cơ sở dữ liệu
+            $data['img_path'] = $path;
             $posts = Post::create($data);
 
             toastr()->success('Đăng thành công!', 'Thông báo', ['timeOut' => 2000]);

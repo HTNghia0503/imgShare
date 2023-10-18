@@ -53,11 +53,11 @@
     @yield('content')
 
     <!-- Footer -->
-    <footer class="footer">
+    {{-- <footer class="footer">
         <div class="container-fluid footer-signature">
             <p>&copy; Đồ án Website Chia Sẻ Hình Ảnh Tích Hợp DeepLearning - Hà Trung Nghĩa</p>
         </div>
-    </footer>
+    </footer> --}}
 
     <!-- Thêm liên kết tới tệp JavaScript của Bootstrap 5 và jQuery (nếu cần) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>

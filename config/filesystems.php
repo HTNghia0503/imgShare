@@ -30,6 +30,11 @@ return [
 
     'disks' => [
 
+        'home_img' => [
+            'driver' => 'local', // Sử dụng driver local
+            'root' => public_path('img/home-img'), // Đường dẫn đến thư mục lưu trữ
+        ],
+
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
