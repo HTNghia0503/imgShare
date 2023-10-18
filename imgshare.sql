@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 17, 2023 lúc 03:28 PM
+-- Thời gian đã tạo: Th10 18, 2023 lúc 09:15 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -20,6 +20,51 @@ SET time_zone = "+00:00";
 --
 -- Cơ sở dữ liệu: `imgshare`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `collections`
+--
+
+CREATE TABLE `collections` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `collections`
+--
+
+INSERT INTO `collections` (`id`, `user_id`, `title`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Phong Cảnh', '2023-10-18 10:17:20', NULL),
+(2, 1, 'Động vật', '2023-10-18 10:21:05', NULL),
+(3, 4, 'Hội họa', '2023-10-18 10:22:58', NULL),
+(4, 4, 'Giày thể thao', '2023-10-18 10:24:36', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `collection_post`
+--
+
+CREATE TABLE `collection_post` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `collection_id` bigint(20) UNSIGNED NOT NULL,
+  `post_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `collection_post`
+--
+
+INSERT INTO `collection_post` (`id`, `collection_id`, `post_id`, `created_at`, `updated_at`) VALUES
+(1, 3, 8, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -60,7 +105,12 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
 (5, '2023_10_14_223857_create_posts_table', 1),
 (6, '2023_10_15_170322_topic', 2),
-(7, '2023_10_15_172809_posts', 3);
+(7, '2023_10_15_172809_posts', 3),
+(8, '2023_10_18_170812_collections', 4),
+(9, '2023_10_18_232837_posts', 5),
+(10, '2023_10_18_234656_posts', 6),
+(11, '2023_10_19_013308_create_collection_post_table', 7),
+(12, '2023_10_19_014643_collection_post', 8);
 
 -- --------------------------------------------------------
 
@@ -103,9 +153,9 @@ CREATE TABLE `posts` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `title` varchar(255) NOT NULL,
-  `description` text NOT NULL,
-  `img_path` varchar(255) NOT NULL,
-  `status` varchar(255) NOT NULL,
+  `description` text DEFAULT NULL,
+  `img_path` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
   `likequantity` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -116,8 +166,9 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `user_id`, `title`, `description`, `img_path`, `status`, `likequantity`, `created_at`, `updated_at`) VALUES
-(1, 1, 'MonaLisa', 'Bức chân dung TK XVI được vẽ bằng chất liệu sơn dầu trên một tấm gỗ dương tại Florence bởi Leonardo da Vinci.', 'O:\\LVTN\\imgShare\\public\\img\\monalisa.jpg', '', 0, NULL, NULL),
-(2, 4, 'Núi Fuji', 'Nằm trên đảo Honshu là ngọn núi cao nhất Nhật Bản với độ cao 3.776,24 trên mực nước biển, là đỉnh núi cao thứ 2 trên một hòn đảo tại châu Á và thứ 7 trên thế giới.', 'O:\\LVTN\\imgShare\\public\\img\\fuji.jpg', '', 0, NULL, NULL);
+(6, 1, 'Mèo', 'Mèo con cute <3', 'Vft3w2T5OaQar4M6rKeaFYNoE2e7gq1HRR2Zc12Z.jpg', NULL, 0, '2023-10-18 18:29:37', '2023-10-18 18:29:37'),
+(7, 1, 'Chó', 'Chú cún đáng yêu của tôi !', 'ziKdFNBS1letTFv765mPqjNyuNiIcHsBanpRqn0U.jpg', NULL, 0, '2023-10-18 19:03:42', '2023-10-18 19:03:42'),
+(8, 4, 'MonaLisa', 'Một bức chân dung thế kỷ 16 được vẽ bằng chất liệu sơn dầu trên một tấm gỗ dương tại Florence bởi Leonardo da Vinci trong thời kì Phục Hưng Ý.', '0V9GHRDTqejOsRSHdFfGwvVgYkj7RTdjg2Lz57ge.jpg', NULL, 0, '2023-10-18 19:10:40', '2023-10-18 19:10:40');
 
 -- --------------------------------------------------------
 
@@ -174,6 +225,21 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `avatar`, `permission`, 
 --
 
 --
+-- Chỉ mục cho bảng `collections`
+--
+ALTER TABLE `collections`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `collections_user_id_foreign` (`user_id`);
+
+--
+-- Chỉ mục cho bảng `collection_post`
+--
+ALTER TABLE `collection_post`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `collection_post_collection_id_foreign` (`collection_id`),
+  ADD KEY `collection_post_post_id_foreign` (`post_id`);
+
+--
 -- Chỉ mục cho bảng `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -225,6 +291,18 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT cho bảng `collections`
+--
+ALTER TABLE `collections`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT cho bảng `collection_post`
+--
+ALTER TABLE `collection_post`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT cho bảng `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -234,7 +312,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT cho bảng `personal_access_tokens`
@@ -246,7 +324,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT cho bảng `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `topics`
@@ -263,6 +341,19 @@ ALTER TABLE `users`
 --
 -- Các ràng buộc cho các bảng đã đổ
 --
+
+--
+-- Các ràng buộc cho bảng `collections`
+--
+ALTER TABLE `collections`
+  ADD CONSTRAINT `collections_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `collection_post`
+--
+ALTER TABLE `collection_post`
+  ADD CONSTRAINT `collection_post_collection_id_foreign` FOREIGN KEY (`collection_id`) REFERENCES `collections` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `collection_post_post_id_foreign` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `posts`
