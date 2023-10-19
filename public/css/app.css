@@ -732,6 +732,137 @@
     transform: scale(1.05); /* Phóng to nút một chút khi hover */
 }
 
+/* Detail Post */
+.detail-info-bg {
+    /* width: 50%; */
+    min-width: 50%;
+    max-width: 80%;
+    min-height: 80%;
+    max-height: 90%;
+    background-color: #fff;
+    border-radius: 16px;
+    margin-top: 48px;
+    margin-bottom: 220px;
+    padding: 24px;
+}
+
+.info-frame {
+    flex-direction: column;
+    padding-left: 24px;
+}
+
+.save-to-collection select {
+    flex-grow: 1;
+    margin: 0 0 0 16px;
+    padding: 8px 16px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border: none;
+    background-color: #f1f1f1;
+    font-weight: 500;
+    outline: none;
+
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23131313%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px top 52%;
+    background-size: 0.65rem auto;
+}
+
+.save-to-collection button {
+    border: none;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    /* background-image: var(--primary-gradient); */
+    background-color: var(--primary-color);
+    color: #fff;
+    font-weight: 500;
+    padding: 8px 16px
+}
+
+.uploader-info {
+    display: flex;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+.uploader-avt img {
+    border-radius: 50%;
+}
+
+.uploader-name {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 22px 0 0 16px;
+}
+
+.post-comment {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.comment-area {
+    flex: 1 1 auto;
+    color: #5f5f5f;
+}
+
+.interactive-area {
+    padding-top: 16px;
+    border-top: 1px solid #efefef;
+}
+
+.like-area {
+    font-size: 20px;
+    font-weight: 500;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.like-area label {
+    padding-top: 13px;
+}
+
+.like-btn button {
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    padding: 8px 14px;
+    color: var(--primary-color);
+}
+
+.user-comment img {
+    border-radius: 50%;
+}
+
+.comment-box {
+    display: flex;
+    background-color: #f1f1f1;
+    border: none;
+    flex: 1 1 auto;
+    border-radius: 8px;
+    padding: 8px 8px 8px 16px;
+    margin-left: 8px;
+    outline: none;
+}
+
+.comment-box input {
+    background-color: #f1f1f1;
+    border: none;
+    outline: none;
+    flex: 1 1 auto;
+}
+
+.comment-box button {
+    display: none;
+    border-radius: 8px;
+    border: 1px solid var(--primary-color);
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 2px 8px;
+}
+
+
 /* Modal Collection */
 .modal-body-collection {
     padding: 0px 32px 8px 32px !important;
@@ -755,7 +886,6 @@
     font-weight: 600;
     padding-left: 4px
 }
-
 
 /* Footer */
 .footer-signature {

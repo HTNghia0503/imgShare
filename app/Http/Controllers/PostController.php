@@ -50,4 +50,18 @@ class PostController extends Controller
         }
         return redirect()->route('home');
     }
+
+    public function detail()
+    {
+        return view('post.detail');
+    }
+
+    // public function viewFullImage($postId)
+    // {
+    //     $image = Post::find($postId); // Thay thế Image bằng model tương ứng của bạn
+    //     if ($image) {
+    //         return view('image.view_full_image', ['image' => $image]);
+    //     }
+    //     // Xử lý nếu không tìm thấy hình ảnh
+    // }
 }

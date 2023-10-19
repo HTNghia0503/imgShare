@@ -30,7 +30,7 @@
                             <a class="nav-link" aria-current="page" href="{{ route('home') }}">Trang chủ</a>
                         </li>
                         <li class="nav-item home-nav-item">
-                            <a class="nav-link active" href="{{ route('createPost') }}">Đăng tải</a>
+                            <a class="nav-link" href="{{ route('createPost') }}">Đăng tải</a>
                         </li>
                     </ul>
                 </div>

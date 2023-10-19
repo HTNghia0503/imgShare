@@ -3,7 +3,7 @@
     <main class="img-wrapper">
         @foreach($posts as $post)
         <div class="img-item">
-            <a href="#">
+            <a href="{{ route('detailPost') }}">
                 <img src="{{ asset('img/home-img/' . $post->img_path) }}" alt="image">
             </a>
         </div>

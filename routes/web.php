@@ -43,6 +43,11 @@ Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'user', 'middle
     Route::get('/create-post', 'PostController@create')->name('createPost');
     Route::post('/create-post', 'PostController@store')->name('storePost');
 
+    Route::get('/detail-post', 'PostController@detail')->name('detailPost');
+
+    // Image (Hình ảnh)
+    // Route::get('/view-full-image/{postId}', 'PostController@viewFullImage')->name('viewFullImage');
+
     // Collection (Bộ sưu tập)
     Route::post('/create-collection', 'CollectionController@createCollection')->name('createCollection');
     Route::get('/get-collection', 'CollectionController@getCollection')->name('getCollection');
