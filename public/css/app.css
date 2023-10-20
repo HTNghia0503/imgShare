@@ -19,6 +19,10 @@
     cursor: not-allowed;
 }
 
+.saved {
+    background-color: #adb5bd !important;
+}
+
 /* Header */
 .header-margin {
     margin: 10px 25px;
@@ -609,7 +613,7 @@
     background-color: #efefef;
     border-radius: 16px;
     cursor: pointer;
-    height: calc(60.5vh - 32px);
+    height: calc(60vh - 32px);
 }
 
 .drop-area {
@@ -618,7 +622,7 @@
     text-align: center;
     cursor: pointer;
     margin: 16px;
-    height: calc(57vh - 32px);
+    height: calc(56vh - 32px);
 }
 
 .drop-content {
@@ -679,6 +683,11 @@
     max-width: 100%;
 } */
 
+.create-info {
+    display: flex;
+    flex-direction: column;
+}
+
 .save-to-collection label {
     font-size: 16px;
     font-weight: 600;
@@ -706,6 +715,10 @@
 
 .stc-create select {
     border-radius: 8px !important;
+}
+
+.create-select {
+    margin-left: 0 !important;
 }
 
 .upload-title-post input {

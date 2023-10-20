@@ -19,11 +19,11 @@
                             </div>
                         </div>
                         <div class="col-md-1"></div>
-                        <div class="col-md-7">
+                        <div class="col-md-7 create-info">
                             <div class="d-flex save-to-collection stc-create">
                                 <label class="col-md-4" for="pickCollection">Chọn bộ sưu tập</label>
                                 <div class="btn-group-save">
-                                    <select name="collection" id="pickCollection">
+                                    <select name="collection" id="pickCollection" class="create-select">
                                         @foreach ($collections as $collection)
                                             <option value="{{ $collection->id }}">{{ $collection->title }}</option>
                                         @endforeach
@@ -47,7 +47,7 @@
                             </div>
                             <div class="separate"></div>
                             <div class="upload-description-post mt-5">
-                                <textarea name="description" cols="64" rows="10" placeholder="Viết mô tả cho bài đăng của bạn"></textarea>
+                                <textarea name="description" cols="50" rows="5" placeholder="Viết mô tả cho bài đăng của bạn"></textarea>
                             </div>
                             <div class="separate"></div>
                             <input type="hidden" name="user_id" value="{{ auth()->user()->id }}"> <!-- Trường ẩn để lấy giá trị user_id -->

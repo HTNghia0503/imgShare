@@ -56,12 +56,23 @@ class PostController extends Controller
         return view('post.detail');
     }
 
-    // public function viewFullImage($postId)
-    // {
-    //     $image = Post::find($postId); // Thay thế Image bằng model tương ứng của bạn
-    //     if ($image) {
-    //         return view('image.view_full_image', ['image' => $image]);
-    //     }
-    //     // Xử lý nếu không tìm thấy hình ảnh
-    // }
+    public function savePost(Request $request)
+    {
+        $post_id = $request->input('post_id');
+        $collection_id = $request->input('collection_id');
+        $post = Post::find($post_id);
+        $collection = Collection::find($collection_id);
+
+        if ($post && $collection) {
+            // Kiểm tra xem liên kết đã tồn tại hay chưa
+            if (!$collection->post->contains($post_id)) {
+                $collection->post()->attach($post_id);
+            } else {
+                // dd($collection->post->contains($post_id));
+                $collection->post()->detach($post_id);
+            }
+        }
+
+        return redirect()->route('detailPost', ['postId' => $post_id]);
+    }
 }

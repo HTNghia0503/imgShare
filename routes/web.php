@@ -44,6 +44,7 @@ Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'user', 'middle
     Route::post('/create-post', 'PostController@store')->name('storePost');
 
     Route::get('/post/{postId}', 'HomeController@detailPost')->name('detailPost');
+    Route::post('/save-post', 'PostController@savePost')->name('savePost');
 
     // Image (Hình ảnh)
     // Route::get('/view-full-image/{postId}', 'PostController@viewFullImage')->name('viewFullImage');

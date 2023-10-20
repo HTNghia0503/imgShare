@@ -7,30 +7,72 @@
             </div>
             <div class="d-flex info-frame" style="min-width: 30%; max-width: 70%">
                 <div class="info-frame-top">
-                    <div class="d-flex save-to-collection">
-                        <label for="pickCollectionSave">Chọn bộ sưu tập</label>
-                        <select name="collection" id="pickCollectionSave">
+
+                    {{-- Form Save Post -> Collection --}}
+                    <form action="{{ route('savePost') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="post_id" value="{{ $post->id }}">
+                        <div class="d-flex save-to-collection">
+                            <label for="pickCollectionSave">Chọn bộ sưu tập</label>
+
+                            @php
+                                $selectedCollectionId = !empty($_COOKIE['selectedCollectionId']) ? $_COOKIE['selectedCollectionId'] : null;
+                            @endphp
+
+                            <select name="collection_id" id="pickCollectionSave">
+                                @if ($post->user_id !== Auth::user()->id)
+                                    @foreach ($collections as $collection)
+                                        <option value="{{ $collection->id }}" {{ $collection->id == $selectedCollectionId ? 'selected' : '' }}>
+                                            {{ $collection->title }}
+                                        </option>
+                                    @endforeach
+                                @else
+                                    @foreach ($collections as $collection)
+                                        @if ($post->collection->contains($collection))
+                                            <option value="{{ $collection->id }}" selected>{{ $collection->title }}</option>
+                                        @else
+                                            <option disabled value="{{ $collection->id }}">{{ $collection->title }}</option>
+                                        @endif
+                                    @endforeach
+                                @endif
+                            </select>
+                            {{-- @php
+                                dd($collection->id);
+                            @endphp --}}
                             @if ($post->user_id !== Auth::user()->id) <!-- Kiểm tra xem bài đăng không phải của người dùng hiện tại -->
-                                @foreach ($collections as $collection)
-                                    <option value="{{ $collection->id }}">{{ $collection->title }}</option>
-                                @endforeach
+                                @if ($post->collection->contains($collection->id))
+                                    <button id="save-button-post" type="submit" data-saved="1">Đã lưu</button>
+                                @else
+                                    <button id="save-button-post" type="submit" data-saved="0">Lưu</button>
+                                @endif
                             @else
-                                @foreach ($collections as $collection)
-                                    @if ($post->collection->contains($collection))
-                                        <option value="{{ $collection->id }}" selected>{{ $collection->title }}</option>
-                                    @else
-                                        <option disabled value="{{ $collection->id }}">{{ $collection->title }}</option>
-                                    @endif
-                                @endforeach
+                                <button type="button" class="disabled" disabled>Lưu</button>
                             @endif
-                            {{-- <option value="create-new-collection" class="create-collection-option" data-toggle="modal" data-target="#createCollectionModal">Tạo bộ sưu tập mới</option> --}}
-                        </select>
-                        @if ($post->user_id !== Auth::user()->id) <!-- Kiểm tra xem bài đăng không phải của người dùng hiện tại -->
-                            <button>Lưu</button>
-                        @else
-                            <button type="button" class="disabled" disabled>Lưu</button>
-                        @endif
-                    </div>
+                        </div>
+                    </form>
+
+                    {{-- <script>
+                        // Lấy giá trị đã chọn từ localStorage
+                        var selectedCollectionId = localStorage.getItem('selectedCollectionId');
+                        var select = document.getElementById('pickCollectionSave');
+
+                        // Kiểm tra xem có giá trị đã lưu trong localStorage không
+                        if (selectedCollectionId) {
+                            // Khôi phục giá trị đã chọn từ localStorage
+                            select.value = selectedCollectionId;
+                        }
+
+                        // Lưu giá trị đã chọn vào localStorage khi thay đổi
+                        select.addEventListener('change', function() {
+                            selectedCollectionId = select.value;
+                            localStorage.setItem('selectedCollectionId', selectedCollectionId);
+                        });
+                    </script> --}}
+
+
+                    {{-- End Form Save Post --}}
+
+
                     <div class="uploader-info">
                         <div class="uploader-avt">
                             <img src="{{ asset('img/avt-user/' . $post->user->avatar) }}" alt="Avatar" width="70px" height="70px" style="object-fit: cover;">

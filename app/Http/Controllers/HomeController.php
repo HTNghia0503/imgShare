@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Collection;
+use App\Models\Collection_Post;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
