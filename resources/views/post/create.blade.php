@@ -20,9 +20,9 @@
                         </div>
                         <div class="col-md-1"></div>
                         <div class="col-md-7">
-                            <div class="d-flex save-to-collection">
+                            <div class="d-flex save-to-collection stc-create">
                                 <label class="col-md-4" for="pickCollection">Chọn bộ sưu tập</label>
-                                <div class="col-md-8 btn-group-save">
+                                <div class="btn-group-save">
                                     <select name="collection" id="pickCollection">
                                         @foreach ($collections as $collection)
                                             <option value="{{ $collection->id }}">{{ $collection->title }}</option>

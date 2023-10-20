@@ -21,9 +21,10 @@ class Collection extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function posts()
+    public function post()
     {
         return $this->belongsToMany(Post::class);
     }
+
 
 }

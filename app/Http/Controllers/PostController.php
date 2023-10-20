@@ -38,7 +38,7 @@ class PostController extends Controller
             $collectionId = $request->input('collection');
 
             // Gán bài đăng vào bộ sưu tập thông qua mối quan hệ
-            $posts->collections()->attach($collectionId);
+            $posts->collection()->attach($collectionId);
             // dd($posts);
 
             toastr()->success('Đăng thành công!', 'Thông báo', ['timeOut' => 2000]);

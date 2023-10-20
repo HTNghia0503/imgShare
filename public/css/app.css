@@ -13,6 +13,12 @@
     --star-gold-color: #ffce3e;
 }
 
+.disabled {
+    background-color: #ccc !important; /* Màu nền xám hoặc màu khác tùy ý */
+    color: #888 !important; /* Màu chữ xám hoặc màu khác tùy ý */
+    cursor: not-allowed;
+}
+
 /* Header */
 .header-margin {
     margin: 10px 25px;
@@ -679,6 +685,10 @@
     padding-top: 8px
 }
 
+.btn-group-save {
+    flex: 1 1 auto;
+}
+
 .btn-group-save select {
     padding: 8px 8px 8px 16px;
     border-radius: 32px;
@@ -692,6 +702,10 @@
     background-repeat: no-repeat;
     background-position: right 16px top 52%;
     background-size: 0.65rem auto;
+}
+
+.stc-create select {
+    border-radius: 8px !important;
 }
 
 .upload-title-post input {
@@ -780,6 +794,10 @@
     padding: 8px 16px
 }
 
+.save-to-collection button:hover {
+    background-color: #4747ce;
+}
+
 .uploader-info {
     display: flex;
     margin-top: 32px;
@@ -791,9 +809,9 @@
 }
 
 .uploader-name {
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 700;
-    margin: 22px 0 0 16px;
+    margin: 20px 0 0 16px;
 }
 
 .post-comment {
