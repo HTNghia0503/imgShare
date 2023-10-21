@@ -44,6 +44,7 @@ Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'user', 'middle
     Route::post('/create-post', 'PostController@store')->name('storePost');
 
     Route::get('/post/{postId}', 'HomeController@detailPost')->name('detailPost');
+    Route::get('/collection/{collectionId}', 'HomeController@detailCollection')->name('detailCollection');
 
     // Xử lý trong xem chi tiết Post
     Route::post('/save-post', 'PostController@savePost')->name('savePost'); // Lưu hình ảnh (Post) vào bộ sưu tập (Collection)

@@ -25,7 +25,7 @@
                 <div class="home-nav">
                     <ul class="navbar-nav">
                         <li class="nav-item home-nav-item">
-                            <a class="nav-link" aria-current="page" href="{{ route('home') }}">Trang chủ</a>
+                            <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Trang chủ</a>
                         </li>
                         <li class="nav-item home-nav-item">
                             <a class="nav-link" href="{{ route('createPost') }}">Đăng tải</a>
@@ -34,13 +34,17 @@
                 </div>
                 <div class="home-search flex-grow-1">
                     <form class="d-flex">
+                        <!-- <input type="text" placeholder="&#xF002; Search" style="font-family:Arial, FontAwesome" /> -->
+                        <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
                         <input class="form-control me-2 home-search-bar" type="search" placeholder="&#xF002;  Nhập từ khóa tìm kiếm" style="font-family:Arial, FontAwesome" aria-label="Search">
                     </form>
                 </div>
                 <div class="home-profile">
-                    <a href="{{ route('profile') }}">
-                        <img src="{{ asset('img/avt.jpg') }}" alt="avt">
-                    </a>
+                    @if (Auth::check())
+                        <a href="{{ route('profile') }}">
+                            <img src="{{ asset('img/avt-user/' . Auth::user()->avatar) }}" alt="Avatar" height="56px" width="56px" style="border-radius: 50%; object-fit: cover;">
+                        </a>
+                    @endif
                 </div>
             </div>
           </nav>
@@ -49,11 +53,11 @@
     @yield('content')
 
     <!-- Footer -->
-    <footer class="footer">
+    {{-- <footer class="footer">
         <div class="container-fluid footer-signature">
             <p>&copy; Đồ án Website Chia Sẻ Hình Ảnh Tích Hợp DeepLearning - Hà Trung Nghĩa</p>
         </div>
-    </footer>
+    </footer> --}}
 
     <!-- Thêm liên kết tới tệp JavaScript của Bootstrap 5 và jQuery (nếu cần) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>

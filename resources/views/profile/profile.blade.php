@@ -1,342 +1,100 @@
 @extends('layout.profile.profile')
 @section('content')
     <main class="profile-container">
-        <div class="row profile-info">
-            <div class="col-4"></div>
-            <div class="col-4 profile-info-content">
+        <div class="profile-info">
+            <div class="profile-info-content">
                 <div class="profile-avt">
-                    <img src="{{ asset('img/profile.jpg') }}" alt="IMAGEavt">
+                    <img src="{{ asset('img/avt-user/' . Auth::user()->avatar)}}" alt="Avatar" width="250px" height="250px" style="object-fit: cover; border-radius: 50%;">
                 </div>
-                <div class="profile-username">
-                    Hà Trung Nghĩa
-                </div>
-                <div class="profile-email">
-                    nghiaht@gmail.com
-                </div>
+                <div class="profile-username">{{ Auth::user()->name }}</div>
+                <div class="profile-email">{{ Auth::user()->email }}</div>
                 <div class="profile-tool">
                     <div class="update-profile">
                         <button id="updateProfile">
                             Chỉnh sửa thông tin
                         </button>
                     </div>
+
+                    {{-- Xử lý điều hướng đến trang Update của nút updateProfile --}}
                     <script>
                         const updateBtn = document.getElementById('updateProfile');
                         updateBtn.addEventListener('click', function() {
                             window.location.href = "{{ route('update') }}";
                         });
                     </script>
-                    <ul>
-                        <li>
-                            <button id="collectionLink" class="profile-tool-add" type="button">
-                                Tạo bảng lưu
-                            </button>
-                        </li>
-                        <li>
-                            <button class="profile-tool-sort">
-                                Sắp xếp bảng
-                            </button>
-                        </li>
-                    </ul>
+                    {{-- End --}}
+                    <div class="create-collection">
+                        <button id="collectionLink" class="profile-tool-add" type="button">
+                            Tạo bảng lưu
+                        </button>
+                    </div>
                 </div>
             </div>
-            <div class="col-4"></div>
         </div>
 
         <div class="profile-tabs">
-            <button class="tablinks active" onclick="openTab(event, 'created')">Đã tạo</button>
-            <button class="tablinks" onclick="openTab(event, 'saved')">Đã lưu</button>
+            <button class="tablinks active" onclick="openTab(event, 'created')">Bài đăng cá nhân</button>
+            <button class="tablinks" onclick="openTab(event, 'saved')">Bộ sưu tập</button>
         </div>
 
-        <!-- Nội dung của tab "Đã tạo" -->
+        <!-- Nội dung của tab "Bài đăng cá nhân" -->
         <div id="created" class="tabcontent">
             <div class="d-flex manage-collections">
-                <div class="collection-item">
-                    <a href="#">
-                        <div class="collection-avt">
-                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
-                        </div>
-                        <div class="collection-title-des">
-                            Phong cảnh
-                        </div>
-                    </a>
-                </div>
-                <div class="collection-item">
-                    <a href="#">
-                        <div class="collection-avt">
-                            <img src="{{ asset('img/home-img/2.jpg') }}" width="100%" alt="IMAGE">
-                        </div>
-                        <div class="collection-title-des">
-                            Gia đình
-                        </div>
-                    </a>
-                </div>
-                <div class="collection-item">
-                    <a href="#">
-                        <div class="collection-avt">
-                            <img src="{{ asset('img/home-img/3.jpg') }}" width="100%" alt="IMAGE">
-                        </div>
-                        <div class="collection-title-des">
-                            Động vật
-                        </div>
-                    </a>
-                </div>
-                <div class="collection-item">
-                    <a href="#">
-                        <div class="collection-avt">
-                            <img src="{{ asset('img/home-img/4.jpg') }}" width="100%" alt="IMAGE">
-                        </div>
-                        <div class="collection-title-des">
-                            Thực vật
-                        </div>
-                    </a>
-                </div>
-                <div class="collection-item">
-                    <a href="#">
-                        <div class="collection-avt">
-                            <img src="{{ asset('img/home-img/5.jpg') }}" width="100%" alt="IMAGE">
-                        </div>
-                        <div class="collection-title-des">
-                            Kiến trúc
-                        </div>
-                    </a>
-                </div>
-                <div class="collection-item">
-                    <a href="#">
-                        <div class="collection-avt">
-                            <img src="{{ asset('img/home-img/6.jpg') }}" width="100%" alt="IMAGE">
-                        </div>
-                        <div class="collection-title-des">
-                            Phong cảnh
-                        </div>
-                    </a>
-                </div>
-                <div class="collection-item">
-                    <a href="#">
-                        <div class="collection-avt">
-                            <img src="{{ asset('img/home-img/7.jpg') }}" width="100%" alt="IMAGE">
-                        </div>
-                        <div class="collection-title-des">
-                            Phong cảnh
-                        </div>
-                    </a>
-                </div>
-                <div class="collection-item">
-                    <a href="#">
-                        <div class="collection-avt">
-                            <img src="{{ asset('img/home-img/8.jpg') }}" width="100%" alt="IMAGE">
-                        </div>
-                        <div class="collection-title-des">
-                            Phong cảnh
-                        </div>
-                    </a>
-                </div>
-                <div class="collection-item">
-                    <a href="#">
-                        <div class="collection-avt">
-                            <img src="{{ asset('img/home-img/9.jpg') }}" width="100%" alt="IMAGE">
-                        </div>
-                        <div class="collection-title-des">
-                            Phong cảnh
-                        </div>
-                    </a>
-                </div>
-                <div class="collection-item">
-                    <a href="#">
-                        <div class="collection-avt">
-                            <img src="{{ asset('img/home-img/10.jpg') }}" width="100%" alt="IMAGE">
-                        </div>
-                        <div class="collection-title-des">
-                            Phong cảnh
-                        </div>
-                    </a>
-                </div>
-                <div class="collection-item">
-                    <a href="#">
-                        <div class="collection-avt">
-                            <img src="{{ asset('img/home-img/11.jpg') }}" width="100%" alt="IMAGE">
-                        </div>
-                        <div class="collection-title-des">
-                            Phong cảnh
-                        </div>
-                    </a>
-                </div>
-                <div class="collection-item">
-                    <a href="#">
-                        <div class="collection-avt">
-                            <img src="{{ asset('img/home-img/12.jpg') }}" width="100%" alt="IMAGE">
-                        </div>
-                        <div class="collection-title-des">
-                            Phong cảnh
-                        </div>
-                    </a>
-                </div>
-                <div class="collection-item">
-                    <a href="#">
-                        <div class="collection-avt">
-                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
-                        </div>
-                        <div class="collection-title-des">
-                            Phong cảnh
-                        </div>
-                    </a>
-                </div>
-                <div class="collection-item">
-                    <a href="#">
-                        <div class="collection-avt">
-                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
-                        </div>
-                        <div class="collection-title-des">
-                            Phong cảnh
-                        </div>
-                    </a>
-                </div>
+                @foreach ($posts as $post)
+                    <div class="personal-post">
+                        <a href="{{ route('detailPost', ['postId' => $post->id]) }}">
+                            <div class="personal-post-img">
+                                <img src="{{ asset('img/home-img/' . $post->img_path) }}" alt="image" width="335px" height="210px" style="border-radius: 16px; object-fit: cover;">
+                            </div>
+                            <div class="personal-post-title">{{ $post->title }}</div>
+                        </a>
+                    </div>
+                @endforeach
                 <div class="collection-item-last"></div>
             </div>
         </div>
 
-        <!-- Nội dung của tab "Đã lưu" -->
+        <!-- Nội dung của tab "Bộ sưu tập" -->
         <div id="saved" class="tabcontent">
             <div class="d-flex manage-collections">
-                <div class="collection-item">
-                    <a href="#">
-                        <div class="collection-avt">
-                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
-                        </div>
-                        <div class="collection-title-des">
-                            Gia đình
-                        </div>
-                    </a>
-                </div>
-                <div class="collection-item">
-                    <a href="#">
-                        <div class="collection-avt">
-                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
-                        </div>
-                        <div class="collection-title-des">
-                            Phong cảnh
-                        </div>
-                    </a>
-                </div>
-                <div class="collection-item">
-                    <a href="#">
-                        <div class="collection-avt">
-                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
-                        </div>
-                        <div class="collection-title-des">
-                            Động vật
-                        </div>
-                    </a>
-                </div>
-                <div class="collection-item">
-                    <a href="#">
-                        <div class="collection-avt">
-                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
-                        </div>
-                        <div class="collection-title-des">
-                            Thực vật
-                        </div>
-                    </a>
-                </div>
-                <div class="collection-item">
-                    <a href="#">
-                        <div class="collection-avt">
-                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
-                        </div>
-                        <div class="collection-title-des">
-                            Kiến trúc
-                        </div>
-                    </a>
-                </div>
-                <div class="collection-item">
-                    <a href="#">
-                        <div class="collection-avt">
-                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
-                        </div>
-                        <div class="collection-title-des">
-                            Phong cảnh
-                        </div>
-                    </a>
-                </div>
-                <div class="collection-item">
-                    <a href="#">
-                        <div class="collection-avt">
-                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
-                        </div>
-                        <div class="collection-title-des">
-                            Phong cảnh
-                        </div>
-                    </a>
-                </div>
-                <div class="collection-item">
-                    <a href="#">
-                        <div class="collection-avt">
-                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
-                        </div>
-                        <div class="collection-title-des">
-                            Phong cảnh
-                        </div>
-                    </a>
-                </div>
-                <div class="collection-item">
-                    <a href="#">
-                        <div class="collection-avt">
-                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
-                        </div>
-                        <div class="collection-title-des">
-                            Phong cảnh
-                        </div>
-                    </a>
-                </div>
-                <div class="collection-item">
-                    <a href="#">
-                        <div class="collection-avt">
-                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
-                        </div>
-                        <div class="collection-title-des">
-                            Phong cảnh
-                        </div>
-                    </a>
-                </div>
-                <div class="collection-item">
-                    <a href="#">
-                        <div class="collection-avt">
-                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
-                        </div>
-                        <div class="collection-title-des">
-                            Phong cảnh
-                        </div>
-                    </a>
-                </div>
-                <div class="collection-item">
-                    <a href="#">
-                        <div class="collection-avt">
-                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
-                        </div>
-                        <div class="collection-title-des">
-                            Phong cảnh
-                        </div>
-                    </a>
-                </div>
-                <div class="collection-item">
-                    <a href="#">
-                        <div class="collection-avt">
-                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
-                        </div>
-                        <div class="collection-title-des">
-                            Phong cảnh
-                        </div>
-                    </a>
-                </div>
-                <div class="collection-item">
-                    <a href="#">
-                        <div class="collection-avt">
-                            <img src="{{ asset('img/home-img/1.jpg') }}" width="100%" alt="IMAGE">
-                        </div>
-                        <div class="collection-title-des">
-                            Phong cảnh
-                        </div>
-                    </a>
-                </div>
+                @foreach ($collections as $collection)
+                    <div class="collection-item">
+                        <a href="{{ route('detailCollection', ['collectionId' => $collection->id]) }}">
+                            <div class="d-flex collection-avt">
+                                @if ($collection->post->count() > 0)
+                                    @if ($collection->post->count() === 1)
+                                        <div class="img-main-avt">
+                                            <img src="{{ asset('img/home-img/' . $collection->post[0]->img_path) }}" width="100%" alt="Collection Image" class="main-avt">
+                                        </div>
+                                        <div class="d-flex img-sub-avt">
+                                            <div class="grey-frame-top"></div>
+                                            <div class="grey-frame"></div>
+                                        </div>
+                                    @elseif ($collection->post->count() === 2)
+                                        <div class="img-main-avt">
+                                            <img src="{{ asset('img/home-img/' . $collection->post[0]->img_path) }}" width="100%" alt="Collection Image" class="main-avt">
+                                        </div>
+                                        <div class="d-flex img-sub-avt">
+                                            <img src="{{ asset('img/home-img/' . $collection->post[1]->img_path) }}" width="100%" alt="Collection Image" class="sub-avt">
+                                            <div class="grey-frame"></div>
+                                        </div>
+                                    @else
+                                        <div class="img-main-avt">
+                                            <img src="{{ asset('img/home-img/' . $collection->post[0]->img_path) }}" width="100%" alt="Collection Image" class="main-avt">
+                                        </div>
+                                        <div class="d-flex img-sub-avt">
+                                            <img src="{{ asset('img/home-img/' . $collection->post[1]->img_path) }}" width="100%" alt="Collection Image" class="sub-avt">
+                                            <img src="{{ asset('img/home-img/' . $collection->post[2]->img_path) }}" width="100%" alt="Collection Image" class="sub-avt-bot">
+                                        </div>
+                                    @endif
+                                @else
+                                    <img src="{{ asset('img/No_image_available.png') }}" width="100%" alt="Default Image" style="object-fit: cover; border-radius: 16px;">
+                                @endif
+                            </div>
+                            <div class="collection-title-des">{{ $collection->title }}</div>
+                        </a>
+                    </div>
+                @endforeach
                 <div class="collection-item-last"></div>
             </div>
         </div>

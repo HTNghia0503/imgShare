@@ -27,4 +27,13 @@ class HomeController extends Controller
         return view('post.detail', ['post' => $post, 'collections' => $collections, 'user'=> $user, 'comments'=> $comments]);
     }
 
+    public function detailCollection($collectionId) {
+
+        $collection = Collection::find($collectionId);
+        $posts = Post::all();
+        $posts_in = Collection_Post::where('collection_id', $collectionId)->get(); // Lấy tất cả các comment có collection_id trùng với collection_id đang xem
+
+        return view('profile.detail_collection', ['collection' => $collection, 'posts_in'=> $posts_in, 'posts' => $posts]);
+    }
+
 }

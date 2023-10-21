@@ -417,16 +417,12 @@
 
 /* Profile */
 .profile-info {
-    height: 320px;
+    width: 100%;
+    height: 50%;
 }
 
 .profile-info-content {
     text-align: center;
-}
-
-.profile-avt img {
-    width: 25%;
-    border-radius: 80px
 }
 
 .profile-username {
@@ -442,7 +438,6 @@
 }
 
 .update-profile button {
-    width: 274px;
     padding: 8px 16px;
     border-radius: 32px;
     margin-top: 16px;
@@ -457,8 +452,8 @@
     transform: scale(1.05); /* Phóng to nút một chút khi hover */
 }
 
-.profile-tool li button {
-    padding: 8px 16px;
+.profile-tool button {
+    padding: 8px 32px;
     border-radius: 32px;
     margin-top: 16px;
     background-image: var(--primary-gradient);
@@ -467,13 +462,9 @@
     font-weight: 500;
 }
 
-.profile-tool li button:hover {
+.profile-tool button:hover {
     background: var(--primary-gradient-hover);
     transform: scale(1.05); /* Phóng to nút một chút khi hover */
-}
-
-.profile-tool-add {
-    margin-right: 16px;
 }
 
 /* Profile - Tabmanage */
@@ -489,8 +480,9 @@
 }
 
 .profile-tabs {
-    text-align: center;
-    margin-top: 64px;
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
 }
 
 .profile-tabs button {
@@ -511,7 +503,22 @@
 .manage-collections {
     margin: 32px;
     flex-wrap: wrap;
-    justify-content: space-between;
+}
+
+.personal-post {
+    margin: 16px 32px 0 0 !important;
+}
+
+.personal-post a {
+    text-decoration: none;
+    color: #333;
+}
+
+.personal-post-title {
+    font-size: 24px;
+    font-weight: 500;
+    padding-top: 8px;
+    text-align: center;
 }
 
 .collection-item {
@@ -531,7 +538,6 @@
 }
 
 .collection-item img {
-    border-radius: 16px;
     height: 180px;
 }
 
@@ -556,6 +562,52 @@
     border-color: #86b7fe;
     outline: 0;
     box-shadow: 0 0 0 0.25rem rgba(13,110,253,.25);
+}
+
+.img-main-avt {
+    width: 60%;
+}
+
+.img-sub-avt {
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+
+.main-avt {
+    object-fit: cover;
+    border-bottom-left-radius: 16px;
+    border-top-left-radius: 16px;
+    border-right: 2px solid #fff;
+}
+
+.sub-avt {
+    object-fit: cover;
+    height: 90px !important;
+    border-top-right-radius: 16px;
+}
+
+.sub-avt-bot {
+    object-fit: cover;
+    height: 90px !important;
+    border-bottom-right-radius: 16px;
+    border-top: 2px solid #fff;
+}
+
+.grey-frame {
+    background-color: #e9e9e9;
+    height: 90px;
+    border-bottom-right-radius: 16px;
+    border-top: 2px solid #fff
+}
+
+.grey-frame-top {
+    background-color: #e9e9e9;
+    height: 90px;
+    border-top-right-radius: 16px;
+}
+
+.collection-created-at {
+    margin-top: 16px;
 }
 
 /* Profile - Update */
