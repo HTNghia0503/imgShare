@@ -6,6 +6,7 @@ use App\Models\Collection;
 use App\Models\Collection_Post;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -18,8 +19,9 @@ class HomeController extends Controller
 
         $post = Post::find($postId);
         $collections = Collection::where('user_id', auth()->user()->id)->get(); // Xác định các Collections thuộc sở hữu của người đang Đăng nhập
+        $user = Auth::user();
 
-        return view('post.detail', ['post' => $post, 'collections' => $collections]);
+        return view('post.detail', ['post' => $post, 'collections' => $collections, 'user'=> $user]);
     }
 
 }

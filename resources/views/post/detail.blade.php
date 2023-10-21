@@ -40,11 +40,9 @@
                                 dd($collection->id);
                             @endphp --}}
                             @if ($post->user_id !== Auth::user()->id) <!-- Kiểm tra xem bài đăng không phải của người dùng hiện tại -->
-                                @if ($post->collection->contains($collection->id))
-                                    <button id="save-button-post" type="submit" data-saved="1">Đã lưu</button>
-                                @else
-                                    <button id="save-button-post" type="submit" data-saved="0">Lưu</button>
-                                @endif
+
+                                <button id="save-button-post" type="submit" data-saved="0">Lưu</button>
+
                             @else
                                 <button type="button" class="disabled" disabled>Lưu</button>
                             @endif
@@ -73,26 +71,62 @@
                     {{-- End Form Save Post --}}
 
 
+
+                    <div class="title-and-description">
+                        <div class="detail-post-title">
+                            {{ $post->title }}
+                        </div>
+                        <div class="detail-post-description">
+                            {{ $post->description }}
+                        </div>
+                    </div>
                     <div class="uploader-info">
                         <div class="uploader-avt">
-                            <img src="{{ asset('img/avt-user/' . $post->user->avatar) }}" alt="Avatar" width="70px" height="70px" style="object-fit: cover;">
+                            <img src="{{ asset('img/avt-user/' . $post->user->avatar) }}" alt="Avatar" width="60px" height="60px" style="object-fit: cover;">
                         </div>
                         <div class="uploader-name">{{ $post->user->name }}</div>
                     </div>
+
                     <div class="post-comment">
-                        <label for="">Nhận xét</label>
+                        <label>Nhận xét</label>
                     </div>
                 </div>
-                <div class="comment-area">
-                    Chưa có nhận xét nào! Bạn có nhận xét gì về bài đăng, hãy để lại nhận xét để cùng thảo luận nào!
+                <div class="d-flex comment-area">
+                    {{-- <p>
+                        Chưa có nhận xét nào! Bạn có nhận xét gì về bài đăng, hãy để lại nhận xét để cùng thảo luận nào!
+                    </p> --}}
+                    <div class="d-flex comment-section">
+                        {{-- <img src="{{ asset('img/avt-user/' . $comment->user->avatar) }}" alt="Avatar" width="45px" height="45px" style="object-fit: cover; border-radius: 50%;">
+                        <a href="#">{{ $comment->user->name }}</a>
+                        <span>{{ $comment->content }}</span> --}}
+                        <img src="{{ asset('img/avt-user/gundam.jpg') }}" alt="Avatar" width="45px" height="45px" style="object-fit: cover; border-radius: 50%;">
+                        <div class="d-flex name-and-content">
+                            <a class="user-comment-name" href="#">Thông Thái</a>
+                            <span class="user-comment-content">Thật đáng yêu ! Thật đáng yêu !</span>
+                        </div>
+                    </div>
+                    <div class="d-flex comment-section">
+                        {{-- <img src="{{ asset('img/avt-user/' . $comment->user->avatar) }}" alt="Avatar" width="45px" height="45px" style="object-fit: cover; border-radius: 50%;">
+                        <a href="#">{{ $comment->user->name }}</a>
+                        <span>{{ $comment->content }}</span> --}}
+                        <img src="{{ asset('img/avt-user/tiger.jpg') }}" alt="Avatar" width="45px" height="45px" style="object-fit: cover; border-radius: 50%;">
+                        <div class="d-flex name-and-content">
+                            <a class="user-comment-name" href="#">Hoàng Duy</a>
+                            <span class="user-comment-content">Kawaii !</span>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="interactive-area">
                     <div class="d-flex like-area">
-                        <label for="">Bạn thích ảnh này chứ ?</label>
+                        <label>Bạn thích ảnh này chứ ?</label>
                         <div class="like-btn">
-                            <span class="like-count">0</span>
-                            <button class="like-button"><i class="fa-regular fa-heart"></i></button>
-                            {{-- <i class="fa-solid fa-heart"></i> Active --}}
+                            <span class="like-count">{{ $post->likequantity }}</span>
+                            @if ($user->like->contains($post->id))
+                                <button class="like-button"><i class="fa-solid fa-heart"></i></button>
+                            @else
+                                <button class="like-button"><i class="fa-regular fa-heart"></i></button>
+                            @endif
                         </div>
                     </div>
                     <div class="d-flex user-comment">
@@ -108,6 +142,30 @@
             </div>
         </div>
     </div>
+    {{-- Xử lý Like --}}
+    <script>
+        $(document).ready(function () {
+            $('.like-button').on('click', function () {
+                var post_id = {{ $post->id }};
+                var like_button = $(this);
+
+                $.ajax({
+                    type: 'POST',
+                    url: '{{ route('likePost') }}',
+                    data: { post_id: post_id, _token: '{{ csrf_token() }}' },
+                    success: function (data) {
+                        if (data.liked) {
+                            like_button.html('<i class="fa-solid fa-heart"></i>');
+                        } else {
+                            like_button.html('<i class="fa-regular fa-heart"></i>');
+                        }
+                        $('.like-count').text(data.likequantity);
+                    }
+                });
+            });
+        });
+    </script>
+    {{-- End - Like --}}
 
     {{-- Xử lý focus và blur cho comment input và confirm btn --}}
     <script>
@@ -135,4 +193,5 @@
             }
         });
     </script>
+    {{-- End - Input Comment --}}
 @stop

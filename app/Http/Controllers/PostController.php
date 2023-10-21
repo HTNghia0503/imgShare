@@ -9,6 +9,8 @@ use App\Models\User;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class PostController extends Controller
 {
@@ -75,4 +77,28 @@ class PostController extends Controller
 
         return redirect()->route('detailPost', ['postId' => $post_id]);
     }
+
+    public function likePost(Request $request)
+    {
+        $post_id = $request->input('post_id');
+        $user = Auth::user();
+
+        // Kiểm tra xem người dùng đã like bài viết này chưa
+        $liked = $user->like->contains($post_id);
+
+        if ($liked) {
+            // Nếu đã like, hủy like và giảm likequantity
+            $user->like()->detach($post_id);
+            $post = Post::find($post_id);
+            $post->decrement('likequantity');
+        } else {
+            // Nếu chưa like, thêm like và tăng likequantity
+            $user->like()->attach($post_id);
+            $post = Post::find($post_id);
+            $post->increment('likequantity');
+        }
+
+        return response()->json(['liked' => !$liked, 'likequantity' => $post->likequantity]);
+    }
+
 }

@@ -734,6 +734,10 @@
     border-bottom: 1px solid #c6c6c6;
 }
 
+.upload-description-post {
+    flex: 1 1 auto;
+}
+
 .upload-description-post textarea {
     border: none;
     resize: none;
@@ -762,7 +766,7 @@
 /* Detail Post */
 .detail-info-bg {
     /* width: 50%; */
-    min-width: 50%;
+    min-width: 60%;
     max-width: 80%;
     min-height: 80%;
     max-height: 90%;
@@ -776,6 +780,7 @@
 .info-frame {
     flex-direction: column;
     padding-left: 24px;
+    flex: 1 1 auto;
 }
 
 .save-to-collection select {
@@ -811,10 +816,25 @@
     background-color: #4747ce;
 }
 
+.title-and-description {
+    margin-top: 24px;
+    margin-bottom: 16px;
+}
+
+.detail-post-title {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.detail-post-description {
+    font-size: 16px;
+    text-align: justify;
+}
+
 .uploader-info {
     display: flex;
-    margin-top: 32px;
-    margin-bottom: 32px;
+    margin-top: 24px;
+    margin-bottom: 24px;
 }
 
 .uploader-avt img {
@@ -822,20 +842,43 @@
 }
 
 .uploader-name {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
-    margin: 20px 0 0 16px;
+    margin: 18px 0 0 16px;
 }
 
 .post-comment {
     font-size: 24px;
     font-weight: 600;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #efefef;
     margin-bottom: 16px;
 }
 
 .comment-area {
     flex: 1 1 auto;
     color: #5f5f5f;
+    flex-direction: column;
+}
+
+.comment-section {
+    padding: 0px 0 24px 0;
+}
+
+.name-and-content {
+    flex-direction: column;
+    flex: 1 1 auto;
+    padding: 0 0 0 8px;
+}
+
+.user-comment-name {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+}
+.user-comment-content {
+    font-size: 15px;
 }
 
 .interactive-area {

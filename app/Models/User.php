@@ -45,4 +45,8 @@ class User extends Authenticatable
     const ROLE_USER = 'USER';
     const ROLE_ADMIN = 'ADMIN';
 
+    public function like()
+    {
+        return $this->belongsToMany(Post::class, 'likes', 'user_id', 'post_id');
+    }
 }
