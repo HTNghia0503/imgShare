@@ -101,4 +101,20 @@ class PostController extends Controller
         return response()->json(['liked' => !$liked, 'likequantity' => $post->likequantity]);
     }
 
+    public function storeComment(Request $request, Post $post)
+    {
+        $request->validate([
+            'comment' => 'required',
+        ]);
+
+        $post_id = $post->id;
+        $user = Auth::user();
+        $comments = $request->input('comment');
+        $created_at = Carbon::now();
+
+        $user->comment()->attach($post_id, ['comment' => $comments, 'created_at' => $created_at]);
+
+        return redirect()->route('detailPost', ['postId' => $post_id]);
+    }
+
 }

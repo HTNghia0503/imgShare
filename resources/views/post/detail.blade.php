@@ -36,9 +36,7 @@
                                     @endforeach
                                 @endif
                             </select>
-                            {{-- @php
-                                dd($collection->id);
-                            @endphp --}}
+
                             @if ($post->user_id !== Auth::user()->id) <!-- Kiểm tra xem bài đăng không phải của người dùng hiện tại -->
 
                                 <button id="save-button-post" type="submit" data-saved="0">Lưu</button>
@@ -91,32 +89,24 @@
                         <label>Nhận xét</label>
                     </div>
                 </div>
-                <div class="d-flex comment-area">
-                    {{-- <p>
-                        Chưa có nhận xét nào! Bạn có nhận xét gì về bài đăng, hãy để lại nhận xét để cùng thảo luận nào!
-                    </p> --}}
-                    <div class="d-flex comment-section">
-                        {{-- <img src="{{ asset('img/avt-user/' . $comment->user->avatar) }}" alt="Avatar" width="45px" height="45px" style="object-fit: cover; border-radius: 50%;">
-                        <a href="#">{{ $comment->user->name }}</a>
-                        <span>{{ $comment->content }}</span> --}}
-                        <img src="{{ asset('img/avt-user/gundam.jpg') }}" alt="Avatar" width="45px" height="45px" style="object-fit: cover; border-radius: 50%;">
-                        <div class="d-flex name-and-content">
-                            <a class="user-comment-name" href="#">Thông Thái</a>
-                            <span class="user-comment-content">Thật đáng yêu ! Thật đáng yêu !</span>
-                        </div>
-                    </div>
-                    <div class="d-flex comment-section">
-                        {{-- <img src="{{ asset('img/avt-user/' . $comment->user->avatar) }}" alt="Avatar" width="45px" height="45px" style="object-fit: cover; border-radius: 50%;">
-                        <a href="#">{{ $comment->user->name }}</a>
-                        <span>{{ $comment->content }}</span> --}}
-                        <img src="{{ asset('img/avt-user/tiger.jpg') }}" alt="Avatar" width="45px" height="45px" style="object-fit: cover; border-radius: 50%;">
-                        <div class="d-flex name-and-content">
-                            <a class="user-comment-name" href="#">Hoàng Duy</a>
-                            <span class="user-comment-content">Kawaii !</span>
-                        </div>
-                    </div>
 
+                {{-- Vùng hiển thị comment của post --}}
+                <div class="d-flex comment-area">
+                    @if ($comments->count() > 0)
+                        @foreach ($comments as $comment)
+                            <div class="d-flex comment-section">
+                                <img src="{{ asset('img/avt-user/' . $comment->user->avatar) }}" alt="Avatar" width="45px" height="45px" style="object-fit: cover; border-radius: 50%;">
+                                <div class="d-flex name-and-content">
+                                    <a class="user-comment-name" href="#">{{ $comment->user->name }}</a>
+                                    <span class="user-comment-content">{{ $comment->comment }}</span>
+                                </div>
+                            </div>
+                        @endforeach
+                    @else
+                        <p>Chưa có nhận xét nào! Bạn có nhận xét gì về bài đăng, hãy để lại nhận xét để cùng thảo luận nào!</p>
+                    @endif
                 </div>
+
                 <div class="interactive-area">
                     <div class="d-flex like-area">
                         <label>Bạn thích ảnh này chứ ?</label>
@@ -129,15 +119,21 @@
                             @endif
                         </div>
                     </div>
-                    <div class="d-flex user-comment">
-                        <div class="user-avt">
-                            <img src="{{ asset('img/avt-user/' . Auth::user()->avatar) }}" alt="Avatar" width="50px" height="50px" style="object-fit: cover;">
+
+                    {{-- Form Comment --}}
+                    <form action="{{ route('post.comments.store', ['post' => $post->id]) }}" method="POST">
+                        @csrf
+                        <div class="d-flex user-comment">
+                            <div class="user-avt">
+                                <img src="{{ asset('img/avt-user/' . Auth::user()->avatar) }}" alt="Avatar" width="50px" height="50px" style="object-fit: cover;">
+                            </div>
+                            <div class="comment-box" id="comment-box">
+                                <input type="text" name="comment" id="comment-input" placeholder="Bạn nghĩ gì...">
+                                <button type="submit" id="confirm-button"><i class="fa-solid fa-angles-right"></i></button>
+                            </div>
                         </div>
-                        <div class="comment-box" id="comment-box">
-                            <input type="text" id="comment-input" placeholder="Bạn nghĩ gì...">
-                            <button id="confirm-button"><i class="fa-solid fa-angles-right"></i></button>
-                        </div>
-                    </div>
+                    </form>
+                    {{-- End Form --}}
                 </div>
             </div>
         </div>

@@ -48,6 +48,7 @@ Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'user', 'middle
     // Xử lý trong xem chi tiết Post
     Route::post('/save-post', 'PostController@savePost')->name('savePost'); // Lưu hình ảnh (Post) vào bộ sưu tập (Collection)
     Route::post('/like-post', 'PostController@likePost')->name('likePost'); // Like hình ảnh (Post)
+    Route::post('/posts/{post}/comments', 'PostController@storeComment')->name('post.comments.store'); // Bình luận bài đăng (Post)
 
     // Image (Hình ảnh)
     // Route::get('/view-full-image/{postId}', 'PostController@viewFullImage')->name('viewFullImage');
