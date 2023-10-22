@@ -12,18 +12,18 @@
         <div class="post-in-colection">
             <div class="d-flex manage-post-coll">
                 @foreach ($posts_in as $item)
-                @php
-                    dd($post->id);
-                @endphp
-
-                    <div class="post-saved">
-                        <a href="">
-                            <div class="post-saved-img">
-                                <img src="{{ asset('img/home-img/' . $post->img_path) }}" alt="image" width="335px" height="210px" style="border-radius: 16px; object-fit: cover;">
+                    @foreach ($posts as $post)
+                        @if ($post->id === $item->post_id)
+                            <div class="post-saved">
+                                <a class="post-link" href="{{ route('detailPost', ['postId' => $post->id]) }}">
+                                    <div class="post-saved-img">
+                                        <img src="{{ asset('img/home-img/' . $post->img_path) }}" alt="image" width="335px" height="210px" style="border-radius: 16px; object-fit: cover;">
+                                    </div>
+                                    <div class="post-saved-title">{{ $post->title }}</div>
+                                </a>
                             </div>
-                            <div class="post-saved-title">{{ $post->title }}</div>
-                        </a>
-                    </div>
+                        @endif
+                    @endforeach
                 @endforeach
                 <div class="collection-item-last"></div>
             </div>

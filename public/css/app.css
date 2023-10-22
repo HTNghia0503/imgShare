@@ -467,7 +467,7 @@
     transform: scale(1.05); /* Phóng to nút một chút khi hover */
 }
 
-/* Profile - Tabmanage */
+/* Profile - Tab manage */
 /* Ẩn nội dung của tab Đã lưu, chỉ hiển thị nội dung của tab đầu tiên (Đã tạo) */
 #saved {
     display: none;
@@ -608,6 +608,34 @@
 
 .collection-created-at {
     margin-top: 16px;
+}
+
+.manage-post-coll {
+    flex-wrap: wrap;
+}
+
+.post-link {
+    text-align: center;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 500;
+    color: #333;
+}
+
+.post-link:hover {
+    color: #333;
+}
+
+.post-saved {
+    margin: 32px 0 0 32px;
+}
+
+/* .post-saved-img {
+    flex: 1 1 auto;
+} */
+
+.post-saved-title {
+    margin-top: 8px;
 }
 
 /* Profile - Update */
