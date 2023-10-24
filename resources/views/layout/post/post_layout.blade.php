@@ -43,9 +43,18 @@
                 </div>
                 <div class="home-profile">
                     @if (Auth::check())
-                        <a href="{{ route('profile') }}">
-                            <img src="{{ asset('img/avt-user/' . Auth::user()->avatar) }}" alt="Avatar" height="56px" width="56px" style="border-radius: 50%; object-fit: cover;">
-                        </a>
+                        <div class="dropdown">
+                            <a href="#" id="profile-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="{{ asset('img/avt-user/' . Auth::user()->avatar) }}" alt="Avatar" height="56px" width="56px" style="border-radius: 50%; object-fit: cover;">
+                            </a>
+                            <ul class="dropdown-menu profile-dropdown" aria-labelledby="profile-dropdown">
+                                <li><a class="dropdown-item" href="{{ route('profile') }}">Quản lý hồ sơ</a></li>
+                                <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Đăng xuất</a></li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="GET" style="display: none;">
+                                    @csrf
+                                </form>
+                            </ul>
+                        </div>
                     @endif
                 </div>
             </div>

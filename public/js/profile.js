@@ -21,12 +21,20 @@ function openTab(evt, tabName = "created") {
 }
 
 // Mở tab mặc định (Đã tạo) khi trang web được nạp
-document.querySelector('.tablinks.active').click();
+// document.querySelector('.tablinks.active').click();
+var activeTab = document.querySelector('.tablinks.active');
+if (activeTab) {
+    activeTab.click();
+}
 // Hiển thị tab Bộ sưu tập - End
 
 // Hiển thị form Tạo bảng lưu khi nhấn nút
-document.getElementById("collectionLink").addEventListener("click", function(event) {
-    event.preventDefault(); // Ngăn chặn hành động mặc định của liên kết (chuyển hướng)
-    var myModal = new bootstrap.Modal(document.getElementById('collectionModal'));
-    myModal.show();
-});
+var showCreateCollection = document.getElementById("collectionLink");
+
+if (showCreateCollection) {
+    showCreateCollection.addEventListener("click", function(event) {
+        event.preventDefault(); // Ngăn chặn hành động mặc định của liên kết (chuyển hướng)
+        var myModal = new bootstrap.Modal(document.getElementById('collectionModal'));
+        myModal.show();
+    });
+}

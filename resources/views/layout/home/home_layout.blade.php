@@ -12,6 +12,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Liên kết đến Font Awesome qua CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    {{-- jQuery --}}
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -34,16 +36,23 @@
                 </div>
                 <div class="home-search flex-grow-1">
                     <form class="d-flex">
-                        <!-- <input type="text" placeholder="&#xF002; Search" style="font-family:Arial, FontAwesome" /> -->
-                        <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
                         <input class="form-control me-2 home-search-bar" type="search" placeholder="&#xF002;  Nhập từ khóa tìm kiếm" style="font-family:Arial, FontAwesome" aria-label="Search">
                     </form>
                 </div>
                 <div class="home-profile">
                     @if (Auth::check())
-                        <a href="{{ route('profile') }}">
-                            <img src="{{ asset('img/avt-user/' . Auth::user()->avatar) }}" alt="Avatar" height="56px" width="56px" style="border-radius: 50%; object-fit: cover;">
-                        </a>
+                        <div class="dropdown">
+                            <a href="#" id="profile-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="{{ asset('img/avt-user/' . Auth::user()->avatar) }}" alt="Avatar" height="56px" width="56px" style="border-radius: 50%; object-fit: cover;">
+                            </a>
+                            <ul class="dropdown-menu profile-dropdown" aria-labelledby="profile-dropdown">
+                                <li><a class="dropdown-item" href="{{ route('profile') }}">Quản lý hồ sơ</a></li>
+                                <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Đăng xuất</a></li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="GET" style="display: none;">
+                                    @csrf
+                                </form>
+                            </ul>
+                        </div>
                     @endif
                 </div>
             </div>
@@ -59,9 +68,8 @@
         </div>
     </footer> --}}
 
-    <!-- Thêm liên kết tới tệp JavaScript của Bootstrap 5 và jQuery (nếu cần) -->
+    <!-- Thêm liên kết tới tệp JavaScript của Bootstrap 5-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="{{ asset('js/edit.js') }}"></script>
 </body>
 </html>

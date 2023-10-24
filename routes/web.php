@@ -23,6 +23,8 @@ Route::group(['namespace' => 'App\Http\Controllers\Auth'], function () {
 
     Route::get('/register', 'RegisterController@register')->name('register');
     Route::post('/register', 'RegisterController@postRegister');
+
+    Route::get('/logout', 'AuthController@logout')->name('logout');
 });
 
 // Các route khi đăng nhập với quyền ADMIN
@@ -37,7 +39,9 @@ Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'user', 'middle
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/profile', 'ProfileController@profile')->name('profile');
 
-    Route::get('/update', 'ProfileController@showUpdate')->name('update');
+    Route::get('/update/{id}', 'ProfileController@showUpdate')->name('update');
+    Route::post('/update/{id}', 'ProfileController@update')->name('update');
+    Route::patch('/update/{id}', 'ProfileController@update')->name('update');
 
     // Post (Bài đăng)
     Route::get('/create-post', 'PostController@create')->name('createPost');
@@ -50,9 +54,6 @@ Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'user', 'middle
     Route::post('/save-post', 'PostController@savePost')->name('savePost'); // Lưu hình ảnh (Post) vào bộ sưu tập (Collection)
     Route::post('/like-post', 'PostController@likePost')->name('likePost'); // Like hình ảnh (Post)
     Route::post('/posts/{post}/comments', 'PostController@storeComment')->name('post.comments.store'); // Bình luận bài đăng (Post)
-
-    // Image (Hình ảnh)
-    // Route::get('/view-full-image/{postId}', 'PostController@viewFullImage')->name('viewFullImage');
 
     // Collection (Bộ sưu tập)
     Route::post('/create-collection', 'CollectionController@createCollection')->name('createCollection');

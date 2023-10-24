@@ -19,7 +19,7 @@
                     <script>
                         const updateBtn = document.getElementById('updateProfile');
                         updateBtn.addEventListener('click', function() {
-                            window.location.href = "{{ route('update') }}";
+                            window.location.href = "{{ route('update', ['id' => $user->id]) }}";
                         });
                     </script>
                     {{-- End --}}
