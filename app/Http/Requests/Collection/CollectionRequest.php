@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Post;
+namespace App\Http\Requests\Collection;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PostRequest extends FormRequest
+class CollectionRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -33,5 +33,4 @@ class PostRequest extends FormRequest
             'title.max' => 'Tiêu đề không được quá 20 kí tự!',
         ];
     }
-
 }

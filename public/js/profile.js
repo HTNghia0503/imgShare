@@ -34,7 +34,7 @@ var showCreateCollection = document.getElementById("collectionLink");
 if (showCreateCollection) {
     showCreateCollection.addEventListener("click", function(event) {
         event.preventDefault(); // Ngăn chặn hành động mặc định của liên kết (chuyển hướng)
-        var myModal = new bootstrap.Modal(document.getElementById('collectionModal'));
+        var myModal = new bootstrap.Modal(document.getElementById('createCollectionModal'));
         myModal.show();
     });
 }

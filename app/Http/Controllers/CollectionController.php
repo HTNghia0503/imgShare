@@ -2,29 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Collection\CollectionRequest;
 use Illuminate\Http\Request;
 use App\Models\Collection;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class CollectionController extends Controller
 {
-    // Tạo bộ sưu tập mới
-    public function createCollection(Request $request)
+    public function createCollection(CollectionRequest $request)
     {
-        $collection = new Collection();
-        $collection->user_id = Auth::user()->id; // Lấy ID của người đăng nhập
-        $collection->title = $request->input('collectionName');
-        $collection->save();
-        dd($collection);
-        return response()->json(['success' => true]);
+        try {
+            $data = $request->all();
+            $data['user_id'] = auth()->user()->id;
+            $data['created_at'] = Carbon::now();
+
+            $collections = Collection::create($data);
+
+            toastr()->success('Tạo bộ sưu tập mới thành công! Bạn có thể vào tab để xem lại!', 'Thông báo', ['timeOut' => 2000]);
+
+        } catch (\Exception $exception) {
+            Log::error("ERROR => CollectionController@createCollection => " . $exception->getMessage());
+            toastr()->error('Tạo bộ sưu tập mới thất bại!', 'Thông báo', ['timeOut' => 2000]);
+            return redirect()->route('profile');
+        }
+        return redirect()->route('profile');
     }
-
-    // Lấy danh sách bộ sưu tập
-    public function getCollections()
-    {
-        $collections = Collection::where('user_id', Auth::user()->id)->get();
-
-        return response()->json(['success' => true, 'collections' => $collections]);
-    }
-
 }

@@ -57,6 +57,5 @@ Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'user', 'middle
 
     // Collection (Bộ sưu tập)
     Route::post('/create-collection', 'CollectionController@createCollection')->name('createCollection');
-    Route::get('/get-collection', 'CollectionController@getCollection')->name('getCollection');
 
 });

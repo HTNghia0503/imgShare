@@ -25,7 +25,7 @@
                     {{-- End --}}
                     <div class="create-collection">
                         <button id="collectionLink" class="profile-tool-add" type="button">
-                            Tạo bảng lưu
+                            Tạo bộ sưu tập
                         </button>
                     </div>
                 </div>
@@ -115,18 +115,20 @@
                     <div>
                         <h5 class="modal-title modal-title-collection" id="collectionModalLabel">Tạo bộ sưu tập</h5>
                     </div>
-
                     <!-- Form bộ sưu tập - Start -->
-                    <form id="collection">
+                    <form id="createCollectionForm" method="POST" action="{{ route('createCollection') }}">
+                        @csrf
                         <div class="mb-2">
                             <label for="collectionName" class="form-label form-label-format">Tên bộ sưu tập</label>
                             <input type="text" name="title" class="form-control form-control-format" id="collectionName" required>
                         </div>
+                        @error('title')
+                            <small id="" class="form-text text-danger">{{ $errors->first('title') }}</small>
+                        @enderror
                         <p class="collection-note">Bạn nên đặt tên bộ sưu tập là cụm từ đại diện dễ nhớ, dễ hiểu nhé !</p>
                         <button type="submit" id="createCollectionBtn" class="btn btn-primary btn-submit-login btn-collection"><b>Khởi tạo</b></button>
                     </form>
                     <!-- Form bộ sưu tập - End -->
-
                 </div>
             </div>
         </div>
