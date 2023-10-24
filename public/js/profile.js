@@ -38,3 +38,14 @@ if (showCreateCollection) {
         myModal.show();
     });
 }
+
+// Hiển thị form Chỉnh sửa bảng lưu khi nhấn nút
+var showUpdateCollection = document.getElementById("updateCollectionLink");
+
+if (showUpdateCollection) {
+    showUpdateCollection.addEventListener("click", function(event) {
+        event.preventDefault();
+        var myModal = new bootstrap.Modal(document.getElementById('updateCollectionModal'));
+        myModal.show();
+    });
+}

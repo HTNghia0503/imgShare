@@ -8,7 +8,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/favicon.ico') }}">
     <!-- Link tới tệp CSS của Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="{{ asset('vendor/toastr/toastr.min.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('vendor/toastr/toastr.min.css') }}" rel="stylesheet"> --}}
     <!-- Link tới tệp CSS tùy chỉnh thêm của bản thân -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Liên kết đến Font Awesome qua CDN -->
@@ -72,7 +72,7 @@
     </footer> --}}
 
     <!-- Thêm liên kết tới tệp JavaScript của Bootstrap 5 và jQuery (nếu cần) -->
-    <script src="{{ asset('vendor/toastr/toastr.min.js') }}"></script>
+    {{-- <script src="{{ asset('vendor/toastr/toastr.min.js') }}"></script> --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <script src="{{ asset('js/edit.js') }}"></script>
     <script src="{{ asset('js/profile.js') }}"></script>

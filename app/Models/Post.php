@@ -42,4 +42,9 @@ class Post extends Model
     {
         return $this->belongsToMany(User::class, 'comments', 'post_id', 'user_id');
     }
+
+    public function collections()
+    {
+        return $this->belongsToMany(Collection::class)->withPivot('collection_id');
+    }
 }
