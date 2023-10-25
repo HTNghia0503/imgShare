@@ -5,21 +5,20 @@
             <div class="">
                 <form method="POST" action="" enctype="multipart/form-data">
                     @csrf
-                    <div class="d-flex">
-                        <div class="col-md-4 dropzone-background">
+                    <div class="d-flex post-container">
+                        <div class="dropzone-background" style="min-width: 35%; max-width: 70%;">
                             <div id="drop-area" class="drop-area">
                                 <div class="drop-content">
                                     <div class="custom-file-upload image-preview">
-                                        <input id="file-upload" type="file" name="img_path" accept="image/*">
-                                        <label for="file-upload" class="custom-file-label"><i class="fa-solid fa-circle-arrow-up"></i></label>
-                                        <!-- <img id="selected-image" src="#" alt=""> -->
+                                        <label for="img-upload" class="custom-file-label"><i class="fa-solid fa-circle-arrow-up"></i></label>
                                     </div>
                                     <p>Kéo thả hoặc nhấn vào <br> để chọn hình ảnh</p>
                                 </div>
+                                <img id="selected-image-review" src="#" alt="Image" width="100%" height="100%" style="object-fit: cover; border-radius: 8px;">
+                                <input id="img-upload" type="file" name="img_path" accept="image/*">
                             </div>
                         </div>
-                        <div class="col-md-1"></div>
-                        <div class="col-md-7 create-info">
+                        <div class="create-info" style="min-width: 30%; max-width: 70%;">
                             <div class="d-flex save-to-collection stc-create">
                                 <label class="col-md-4" for="pickCollection">Chọn bộ sưu tập</label>
                                 <div class="btn-group-save">
@@ -27,21 +26,9 @@
                                         @foreach ($collections as $collection)
                                             <option value="{{ $collection->id }}">{{ $collection->title }}</option>
                                         @endforeach
-                                        <option value="create-new-collection" class="create-collection-option" data-toggle="modal" data-target="#createCollectionModal">Tạo bộ sưu tập mới</option>
                                     </select>
                                 </div>
                             </div>
-                            {{-- Xử lý khi chọn "Tạo bộ sưu tập mới" --}}
-                            <script>
-                                $(document).ready(function () {
-                                    $('#pickCollection').change(function () {
-                                        if ($(this).val() === 'create-new-collection') {
-                                            $('#createCollectionModal').modal('show');
-                                        }
-                                    });
-                                });
-                            </script>
-                            {{-- End --}}
                             <div class="upload-title-post">
                                 <input type="text" name="title" placeholder="Tiêu đề">
                             </div>
@@ -61,4 +48,19 @@
         </div>
     </div>
 
+    <script>
+        $(document).ready(function () {
+            // Bắt sự kiện khi người dùng chọn tệp ảnh
+            $('#img-upload').on('change', function () {
+                // Hiển thị tệp ảnh được chọn lên giao diện
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('#selected-image-review').attr('src', e.target.result);
+                    };
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+        });
+    </script>
 @stop
