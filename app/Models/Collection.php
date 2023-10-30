@@ -23,7 +23,7 @@ class Collection extends Model
 
     public function post()
     {
-        return $this->belongsToMany(Post::class);
+        return $this->belongsToMany(Post::class, 'collection_post', 'collection_id', 'post_id');
     }
 
     // Dùng cho mục đích delete collection

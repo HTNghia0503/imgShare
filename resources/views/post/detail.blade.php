@@ -180,6 +180,33 @@
                         @error('description')
                             <small id="" class="form-text text-danger">{{ $errors->first('description') }}</small>
                         @enderror
+                        <div class="mb-2 mt-3 update-post-att">
+                            <label for="post_collection" class="form-label form-label-format">Thay đổi bộ sưu tập</label>
+                            <div class="save-to-collection update-collection-post">
+                                <select name="collection_id" class="form-control form-control-format" id="post_collection">
+                                    @if ($defaultCollectionId === null)
+                                        <option value="" {{ is_null($post->collection_id) ? 'selected' : '' }}>Chọn một bộ sưu tập</option>
+                                        @foreach ($collections as $collection)
+                                            <option value="{{ $collection->id }}" {{ $collection->id == $post->collection_id ? 'selected' : '' }}>
+                                                {{ $collection->title }}
+                                            </option>
+                                        @endforeach
+                                    @else
+                                        <option value="{{ $defaultCollection->id }}" {{ $defaultCollection->id == $post->collection_id ? 'selected' : '' }}>{{ $defaultCollection->title }}</option>
+                                        @foreach ($collections as $collection)
+                                            @if ($collection->id != $defaultCollectionId)
+                                                <option value="{{ $collection->id }}" {{ $collection->id == $post->collection_id ? 'selected' : '' }}>
+                                                    {{ $collection->title }}
+                                                </option>
+                                            @endif
+                                        @endforeach
+                                    @endif
+                                </select>
+                            </div>
+                        </div>
+                        @error('collection_id')
+                            <small id="" class="form-text text-danger">{{ $errors->first('collection_id') }}</small>
+                        @enderror
                         <button type="submit" id="updatePostBtn" class="btn btn-primary btn-submit-login btn-collection"><b>Lưu thay đổi</b></button>
                     </form>
                     <!-- Form bộ sưu tập - End -->

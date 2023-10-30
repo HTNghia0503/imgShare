@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 30, 2023 lúc 02:55 PM
+-- Thời gian đã tạo: Th10 30, 2023 lúc 04:26 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -43,7 +43,9 @@ INSERT INTO `collections` (`id`, `user_id`, `title`, `created_at`, `updated_at`)
 (1, 1, 'Phong Cảnh', '2023-10-18 10:17:20', NULL),
 (2, 1, 'Động Vật', '2023-10-18 10:21:05', '2023-10-30 12:21:49'),
 (3, 4, 'Hội họa', '2023-10-18 10:22:58', NULL),
-(5, 5, 'Gundam', NULL, NULL);
+(5, 5, 'Gundam', NULL, NULL),
+(8, 4, 'Giày thể thao', '2023-10-30 15:18:22', '2023-10-30 15:18:22'),
+(9, 4, 'Thú cưng', '2023-10-30 15:19:46', '2023-10-30 15:19:46');
 
 -- --------------------------------------------------------
 
@@ -68,7 +70,9 @@ INSERT INTO `collection_post` (`id`, `collection_id`, `post_id`, `created_at`, `
 (9, 2, 6, NULL, NULL),
 (10, 2, 7, NULL, NULL),
 (11, 2, 16, NULL, NULL),
-(12, 1, 17, NULL, NULL);
+(12, 1, 17, NULL, NULL),
+(30, 8, 13, NULL, NULL),
+(33, 9, 6, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -298,13 +302,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `collections`
 --
 ALTER TABLE `collections`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `collection_post`
 --
 ALTER TABLE `collection_post`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT cho bảng `comments`

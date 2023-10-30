@@ -21,10 +21,13 @@ class HomeController extends Controller
         $post = Post::find($postId);
         $collections = Collection::where('user_id', auth()->user()->id)->get(); // Xác định các Collections thuộc sở hữu của người đang Đăng nhập
         $user = Auth::user();
+        $defaultCollection = $post->collection->first(); // Lấy phần tử đầu tiên trong collection
+        $defaultCollectionId = $defaultCollection ? $defaultCollection->id : null; // Lấy ID nếu tồn tại, nếu không tồn tại thì gán null
+        // dd($defaultCollectionId);
 
         $comments = Comment::where('post_id', $postId)->get(); // Lấy tất cả các comment có post_id trùng với post_id đang xem
 
-        return view('post.detail', ['post' => $post, 'collections' => $collections, 'user'=> $user, 'comments'=> $comments]);
+        return view('post.detail', ['post' => $post, 'collections' => $collections, 'user'=> $user, 'comments'=> $comments, 'defaultCollectionId' => $defaultCollectionId, 'defaultCollection' => $defaultCollection]);
     }
 
     public function detailCollection($collectionId) {

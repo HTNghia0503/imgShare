@@ -962,6 +962,10 @@
     background-size: 0.65rem auto;
 }
 
+.update-collection-post select {
+    margin: 0 !important;
+}
+
 .save-to-collection button {
     border: none;
     border-top-right-radius: 8px;

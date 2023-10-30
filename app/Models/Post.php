@@ -30,7 +30,7 @@ class Post extends Model
 
     public function collection()
     {
-        return $this->belongsToMany(Collection::class);
+        return $this->belongsToMany(Collection::class, 'collection_post', 'post_id', 'collection_id');
     }
 
     public function like()

@@ -84,6 +84,17 @@ class PostController extends Controller
             $data = $request->all();
             $data['updated_at'] = Carbon::now();
 
+            $post = Post::find($id);
+            $collectionId = $data['collection_id'];
+
+            // Xóa tất cả các bản ghi trong bảng pivot collection_post cho bài đăng này
+            $post->collections()->detach();
+
+            // Nếu collectionId khác null, thêm bản ghi mới vào bảng pivot
+            if (!is_null($collectionId)) {
+                $post->collections()->attach($collectionId);
+            }
+
             Post::find($id)->update($data);
             toastr()->success('Cập nhật thành công!', 'Thông báo', ['timeOut' => 2000]);
         } catch (\Exception $exception) {
