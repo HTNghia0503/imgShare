@@ -23,11 +23,13 @@ class HomeController extends Controller
         $user = Auth::user();
         $defaultCollection = $post->collection->first(); // Lấy phần tử đầu tiên trong collection
         $defaultCollectionId = $defaultCollection ? $defaultCollection->id : null; // Lấy ID nếu tồn tại, nếu không tồn tại thì gán null
-        // dd($defaultCollectionId);
+
+        $collection_contain = $post->collection;
+        // dd($collection_contain);
 
         $comments = Comment::where('post_id', $postId)->get(); // Lấy tất cả các comment có post_id trùng với post_id đang xem
 
-        return view('post.detail', ['post' => $post, 'collections' => $collections, 'user'=> $user, 'comments'=> $comments, 'defaultCollectionId' => $defaultCollectionId, 'defaultCollection' => $defaultCollection]);
+        return view('post.detail', ['post' => $post, 'collections' => $collections, 'user'=> $user, 'comments'=> $comments, 'defaultCollectionId' => $defaultCollectionId, 'defaultCollection' => $defaultCollection, 'collection_contain'=> $collection_contain]);
     }
 
     public function detailCollection($collectionId) {

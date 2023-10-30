@@ -24,8 +24,9 @@
                         @if ($post->id === $item->post_id)
                             <div class="post-saved">
                                 <a class="post-link" href="{{ route('detailPost', ['postId' => $post->id]) }}">
-                                    <div class="post-saved-img">
+                                    <div class="post-saved-img" style="position: relative">
                                         <img src="{{ asset('img/home-img/' . $post->img_path) }}" alt="image" width="335px" height="210px" style="border-radius: 16px; object-fit: cover;">
+                                        {{-- <button type="button">Xóa</button> --}}
                                     </div>
                                     <div class="post-saved-title">{{ $post->title }}</div>
                                 </a>

@@ -648,9 +648,26 @@
     margin: 32px 0 0 32px;
 }
 
-/* .post-saved-img {
-    flex: 1 1 auto;
-} */
+.post-saved-img button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    padding: 8px 16px;
+    font-weight: 500;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.post-saved-img:hover button {
+    opacity: 1;
+}
+
+.post-saved-img button:hover {
+    background-color: #e2e2e2;
+}
 
 .post-saved-title {
     margin-top: 8px;

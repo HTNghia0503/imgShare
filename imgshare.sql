@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 30, 2023 lúc 04:26 PM
+-- Thời gian đã tạo: Th10 30, 2023 lúc 06:49 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -45,7 +45,8 @@ INSERT INTO `collections` (`id`, `user_id`, `title`, `created_at`, `updated_at`)
 (3, 4, 'Hội họa', '2023-10-18 10:22:58', NULL),
 (5, 5, 'Gundam', NULL, NULL),
 (8, 4, 'Giày thể thao', '2023-10-30 15:18:22', '2023-10-30 15:18:22'),
-(9, 4, 'Thú cưng', '2023-10-30 15:19:46', '2023-10-30 15:19:46');
+(9, 4, 'Thú cưng', '2023-10-30 15:19:46', '2023-10-30 15:19:46'),
+(10, 1, 'Thời trang', '2023-10-30 16:47:24', '2023-10-30 16:47:24');
 
 -- --------------------------------------------------------
 
@@ -67,12 +68,13 @@ CREATE TABLE `collection_post` (
 
 INSERT INTO `collection_post` (`id`, `collection_id`, `post_id`, `created_at`, `updated_at`) VALUES
 (1, 3, 8, NULL, NULL),
-(9, 2, 6, NULL, NULL),
 (10, 2, 7, NULL, NULL),
 (11, 2, 16, NULL, NULL),
 (12, 1, 17, NULL, NULL),
 (30, 8, 13, NULL, NULL),
-(33, 9, 6, NULL, NULL);
+(34, 2, 6, NULL, NULL),
+(35, 1, 18, NULL, NULL),
+(36, 10, 13, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -119,7 +121,9 @@ INSERT INTO `likes` (`id`, `user_id`, `post_id`, `created_at`, `updated_at`) VAL
 (4, 4, 7, NULL, NULL),
 (5, 5, 6, NULL, NULL),
 (8, 4, 6, NULL, NULL),
-(17, 4, 17, NULL, NULL);
+(17, 4, 17, NULL, NULL),
+(19, 1, 6, NULL, NULL),
+(20, 1, 13, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -176,12 +180,13 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `user_id`, `title`, `description`, `img_path`, `status`, `likequantity`, `created_at`, `updated_at`) VALUES
-(6, 1, 'Mèo', 'Mèo con cute <3', 'LssvEyPC5mswKD6TzQqZaaXsDlMqpqXzfVfEq6Cr.jpg', NULL, 2, '2023-10-18 18:29:37', '2023-10-24 13:22:45'),
+(6, 1, 'Mèo', 'Mèo con dễ thương', 'LssvEyPC5mswKD6TzQqZaaXsDlMqpqXzfVfEq6Cr.jpg', NULL, 3, '2023-10-18 18:29:37', '2023-10-30 16:21:56'),
 (7, 1, 'Chó', 'Chú chó đáng yêu của tôi !', 'ziKdFNBS1letTFv765mPqjNyuNiIcHsBanpRqn0U.jpg', NULL, 1, '2023-10-18 19:03:42', '2023-10-30 13:35:55'),
 (8, 4, 'MonaLisa', 'Một bức chân dung thế kỷ 16 được vẽ bằng chất liệu sơn dầu trên một tấm gỗ dương tại Florence bởi Leonardo da Vinci trong thời kì Phục Hưng Ý.', 'P3I0dezA6g3c9WYmXEIjwQ1wNlkkNmwdi1CpyCo5.jpg', NULL, 0, '2023-10-18 19:10:40', '2023-10-21 20:02:57'),
-(13, 4, 'Sneaker', 'Đôi giày của tôi <3', 'PtJ1QBQDWMQp6eo0dR5yo1q2njNwHzfbP3OtrSTm.jpg', NULL, 0, '2023-10-20 12:48:31', '2023-10-20 12:48:31'),
+(13, 4, 'Sneaker', 'Đôi giày của tôi <3', 'PtJ1QBQDWMQp6eo0dR5yo1q2njNwHzfbP3OtrSTm.jpg', NULL, 1, '2023-10-20 12:48:31', '2023-10-30 16:51:55'),
 (16, 1, 'Đại bàng', 'Loài chim to lớn đại diện của tự do và quyền lực', 'kShJiArnPtftBWstQ5kIZKTJxTr3gIBKHhVpqees.jpg', NULL, 0, '2023-10-21 22:15:23', '2023-10-21 22:15:23'),
-(17, 1, 'Núi Fuji', 'Ngọn núi tuyệt đẹp của xứ sở mặt trời mọc', 'fuji.jpg', NULL, 1, '2023-10-21 22:16:13', '2023-10-24 15:41:25');
+(17, 1, 'Núi Fuji', 'Ngọn núi tuyệt đẹp của xứ sở mặt trời mọc', 'fuji.jpg', NULL, 1, '2023-10-21 22:16:13', '2023-10-24 15:41:25'),
+(18, 1, 'Digital Art', 'Ảnh vẽ kỹ thuật số', 'LcGLLh64KARPh62Eofq7ECNhT9fEtgMhwEWeWAwe.jpg', NULL, 0, '2023-10-30 16:45:14', '2023-10-30 16:45:14');
 
 -- --------------------------------------------------------
 
@@ -302,13 +307,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `collections`
 --
 ALTER TABLE `collections`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `collection_post`
 --
 ALTER TABLE `collection_post`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT cho bảng `comments`
@@ -320,7 +325,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT cho bảng `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT cho bảng `migrations`
@@ -332,7 +337,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT cho bảng `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT cho bảng `topics`

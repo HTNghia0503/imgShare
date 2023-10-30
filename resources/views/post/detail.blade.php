@@ -59,29 +59,7 @@
                             @endif
                         </div>
                     </form>
-
-                    {{-- <script>
-                        // Lấy giá trị đã chọn từ localStorage
-                        var selectedCollectionId = localStorage.getItem('selectedCollectionId');
-                        var select = document.getElementById('pickCollectionSave');
-
-                        // Kiểm tra xem có giá trị đã lưu trong localStorage không
-                        if (selectedCollectionId) {
-                            // Khôi phục giá trị đã chọn từ localStorage
-                            select.value = selectedCollectionId;
-                        }
-
-                        // Lưu giá trị đã chọn vào localStorage khi thay đổi
-                        select.addEventListener('change', function() {
-                            selectedCollectionId = select.value;
-                            localStorage.setItem('selectedCollectionId', selectedCollectionId);
-                        });
-                    </script> --}}
-
-
                     {{-- End Form Save Post --}}
-
-
 
                     <div class="title-and-description">
                         <div class="detail-post-title">
