@@ -54,7 +54,7 @@
                         @csrf
                         <div class="mb-2">
                             <label for="collection_name" class="form-label form-label-format">Tên bộ sưu tập</label>
-                            <input type="text" name="title" class="form-control form-control-format" id="collection_name" required>
+                            <input type="text" name="title" class="form-control form-control-format" value="{{ old('title', $collection->title ?? '') }}" id="collection_name" required>
                         </div>
                         @error('title')
                             <small id="" class="form-text text-danger">{{ $errors->first('title') }}</small>

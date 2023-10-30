@@ -2,10 +2,10 @@
 @section('content')
     <div class="d-flex upload-main-bg">
         <div class="d-flex detail-info-bg">
-            <div class="img-frame" style="max-width: 70%; min-width: 30%">
+            <div class="img-frame" style="max-width: 68%; min-width: 30%">
                 <img src="{{ asset('img/home-img/' . $post->img_path) }}" alt="Full Image" width="100%" height="100%" style="object-fit: cover; border-radius: 8px;">
             </div>
-            <div class="d-flex info-frame" style="min-width: 30%; max-width: 70%">
+            <div class="d-flex info-frame" style="min-width: 32%; max-width: 70%">
                 <div class="info-frame-top">
 
                     {{-- Form Save Post -> Collection --}}
@@ -13,7 +13,17 @@
                         @csrf
                         <input type="hidden" name="post_id" value="{{ $post->id }}">
                         <div class="d-flex save-to-collection">
-                            <label for="pickCollectionSave">Chọn bộ sưu tập</label>
+                            <div class="dropdown">
+                                <a href="#" id="tools-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-bars"></i>
+                                </a>
+                                <ul class="dropdown-menu tools-dropdown" aria-labelledby="tools-dropdown">
+                                    <li><a class="dropdown-item" href="">Tìm kiếm các ảnh tương tự</a></li>
+                                    <li><a class="dropdown-item" href="">Chỉnh sửa bài đăng</a></li>
+                                    <li><a class="dropdown-item" href="">Xóa bài đăng</a></li>
+                                </ul>
+                            </div>
+                            {{-- <label for="pickCollectionSave">Chọn bộ sưu tập</label> --}}
 
                             @php
                                 $selectedCollectionId = !empty($_COOKIE['selectedCollectionId']) ? $_COOKIE['selectedCollectionId'] : null;

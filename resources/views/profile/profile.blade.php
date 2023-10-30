@@ -4,7 +4,7 @@
         <div class="profile-info">
             <div class="profile-info-content">
                 <div class="profile-avt">
-                    <img src="{{ asset('img/avt-user/' . Auth::user()->avatar)}}" alt="Avatar" width="250px" height="250px" style="object-fit: cover; border-radius: 50%;">
+                    <img src="{{ asset('img/avt-user/' . Auth::user()->avatar)}}" alt="Avatar" width="200px" height="200px" style="object-fit: cover; border-radius: 50%;">
                 </div>
                 <div class="profile-username">{{ Auth::user()->name }}</div>
                 <div class="profile-email">{{ Auth::user()->email }}</div>
@@ -44,7 +44,7 @@
                     <div class="personal-post">
                         <a href="{{ route('detailPost', ['postId' => $post->id]) }}">
                             <div class="personal-post-img">
-                                <img src="{{ asset('img/home-img/' . $post->img_path) }}" alt="image" width="335px" height="210px" style="border-radius: 16px; object-fit: cover;">
+                                <img src="{{ asset('img/home-img/' . $post->img_path) }}" alt="image" width="330px" height="210px" style="border-radius: 16px; object-fit: cover;">
                             </div>
                             <div class="personal-post-title">{{ $post->title }}</div>
                         </a>

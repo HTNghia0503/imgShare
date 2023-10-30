@@ -14,7 +14,7 @@
                                     </div>
                                     <p>Kéo thả hoặc nhấn vào <br> để chọn hình ảnh</p>
                                 </div>
-                                <img id="selected-image-review" src="#" alt="Image" width="100%" height="100%" style="object-fit: cover; border-radius: 8px;">
+                                <img id="selected-image-review" src="#" alt="Image" style="object-fit: cover; border-radius: 8px; width: 0; height: 0;">
                                 <input id="img-upload" type="file" name="img_path" accept="image/*">
                             </div>
                         </div>
@@ -55,8 +55,11 @@
                 // Hiển thị tệp ảnh được chọn lên giao diện
                 if (this.files && this.files[0]) {
                     var reader = new FileReader();
+                    var image = document.getElementById('selected-image-review');
                     reader.onload = function (e) {
                         $('#selected-image-review').attr('src', e.target.result);
+                        image.style.width = '100%'; // Đặt lại chiều rộng thành 100%
+                        image.style.height = '100%'; // Đặt lại chiều cao tự động để duy trì tỷ lệ khung hình
                     };
                     reader.readAsDataURL(this.files[0]);
                 }
