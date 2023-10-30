@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Post\PostRequest;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Collection;
@@ -76,6 +77,35 @@ class PostController extends Controller
         }
 
         return redirect()->route('detailPost', ['postId' => $post_id]);
+    }
+
+    public function updatePost(PostRequest $request, $id){
+        try {
+            $data = $request->all();
+            $data['updated_at'] = Carbon::now();
+
+            Post::find($id)->update($data);
+            toastr()->success('Cập nhật thành công!', 'Thông báo', ['timeOut' => 2000]);
+        } catch (\Exception $exception) {
+            Log::error("ERROR => PostController@updatePost => ". $exception->getMessage());
+            toastr()->error('Cập nhật thất bại!', 'Thông báo', ['timeOut' => 2000]);
+            return redirect()->route('detailPost', $id);
+        }
+        return redirect()->route('detailPost', $id);
+    }
+
+    public function deletePost(Request $request, $id){
+        try {
+            $post = Post::findOrFail($id);
+            if($post) $post->delete();
+
+            toastr()->success('Xóa thành công!', 'Thông báo', ['timeOut' => 2000]);
+        } catch (\Exception $exception) {
+            toastr()->error('Xóa thất bại!', 'Thông báo', ['timeOut' => 2000]);
+            Log::error("ERROR => PostController@deletePost => ". $exception->getMessage());
+            return redirect()->route('home');
+        }
+        return redirect()->route('home');
     }
 
     public function likePost(Request $request)

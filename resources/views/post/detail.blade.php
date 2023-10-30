@@ -13,16 +13,19 @@
                         @csrf
                         <input type="hidden" name="post_id" value="{{ $post->id }}">
                         <div class="d-flex save-to-collection">
-                            <div class="dropdown">
+                            <div class="dropdown dropdown-post">
                                 <a href="#" id="tools-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa-solid fa-bars"></i>
                                 </a>
                                 <ul class="dropdown-menu tools-dropdown" aria-labelledby="tools-dropdown">
-                                    <li><a class="dropdown-item" href="">Tìm kiếm các ảnh tương tự</a></li>
-                                    <li><a class="dropdown-item" href="">Chỉnh sửa bài đăng</a></li>
-                                    <li><a class="dropdown-item" href="">Xóa bài đăng</a></li>
+                                    <li><a class="dropdown-item" href="#">Tìm kiếm các ảnh tương tự</a></li>
+                                    @if (Auth::check() && $post->user_id == Auth::user()->id)
+                                        <li><a class="dropdown-item" href="#" id="updatePostLink">Chỉnh sửa bài đăng</a></li>
+                                        <li><a class="dropdown-item delete-post" data-id="{{ $post->id }}" href="#">Xóa bài đăng</a></li>
+                                    @endif
                                 </ul>
                             </div>
+
                             {{-- <label for="pickCollectionSave">Chọn bộ sưu tập</label> --}}
 
                             @php
@@ -148,6 +151,77 @@
             </div>
         </div>
     </div>
+
+    {{-- Modal chỉnh sửa post --}}
+    <div class="modal fade" id="updatePostModal" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close btn-close-form" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body modal-body-collection">
+                    <div>
+                        <h5 class="modal-title modal-title-collection" id="updatePostModalLabel">Chỉnh sửa bài đăng cá nhân</h5>
+                    </div>
+                    <!-- Form bộ sưu tập - Start -->
+                    <form id="updatePostForm" method="POST" action="{{ route('updatePost', ['id' => $post->id]) }}">
+                        @csrf
+                        <div class="mb-2 update-post-att">
+                            <label for="post_name" class="form-label form-label-format">Tiêu đề bài đăng</label>
+                            <input type="text" name="title" class="form-control form-control-format" value="{{ old('title', $post->title ?? '') }}" id="post_name" required>
+                        </div>
+                        @error('title')
+                            <small id="" class="form-text text-danger">{{ $errors->first('title') }}</small>
+                        @enderror
+                        <div class="mb-2 mt-3 update-post-att">
+                            <label for="post_description" class="form-label form-label-format">Mô tả bài đăng</label>
+                            <input type="text" name="description" class="form-control form-control-format" value="{{ old('description', $post->description ?? '') }}" id="post_description" required>
+                        </div>
+                        @error('description')
+                            <small id="" class="form-text text-danger">{{ $errors->first('description') }}</small>
+                        @enderror
+                        <button type="submit" id="updatePostBtn" class="btn btn-primary btn-submit-login btn-collection"><b>Lưu thay đổi</b></button>
+                    </form>
+                    <!-- Form bộ sưu tập - End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- Modal end --}}
+
+    {{-- Modal xác nhận Xóa --}}
+    <div class="modal fade" id="confirmDeletePostModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-content-delete">
+                <div class="modal-header modal-header-delete">
+                    <h5 class="modal-title modal-title-delete" id="updateCollectionModalLabel">Xác nhận xóa</h5>
+                    <button type="button" class="btn-close btn-close-form" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body modal-body-collection modal-body-delete-coll">
+                    <div class="warning-text">
+                        Bạn có chắc chắn muốn xóa bài đăng này?
+                    </div>
+                <div class="modal-footer">
+                    <a href="{{ route('detailPost', ['postId' => $post->id]) }}">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy bỏ</button>
+                    </a>
+                    <a href="{{ route('deletePost', ['id' => $post->id]) }}">
+                        <button type="button" class="btn btn-danger" id="confirmDeletePostButton">Xóa</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- Modal end --}}
+    <script>
+        $(document).ready(function () {
+            $('.delete-post').click(function (e) {
+                e.preventDefault();
+                $('#confirmDeletePostModal').modal('show');
+            });
+        });
+    </script>
+
     {{-- Xử lý Like --}}
     <script>
         $(document).ready(function () {

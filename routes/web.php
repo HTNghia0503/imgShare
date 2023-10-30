@@ -47,6 +47,9 @@ Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'user', 'middle
     Route::get('/create-post', 'PostController@create')->name('createPost');
     Route::post('/create-post', 'PostController@store')->name('storePost');
 
+    Route::post('/update-post/{id}', 'PostController@updatePost')->name('updatePost');
+    Route::get('/delete-post/{id}', 'PostController@deletePost')->name('deletePost');
+
     Route::get('/post/{postId}', 'HomeController@detailPost')->name('detailPost');
     Route::get('/collection/{collectionId}', 'HomeController@detailCollection')->name('detailCollection');
 

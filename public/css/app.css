@@ -509,6 +509,20 @@
     flex-wrap: wrap;
 }
 
+.dropdown-post {
+    padding: 0 8px;
+    border-radius: 8px;
+}
+
+.dropdown-post:hover {
+    background-color: #f1f1f1;
+}
+
+.update-post-att {
+    font-size: 14px;
+    font-weight: 500;
+}
+
 .personal-post {
     margin: 16px 32px 0 0 !important;
 }

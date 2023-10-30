@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 24, 2023 lúc 08:56 PM
+-- Thời gian đã tạo: Th10 30, 2023 lúc 02:55 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -41,9 +41,8 @@ CREATE TABLE `collections` (
 
 INSERT INTO `collections` (`id`, `user_id`, `title`, `created_at`, `updated_at`) VALUES
 (1, 1, 'Phong Cảnh', '2023-10-18 10:17:20', NULL),
-(2, 1, 'Động vật', '2023-10-18 10:21:05', NULL),
+(2, 1, 'Động Vật', '2023-10-18 10:21:05', '2023-10-30 12:21:49'),
 (3, 4, 'Hội họa', '2023-10-18 10:22:58', NULL),
-(4, 4, 'Giày thể thao', '2023-10-18 10:24:36', NULL),
 (5, 5, 'Gundam', NULL, NULL);
 
 -- --------------------------------------------------------
@@ -66,8 +65,6 @@ CREATE TABLE `collection_post` (
 
 INSERT INTO `collection_post` (`id`, `collection_id`, `post_id`, `created_at`, `updated_at`) VALUES
 (1, 3, 8, NULL, NULL),
-(5, 4, 13, NULL, NULL),
-(8, 3, 14, NULL, NULL),
 (9, 2, 6, NULL, NULL),
 (10, 2, 7, NULL, NULL),
 (11, 2, 16, NULL, NULL),
@@ -94,24 +91,7 @@ CREATE TABLE `comments` (
 
 INSERT INTO `comments` (`id`, `post_id`, `user_id`, `comment`, `created_at`, `updated_at`) VALUES
 (2, 6, 4, 'Cute quá :3', '2023-10-21 17:33:02', NULL),
-(3, 6, 5, 'Thật đáng yêu !', '2023-10-21 17:34:55', NULL),
-(6, 14, 4, 'Cùng chiếm ngưỡng nào các bạn =)))', '2023-10-21 20:04:06', NULL);
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `failed_jobs`
---
-
-CREATE TABLE `failed_jobs` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `uuid` varchar(255) NOT NULL,
-  `connection` text NOT NULL,
-  `queue` text NOT NULL,
-  `payload` longtext NOT NULL,
-  `exception` longtext NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+(3, 6, 5, 'Thật đáng yêu !', '2023-10-21 17:34:55', NULL);
 
 -- --------------------------------------------------------
 
@@ -135,7 +115,6 @@ INSERT INTO `likes` (`id`, `user_id`, `post_id`, `created_at`, `updated_at`) VAL
 (4, 4, 7, NULL, NULL),
 (5, 5, 6, NULL, NULL),
 (8, 4, 6, NULL, NULL),
-(9, 5, 14, NULL, NULL),
 (17, 4, 17, NULL, NULL);
 
 -- --------------------------------------------------------
@@ -173,37 +152,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `password_reset_tokens`
---
-
-CREATE TABLE `password_reset_tokens` (
-  `email` varchar(255) NOT NULL,
-  `token` varchar(255) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `personal_access_tokens`
---
-
-CREATE TABLE `personal_access_tokens` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `tokenable_type` varchar(255) NOT NULL,
-  `tokenable_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `token` varchar(64) NOT NULL,
-  `abilities` text DEFAULT NULL,
-  `last_used_at` timestamp NULL DEFAULT NULL,
-  `expires_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Cấu trúc bảng cho bảng `posts`
 --
 
@@ -225,10 +173,9 @@ CREATE TABLE `posts` (
 
 INSERT INTO `posts` (`id`, `user_id`, `title`, `description`, `img_path`, `status`, `likequantity`, `created_at`, `updated_at`) VALUES
 (6, 1, 'Mèo', 'Mèo con cute <3', 'LssvEyPC5mswKD6TzQqZaaXsDlMqpqXzfVfEq6Cr.jpg', NULL, 2, '2023-10-18 18:29:37', '2023-10-24 13:22:45'),
-(7, 1, 'Chó', 'Chú cún đáng yêu của tôi !', 'ziKdFNBS1letTFv765mPqjNyuNiIcHsBanpRqn0U.jpg', NULL, 1, '2023-10-18 19:03:42', '2023-10-21 13:59:19'),
+(7, 1, 'Chó', 'Chú chó đáng yêu của tôi !', 'ziKdFNBS1letTFv765mPqjNyuNiIcHsBanpRqn0U.jpg', NULL, 1, '2023-10-18 19:03:42', '2023-10-30 13:35:55'),
 (8, 4, 'MonaLisa', 'Một bức chân dung thế kỷ 16 được vẽ bằng chất liệu sơn dầu trên một tấm gỗ dương tại Florence bởi Leonardo da Vinci trong thời kì Phục Hưng Ý.', 'P3I0dezA6g3c9WYmXEIjwQ1wNlkkNmwdi1CpyCo5.jpg', NULL, 0, '2023-10-18 19:10:40', '2023-10-21 20:02:57'),
 (13, 4, 'Sneaker', 'Đôi giày của tôi <3', 'PtJ1QBQDWMQp6eo0dR5yo1q2njNwHzfbP3OtrSTm.jpg', NULL, 0, '2023-10-20 12:48:31', '2023-10-20 12:48:31'),
-(14, 4, 'EpicArt', 'Hình ảnh hùng vĩ, bi tráng', 'z2nop4vXGKjH3dn0FTsMy0BqdABhHDPT7ra9OUaZ.jpg', NULL, 1, '2023-10-21 11:55:00', '2023-10-21 20:10:52'),
 (16, 1, 'Đại bàng', 'Loài chim to lớn đại diện của tự do và quyền lực', 'kShJiArnPtftBWstQ5kIZKTJxTr3gIBKHhVpqees.jpg', NULL, 0, '2023-10-21 22:15:23', '2023-10-21 22:15:23'),
 (17, 1, 'Núi Fuji', 'Ngọn núi tuyệt đẹp của xứ sở mặt trời mọc', 'fuji.jpg', NULL, 1, '2023-10-21 22:16:13', '2023-10-24 15:41:25');
 
@@ -277,7 +224,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `avatar`, `permission`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Trung Nghĩa', 'nghia@gmail.com', '$2y$10$tDvp/mxQ24rmro7qc3bDh.nFDnanx5yELGLVbRbMp3iPT./lqssN2', '1698173575.jpg', 0, NULL, '2023-10-15 09:05:44', '2023-10-24 18:52:55'),
+(1, 'Hà Trung Nghĩa', 'nghia@gmail.com', '$2y$10$tDvp/mxQ24rmro7qc3bDh.nFDnanx5yELGLVbRbMp3iPT./lqssN2', '1698173575.jpg', 0, NULL, '2023-10-15 09:05:44', '2023-10-30 12:21:36'),
 (2, 'Admin', 'admin@gmail.com', '$2y$10$hhK29DEBKXuN5IJ4dgPnHuE9pJmOSGFqs.lgsAFd345xvQTr4SmZC', 'null', 1, NULL, '2023-10-15 09:05:44', NULL),
 (4, 'Hoàng Duy', 'duy@gmail.com', '$2y$10$GHK9A8E/qFl.bhtJZqT0geII2DOfuibUohZ86ypWIZsvrcu9qed9S', '1698173410.jpg', 0, NULL, '2023-10-15 12:23:51', '2023-10-24 18:50:10'),
 (5, 'Thông Thái', 'thai@gmail.com', '$2y$10$Xx0RyP1/jEBHtOvljyR7BOk0MAQxJ5GJGDn1RUzNQQzxSIEkm8zLq', 'gundam.jpg', 0, NULL, '2023-10-17 13:22:16', NULL);
@@ -310,13 +257,6 @@ ALTER TABLE `comments`
   ADD KEY `comments_user_id_foreign` (`user_id`);
 
 --
--- Chỉ mục cho bảng `failed_jobs`
---
-ALTER TABLE `failed_jobs`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
-
---
 -- Chỉ mục cho bảng `likes`
 --
 ALTER TABLE `likes`
@@ -329,20 +269,6 @@ ALTER TABLE `likes`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
-
---
--- Chỉ mục cho bảng `password_reset_tokens`
---
-ALTER TABLE `password_reset_tokens`
-  ADD PRIMARY KEY (`email`);
-
---
--- Chỉ mục cho bảng `personal_access_tokens`
---
-ALTER TABLE `personal_access_tokens`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
-  ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
 -- Chỉ mục cho bảng `posts`
@@ -384,31 +310,19 @@ ALTER TABLE `collection_post`
 -- AUTO_INCREMENT cho bảng `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT cho bảng `failed_jobs`
---
-ALTER TABLE `failed_jobs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
---
--- AUTO_INCREMENT cho bảng `personal_access_tokens`
---
-ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `posts`

@@ -43,3 +43,13 @@ if (showPassRegister) {
     });
 }
 
+/*--- Chỉnh sửa Post ---*/
+var showUpdatePost = document.getElementById("updatePostLink");
+
+if (showUpdatePost) {
+    showUpdatePost.addEventListener("click", function(event) {
+        event.preventDefault();
+        var myModal = new bootstrap.Modal(document.getElementById('updatePostModal'));
+        myModal.show();
+    });
+}
