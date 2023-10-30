@@ -25,7 +25,6 @@ class HomeController extends Controller
         $defaultCollectionId = $defaultCollection ? $defaultCollection->id : null; // Lấy ID nếu tồn tại, nếu không tồn tại thì gán null
 
         $collection_contain = $post->collection;
-        // dd($collection_contain);
 
         $comments = Comment::where('post_id', $postId)->get(); // Lấy tất cả các comment có post_id trùng với post_id đang xem
 

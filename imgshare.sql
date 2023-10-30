@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 30, 2023 lúc 06:49 PM
+-- Thời gian đã tạo: Th10 30, 2023 lúc 07:51 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -73,8 +73,7 @@ INSERT INTO `collection_post` (`id`, `collection_id`, `post_id`, `created_at`, `
 (12, 1, 17, NULL, NULL),
 (30, 8, 13, NULL, NULL),
 (34, 2, 6, NULL, NULL),
-(35, 1, 18, NULL, NULL),
-(36, 10, 13, NULL, NULL);
+(35, 1, 18, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -313,7 +312,7 @@ ALTER TABLE `collections`
 -- AUTO_INCREMENT cho bảng `collection_post`
 --
 ALTER TABLE `collection_post`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT cho bảng `comments`

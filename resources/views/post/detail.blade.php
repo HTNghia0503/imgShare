@@ -30,16 +30,11 @@
 
                             @php
                                 $selectedCollectionId = !empty($_COOKIE['selectedCollectionId']) ? $_COOKIE['selectedCollectionId'] : null;
+                                $saved = false;
                             @endphp
 
-                            <select name="collection_id" id="pickCollectionSave">
-                                @if ($post->user_id !== Auth::user()->id)
-                                    @foreach ($collections as $collection)
-                                        <option value="{{ $collection->id }}" {{ $collection->id == $selectedCollectionId ? 'selected' : '' }}>
-                                            {{ $collection->title }}
-                                        </option>
-                                    @endforeach
-                                @else
+                            @if ($post->user_id === Auth::user()->id)
+                                <select name="collection_id" id="pickCollectionSave">
                                     @foreach ($collections as $collection)
                                         @if ($post->collection->contains($collection))
                                             <option value="{{ $collection->id }}" selected>{{ $collection->title }}</option>
@@ -47,15 +42,32 @@
                                             <option disabled value="{{ $collection->id }}">{{ $collection->title }}</option>
                                         @endif
                                     @endforeach
-                                @endif
-                            </select>
-
-                            @if ($post->user_id !== Auth::user()->id) <!-- Kiểm tra xem bài đăng không phải của người dùng hiện tại -->
-
-                                <button id="save-button-post" type="submit" data-saved="0">Lưu</button>
-
-                            @else
+                                </select>
                                 <button type="button" class="disabled" disabled>Lưu</button>
+                            @else
+                                <select name="collection_id" id="pickCollectionSave">
+                                    @foreach ($collections as $collection)
+                                        <option value="{{ $collection->id }}" {{ $collection->id == $selectedCollectionId ? 'selected' : '' }}>
+                                            {{ $collection->title }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                @foreach ($collections as $collection)
+                                    @foreach ($collection_contain as $item)
+                                        @if($item->id === $collection->id)
+                                            @php
+                                                $saved = true;
+                                                break;
+                                            @endphp
+                                        @endif
+                                    @endforeach
+                                @endforeach
+
+                                @if ($saved)
+                                    <button id="save-button-post" type="submit">Đã Lưu</button>
+                                @else
+                                    <button id="save-button-post" type="submit">Lưu</button>
+                                @endif
                             @endif
                         </div>
                     </form>
