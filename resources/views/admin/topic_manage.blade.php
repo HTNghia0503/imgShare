@@ -5,7 +5,10 @@
             <div class="col-12 mt-5">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">Danh sách chủ đề</h4>
+                        <div class="d-flex header-content">
+                            <h4 class="header-title">Danh sách chủ đề</h4>
+                            <a href="#" class="addnew-topic"><i class="ti-plus"></i>Add New</a>
+                        </div>
                         <div class="data-tables">
                             <table id="dataTable" class="text-center">
                                 <thead class="text-capitalize" style="background-color: var(--main-primary-color) !important; color: #fff;">
