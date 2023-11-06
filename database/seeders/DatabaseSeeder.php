@@ -38,14 +38,14 @@ class DatabaseSeeder extends Seeder
         //     'created_at' => Carbon::now()
         // ]);
 
-        // DB::table('users')->insert([
-        //     'name' => 'Admin',
-        //     'email' => 'admin@gmail.com',
-        //     'password' => bcrypt('123456789'),
-        //     'avatar' => 'null',
-        //     'permission' => 1, // Type ADMIN
-        //     'created_at' => Carbon::now()
-        // ]);
+        DB::table('users')->insert([
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'password' => bcrypt('123456789'),
+            'avatar' => 'admin@gmail.com',
+            'permission' => 1, // Type ADMIN
+            'created_at' => Carbon::now()
+        ]);
 
         DB::table('users')->insert([
             'name' => 'Thông Thái',

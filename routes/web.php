@@ -29,9 +29,11 @@ Route::group(['namespace' => 'App\Http\Controllers\Auth'], function () {
 
 // Các route khi đăng nhập với quyền ADMIN
 Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'admin', 'middleware' => 'admin'], function () {
-    Route::get('/dashboard', 'AdminController@dashboard')->name('dashboard');
+    Route::get('/account', 'AdminController@manageAccount')->name('account');
     Route::get('/post', 'AdminController@managePost')->name('post');
     Route::get('/topic', 'AdminController@manageTopic')->name('topic');
+
+    Route::get('/delete-account/{id}', 'AdminController@deleteAccount')->name('deleteAccount');
 });
 
 // Các route khi đăng nhập với quyền USER

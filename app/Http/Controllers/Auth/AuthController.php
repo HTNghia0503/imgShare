@@ -32,7 +32,7 @@ class AuthController extends Controller
             if ($user->permission === 0) {
                 return redirect()->route('home');
             } elseif ($user->permission === 1) {
-                return redirect()->route('dashboard');
+                return redirect()->route('account');
             }
         }
         // Đăng nhập thất bại

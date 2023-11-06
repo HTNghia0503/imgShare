@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 30, 2023 lúc 07:51 PM
+-- Thời gian đã tạo: Th10 06, 2023 lúc 09:14 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -43,7 +43,6 @@ INSERT INTO `collections` (`id`, `user_id`, `title`, `created_at`, `updated_at`)
 (1, 1, 'Phong Cảnh', '2023-10-18 10:17:20', NULL),
 (2, 1, 'Động Vật', '2023-10-18 10:21:05', '2023-10-30 12:21:49'),
 (3, 4, 'Hội họa', '2023-10-18 10:22:58', NULL),
-(5, 5, 'Gundam', NULL, NULL),
 (8, 4, 'Giày thể thao', '2023-10-30 15:18:22', '2023-10-30 15:18:22'),
 (9, 4, 'Thú cưng', '2023-10-30 15:19:46', '2023-10-30 15:19:46'),
 (10, 1, 'Thời trang', '2023-10-30 16:47:24', '2023-10-30 16:47:24');
@@ -95,8 +94,7 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id`, `post_id`, `user_id`, `comment`, `created_at`, `updated_at`) VALUES
-(2, 6, 4, 'Cute quá :3', '2023-10-21 17:33:02', NULL),
-(3, 6, 5, 'Thật đáng yêu !', '2023-10-21 17:34:55', NULL);
+(2, 6, 4, 'Cute quá :3', '2023-10-21 17:33:02', NULL);
 
 -- --------------------------------------------------------
 
@@ -118,7 +116,6 @@ CREATE TABLE `likes` (
 
 INSERT INTO `likes` (`id`, `user_id`, `post_id`, `created_at`, `updated_at`) VALUES
 (4, 4, 7, NULL, NULL),
-(5, 5, 6, NULL, NULL),
 (8, 4, 6, NULL, NULL),
 (17, 4, 17, NULL, NULL),
 (19, 1, 6, NULL, NULL),
@@ -233,9 +230,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `avatar`, `permission`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Hà Trung Nghĩa', 'nghia@gmail.com', '$2y$10$tDvp/mxQ24rmro7qc3bDh.nFDnanx5yELGLVbRbMp3iPT./lqssN2', '1698173575.jpg', 0, NULL, '2023-10-15 09:05:44', '2023-10-30 12:21:36'),
-(2, 'Admin', 'admin@gmail.com', '$2y$10$hhK29DEBKXuN5IJ4dgPnHuE9pJmOSGFqs.lgsAFd345xvQTr4SmZC', 'null', 1, NULL, '2023-10-15 09:05:44', NULL),
 (4, 'Hoàng Duy', 'duy@gmail.com', '$2y$10$GHK9A8E/qFl.bhtJZqT0geII2DOfuibUohZ86ypWIZsvrcu9qed9S', '1698173410.jpg', 0, NULL, '2023-10-15 12:23:51', '2023-10-24 18:50:10'),
-(5, 'Thông Thái', 'thai@gmail.com', '$2y$10$Xx0RyP1/jEBHtOvljyR7BOk0MAQxJ5GJGDn1RUzNQQzxSIEkm8zLq', 'gundam.jpg', 0, NULL, '2023-10-17 13:22:16', NULL);
+(7, 'Admin', 'admin@gmail.com', '$2y$10$kyd9KvWO/k3SBZ8l/qpBeu3UMM2RMWp65BctNknnogFCj.DJCvR.S', 'adminavt.jpeg', 1, NULL, '2023-11-06 18:10:22', NULL),
+(8, 'Thông Thái', 'thai@gmail.com', '$2y$10$tN3eZvMfvgEqleUWJD3y7uR4bPBKVS0U32wUXxsbEAUFk.SdYpkVW', 'gundam.jpg', 0, NULL, '2023-11-06 18:10:22', NULL);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -348,7 +345,7 @@ ALTER TABLE `topics`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

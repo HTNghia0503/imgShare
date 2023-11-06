@@ -51,7 +51,7 @@
                 <div class="menu-inner">
                     <nav>
                         <ul class="metismenu" id="menu">
-                            <li class="active"><a href="{{ route('dashboard') }}"><i class="ti-user"></i><span>Quản lý tài khoản</span></a></li>
+                            <li class="active"><a href="{{ route('account') }}"><i class="ti-user"></i><span>Quản lý tài khoản</span></a></li>
                             <li><a href="{{ route('post') }}"><i class="ti-image"></i> <span>Quản lý bài đăng</span></a></li>
                             <li><a href="{{ route('topic') }}"><i class="ti-folder"></i> <span>Quản lý chủ đề</span></a></li>
                         </ul>
@@ -72,11 +72,11 @@
                                 <span></span>
                                 <span></span>
                             </div>
-                            <h4 class="page-title pull-left">Dashboard</h4>
-                            <ul class="breadcrumbs pull-left">
+                            <h4 class="page-title pull-left">Account Management</h4>
+                            {{-- <ul class="breadcrumbs pull-left">
                                 <li><a href="index.html">Quản lý</a></li>
                                 <li><span>Tài khoản</span></li>
-                            </ul>
+                            </ul> --}}
                         </div>
                     </div>
                     <style>
@@ -86,11 +86,10 @@
                     </style>
                     <div class="col-sm-6 clearfix">
                         <div class="user-profile pull-right">
-                            <img class="avatar user-thumb" src="{{ asset('assetsAdmin/images/author/avatar.png') }}" alt="avatar">
-                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Hà Trung Nghĩa<i class="fa fa-angle-down"></i></h4>
+                            <img class="avatar user-thumb" src="{{ asset('img/avt-user/' . Auth::user()->avatar) }}" alt="avatar">
+                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}<i class="fa fa-angle-down"></i></h4>
                             <div class="dropdown-menu dropdown-menu-pf">
-                                <a class="dropdown-item" href="#">Cài đặt</a>
-                                <a class="dropdown-item" href="#">Đăng xuất</a>
+                                <a class="dropdown-item" href="{{ route('logout') }}">Đăng xuất</a>
                             </div>
                         </div>
                     </div>
