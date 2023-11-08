@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 06, 2023 lúc 09:14 PM
+-- Thời gian đã tạo: Th10 08, 2023 lúc 07:42 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -72,7 +72,8 @@ INSERT INTO `collection_post` (`id`, `collection_id`, `post_id`, `created_at`, `
 (12, 1, 17, NULL, NULL),
 (30, 8, 13, NULL, NULL),
 (34, 2, 6, NULL, NULL),
-(35, 1, 18, NULL, NULL);
+(35, 1, 18, NULL, NULL),
+(51, 2, 19, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -151,7 +152,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (11, '2023_10_19_013308_create_collection_post_table', 7),
 (12, '2023_10_19_014643_collection_post', 8),
 (13, '2023_10_21_184623_create_comments_table', 9),
-(14, '2023_10_21_201422_create_likes_table', 10);
+(14, '2023_10_21_201422_create_likes_table', 10),
+(15, '2023_11_09_005159_create_post_topic_table', 11);
 
 -- --------------------------------------------------------
 
@@ -182,7 +184,31 @@ INSERT INTO `posts` (`id`, `user_id`, `title`, `description`, `img_path`, `statu
 (13, 4, 'Sneaker', 'Đôi giày của tôi <3', 'PtJ1QBQDWMQp6eo0dR5yo1q2njNwHzfbP3OtrSTm.jpg', NULL, 1, '2023-10-20 12:48:31', '2023-10-30 16:51:55'),
 (16, 1, 'Đại bàng', 'Loài chim to lớn đại diện của tự do và quyền lực', 'kShJiArnPtftBWstQ5kIZKTJxTr3gIBKHhVpqees.jpg', NULL, 0, '2023-10-21 22:15:23', '2023-10-21 22:15:23'),
 (17, 1, 'Núi Fuji', 'Ngọn núi tuyệt đẹp của xứ sở mặt trời mọc', 'fuji.jpg', NULL, 1, '2023-10-21 22:16:13', '2023-10-24 15:41:25'),
-(18, 1, 'Digital Art', 'Ảnh vẽ kỹ thuật số', 'LcGLLh64KARPh62Eofq7ECNhT9fEtgMhwEWeWAwe.jpg', NULL, 0, '2023-10-30 16:45:14', '2023-10-30 16:45:14');
+(18, 1, 'Digital Art', 'Ảnh vẽ kỹ thuật số', 'LcGLLh64KARPh62Eofq7ECNhT9fEtgMhwEWeWAwe.jpg', NULL, 0, '2023-10-30 16:45:14', '2023-10-30 16:45:14'),
+(19, 1, 'Mèo Scottish', 'Chú mèo tai cụp Scottish siêu đáng yêu !', 'jg7oGEnx0OYAmMbKhZ9iVAC1iUGqhi7BK2x7UKpK.jpg', NULL, 0, '2023-11-08 18:07:55', '2023-11-08 18:07:55');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `post_topic`
+--
+
+CREATE TABLE `post_topic` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `post_id` bigint(20) UNSIGNED NOT NULL,
+  `topic_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `post_topic`
+--
+
+INSERT INTO `post_topic` (`id`, `post_id`, `topic_id`, `created_at`, `updated_at`) VALUES
+(1, 6, 8, NULL, NULL),
+(2, 7, 15, NULL, NULL),
+(3, 19, 8, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -203,8 +229,51 @@ CREATE TABLE `topics` (
 --
 
 INSERT INTO `topics` (`id`, `title`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'Chân dung', 'Bức ảnh thể hiện đúng diện mạo, thần sắc và hình dáng của một người bất kì nào đó.', NULL, NULL),
-(2, 'Núi non', 'Dạng địa hình lồi, có sườn dốc và độ cao thường lớn hơn và cao hơn đồi, nằm trải dài trên phạm vi nhất định.', NULL, NULL);
+(1, 'anime', '', NULL, NULL),
+(2, 'beach', '', NULL, NULL),
+(3, 'bear', '', NULL, NULL),
+(4, 'bicycle', '', NULL, NULL),
+(5, 'bus', '', NULL, NULL),
+(6, 'car', '', NULL, NULL),
+(7, 'cargoship', '', NULL, NULL),
+(8, 'cat', '', NULL, NULL),
+(9, 'chicken', '', NULL, NULL),
+(10, 'city', '', NULL, NULL),
+(11, 'cruiseship', '', NULL, NULL),
+(12, 'daisy', '', NULL, NULL),
+(13, 'dandelion', '', NULL, NULL),
+(14, 'desert', '', NULL, NULL),
+(15, 'dog', '', NULL, NULL),
+(16, 'drawings', '', NULL, NULL),
+(17, 'eagle', '', NULL, NULL),
+(18, 'engraving', '', NULL, NULL),
+(19, 'forest', '', NULL, NULL),
+(20, 'forklift', '', NULL, NULL),
+(21, 'fortnite', '', NULL, NULL),
+(22, 'freefire', '', NULL, NULL),
+(23, 'genshinimpact', '', NULL, NULL),
+(24, 'godofwar', '', NULL, NULL),
+(25, 'horse', '', NULL, NULL),
+(26, 'jacket', '', NULL, NULL),
+(27, 'jeans', '', NULL, NULL),
+(28, 'lion', '', NULL, NULL),
+(29, 'minecraft', '', NULL, NULL),
+(30, 'motorbike', '', NULL, NULL),
+(31, 'mountain', '', NULL, NULL),
+(32, 'painting', '', NULL, NULL),
+(33, 'roses', '', NULL, NULL),
+(34, 'sailboat', '', NULL, NULL),
+(35, 'sculpture', '', NULL, NULL),
+(36, 'shark', '', NULL, NULL),
+(37, 'snake', '', NULL, NULL),
+(38, 'sneaker', '', NULL, NULL),
+(39, 'sunflowers', '', NULL, NULL),
+(40, 'sweater', '', NULL, NULL),
+(41, 'tiger', '', NULL, NULL),
+(42, 'truck', '', NULL, NULL),
+(43, 'tshirt', '', NULL, NULL),
+(44, 'tulips', '', NULL, NULL),
+(45, 'airplane', '', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -283,6 +352,14 @@ ALTER TABLE `posts`
   ADD KEY `posts_user_id_foreign` (`user_id`);
 
 --
+-- Chỉ mục cho bảng `post_topic`
+--
+ALTER TABLE `post_topic`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `post_topic_post_id_foreign` (`post_id`),
+  ADD KEY `post_topic_topic_id_foreign` (`topic_id`);
+
+--
 -- Chỉ mục cho bảng `topics`
 --
 ALTER TABLE `topics`
@@ -309,7 +386,7 @@ ALTER TABLE `collections`
 -- AUTO_INCREMENT cho bảng `collection_post`
 --
 ALTER TABLE `collection_post`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT cho bảng `comments`
@@ -327,19 +404,25 @@ ALTER TABLE `likes`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT cho bảng `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT cho bảng `post_topic`
+--
+ALTER TABLE `post_topic`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `topics`
 --
 ALTER TABLE `topics`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
@@ -383,6 +466,13 @@ ALTER TABLE `likes`
 --
 ALTER TABLE `posts`
   ADD CONSTRAINT `posts_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Các ràng buộc cho bảng `post_topic`
+--
+ALTER TABLE `post_topic`
+  ADD CONSTRAINT `post_topic_post_id_foreign` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `post_topic_topic_id_foreign` FOREIGN KEY (`topic_id`) REFERENCES `topics` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
