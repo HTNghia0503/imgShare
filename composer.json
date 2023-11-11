@@ -7,7 +7,7 @@
     "require": {
         "php": "^8.1",
         "brian2694/laravel-toastr": "*",
-        "guzzlehttp/guzzle": "^7.2",
+        "guzzlehttp/guzzle": "*",
         "intervention/image": "*",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.2",

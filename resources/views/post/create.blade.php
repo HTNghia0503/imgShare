@@ -10,7 +10,7 @@
                             <div id="drop-area" class="drop-area">
                                 <div class="drop-content">
                                     <div class="custom-file-upload image-preview">
-                                        <label for="img-upload" class="custom-file-label"><i class="fa-solid fa-circle-arrow-up"></i></label>
+                                        <label id="title-img" for="img-upload" class="custom-file-label"><i class="fa-solid fa-circle-arrow-up"></i></label>
                                     </div>
                                     <p>Kéo thả hoặc nhấn vào <br> để chọn hình ảnh</p>
                                 </div>
@@ -38,6 +38,7 @@
                             </div>
                             <div class="separate"></div>
                             <input type="hidden" name="user_id" value="{{ auth()->user()->id }}"> <!-- Trường ẩn để lấy giá trị user_id -->
+                            <input type="hidden" name="title" id="topic-title"> <!-- Trường ẩn để lấy giá trị topic dự đoán -->
                             <div class="upload-btn">
                                 <button type="submit">Đăng tải</button>
                             </div>
@@ -51,7 +52,7 @@
     <script>
         $(document).ready(function () {
             // Bắt sự kiện khi người dùng chọn tệp ảnh
-            $('#img-upload').on('change', function () {
+            $('#img-upload').on('change',  function () {
                 // Hiển thị tệp ảnh được chọn lên giao diện
                 if (this.files && this.files[0]) {
                     var reader = new FileReader();
@@ -64,6 +65,33 @@
                     reader.readAsDataURL(this.files[0]);
                 }
             });
+
+            document.getElementById('img-upload').addEventListener('change', async function(event) {
+                const file = event.target.files[0];
+
+                const formData = new FormData();
+                formData.append('file', file);
+
+                try {
+                    const response = await fetch('http://127.0.0.1:5000/classify', {
+                        method: 'POST',
+                        body: formData
+                        // headers: {
+                        //     'Content-Type': 'application/json' // Thiết lập Content-Type
+                        // }
+                    });
+
+                    const data = await response.json();
+                    if (data && data.predicted_label) {
+                        document.getElementById('topic-title').value = data.predicted_label;
+                    }
+                    // console.log(data);
+                    console.log(data.predicted_label);
+                } catch (error) {
+                    console.error('Lỗi:', error);
+                }
+            });
+
         });
     </script>
 @stop
