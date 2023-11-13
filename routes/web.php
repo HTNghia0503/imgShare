@@ -17,6 +17,9 @@ use App\Http\Controllers\AuthController;
 
 Route::get('/', 'App\Http\Controllers\WelcomeController@index')->name('welcome');
 
+Route::get('/about', 'App\Http\Controllers\WelcomeController@about')->name('about');
+
+
 Route::group(['namespace' => 'App\Http\Controllers\Auth'], function () {
     Route::get('/login', 'AuthController@login')->name('login');
     Route::post('/login', 'AuthController@postLogin');

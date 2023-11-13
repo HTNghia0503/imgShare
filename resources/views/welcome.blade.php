@@ -23,7 +23,7 @@
                 </a>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link nav-link-space" href="#"><p class="nav-text">Giới thiệu</p></a>
+                        <a class="nav-link nav-link-space" href="{{ route('about') }}"><p class="nav-text">Giới thiệu</p></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link nav-link-space" href="#"><p class="nav-text">Liên hệ</p></a>
