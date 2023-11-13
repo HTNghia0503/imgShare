@@ -38,7 +38,7 @@
                             </div>
                             <div class="separate"></div>
                             <input type="hidden" name="user_id" value="{{ auth()->user()->id }}"> <!-- Trường ẩn để lấy giá trị user_id -->
-                            <input type="hidden" name="title" id="topic-title"> <!-- Trường ẩn để lấy giá trị topic dự đoán -->
+                            <input type="hidden" name="topic-title" id="topic-title"> <!-- Trường ẩn để lấy giá trị topic dự đoán -->
                             <div class="upload-btn">
                                 <button type="submit">Đăng tải</button>
                             </div>
@@ -76,16 +76,12 @@
                     const response = await fetch('http://127.0.0.1:5000/classify', {
                         method: 'POST',
                         body: formData
-                        // headers: {
-                        //     'Content-Type': 'application/json' // Thiết lập Content-Type
-                        // }
                     });
 
                     const data = await response.json();
                     if (data && data.predicted_label) {
                         document.getElementById('topic-title').value = data.predicted_label;
                     }
-                    // console.log(data);
                     console.log(data.predicted_label);
                 } catch (error) {
                     console.error('Lỗi:', error);

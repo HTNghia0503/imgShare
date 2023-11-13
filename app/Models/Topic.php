@@ -16,9 +16,9 @@ class Topic extends Model
         'description',
     ];
 
-    // public function post()
-    // {
-    //     return $this->belongsTo(Post::class);
-    // }
+    public function post()
+    {
+        return $this->belongsToMany(Post::class, 'post_topic', 'topic_id', 'post_id');
+    }
 
 }

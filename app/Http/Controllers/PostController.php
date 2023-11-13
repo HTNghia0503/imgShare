@@ -6,6 +6,7 @@ use App\Http\Requests\Post\PostRequest;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Collection;
+use App\Models\Topic;
 use App\Models\User;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Log;
@@ -20,30 +21,38 @@ class PostController extends Controller
     {
         $users = User::all();
         $collections = Collection::where('user_id', auth()->user()->id)->get(); // Xác định các Collections thuộc sở hữu của người đang Đăng nhập
+        $topics = Topic::all();
 
-        return view('post.create', ['collections' => $collections, 'users'=> $users]);
+        return view('post.create', ['collections' => $collections, 'users' => $users, 'topics' => $topics]);
     }
 
     public function store(Request $request)
     {
         try {
-            $data = $request->all(); // Lấy dữ liệu từ $request gửi lên
-            $data['user_id'] = auth()->user()->id; // Lấy ID của người đăng nhập
+            $data = $request->all();
+            $data['user_id'] = auth()->user()->id;
             $data['created_at'] = Carbon::now();
             $image = $request->file('img_path');
+
             // Lưu trữ tệp ảnh vào thư mục public/img/home-img
             $path = $image->store('', 'home_img');
 
-            // Lưu đường dẫn của tệp vào cơ sở dữ liệu
             $data['img_path'] = $path;
             $posts = Post::create($data);
 
-            // Lấy giá trị collection_id từ request
+            $topic_title = $request->input('topic-title');
+
+            // Tìm chủ đề với title tương ứng
+            $topic = Topic::where('title', $topic_title)->first();
+            $topicId = $topic->id;
+
             $collectionId = $request->input('collection');
 
             // Gán bài đăng vào bộ sưu tập thông qua mối quan hệ
             $posts->collection()->attach($collectionId);
-            // dd($posts);
+
+            // Gán hình ảnh vào chủ đề
+            $posts->topic()->attach($topicId);
 
             toastr()->success('Đăng thành công!', 'Thông báo', ['timeOut' => 2000]);
 

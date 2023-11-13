@@ -25,7 +25,7 @@ class Post extends Model
 
     public function topic()
     {
-        return $this->belongsTo(Topic::class, 'topic_id');
+        return $this->belongsToMany(Topic::class, 'post_topic', 'post_id', 'topic_id');
     }
 
     public function collection()
