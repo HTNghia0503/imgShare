@@ -144,10 +144,10 @@
         <div class="recommend-title">Các ảnh tương tự bạn có thể thích</div>
 
         <main class="img-wrapper">
-            @foreach($similarPosts as $post)
+            @foreach($similarPosts as $item)
             <div class="img-item">
-                <a href="{{ route('detailPost', ['postId' => $post->id]) }}">
-                    <img src="{{ asset('img/home-img/' . $post->img_path) }}" alt="image">
+                <a href="{{ route('detailPost', ['postId' => $item->id]) }}">
+                    <img src="{{ asset('img/home-img/' . $item->img_path) }}" alt="image">
                 </a>
             </div>
             @endforeach

@@ -35,15 +35,12 @@
             <p>Khám phá và thưởng thức các bức ảnh được cộng đồng đóng góp và chia sẻ trên giao diện trang chủ, với đa dạng các chủ đề và phong phú các thể loại biết đâu bạn tìm được thứ mình cần ^.^</p>
             <p>Sử dụng thanh tìm kiếm để tìm kiếm nhanh hơn, hiệu quả hơn đến những hình ảnh bạn muốn tiếp cận, những chủ đề và những lĩnh vực bạn tò mò hoặc muốn tìm hiểu.</p>
         </div>
-        {{-- <div class="about-sub-img" style="text-align: center">
-            <img src="{{ asset('img/ADS.png') }}" alt="Image">
-        </div> --}}
 
         <div class="about-sub-title">3. Chia sẻ và lưu giữ hình ảnh</div>
         <div class="about-sub-content">
             <p>Xây dựng và đóng góp với cộng đồng thông qua việc chia sẻ các hình ảnh, các ý tưởng của bản thân thông qua đăng tải các bài đăng.</p>
             <div class="about-sub-img" style="text-align: center">
-                <img src="{{ asset('img/upload.PNG') }}" alt="Image">
+                <img src="{{ asset('img/upload.PNG') }}" alt="Image" width="100%">
             </div>
             <p>Lưu lại những hình ảnh yêu thích hoặc gây ấn tượng với bạn thông qua việc sử dụng nút "Lưu" trong khi bạn đang xem chi tiết về bài đăng hình ảnh đấy</p>
             <div class="about-sub-img" style="text-align: center">
@@ -67,7 +64,7 @@
             </div>
             <p>Bên cạnh đấy, trong phần hồ sơ của bạn, cũng có thể xem lại các bài đăng mà bạn đã lưu trong các bộ sưu tập của mình. Bạn có thể xóa chúng hoặc chỉ đơn giản là chỉnh sửa thông tin của các bộ sưu tập này. Những bài đăng đã lưu trong đó bạn có thể hủy lưu chúng nếu thấy không cần thiết nữa hoặc lỡ lưu nhầm trước đó.</p>
             <div class="about-sub-img" style="text-align: center">
-                <img src="{{ asset('img/ADS.png') }}" alt="Image">
+                <img src="{{ asset('img/coll_manage.PNG') }}" alt="Image" width="100%" style="padding-bottom: 16px">
             </div>
         </div>
 
