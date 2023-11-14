@@ -88,7 +88,7 @@
                                         </div>
                                     @endif
                                 @else
-                                    <img src="{{ asset('img/No_image_available.png') }}" width="100%" alt="Default Image" style="object-fit: cover; border-radius: 16px;">
+                                    <img src="{{ asset('img/no-image.png') }}" width="100%" alt="Default Image" style="object-fit: cover; border-radius: 16px;">
                                 @endif
                             </div>
                             <div class="collection-title-des">{{ $collection->title }}</div>

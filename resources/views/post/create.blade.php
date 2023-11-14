@@ -1,7 +1,7 @@
 @extends('layout.post.post_layout')
 @section('content')
     <div class="d-flex upload-main-bg">
-        <div class="upload-main-area">
+        <div class="upload-main-area shadow">
             <div class="">
                 <form method="POST" action="" enctype="multipart/form-data">
                     @csrf

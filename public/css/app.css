@@ -1190,7 +1190,7 @@
 
 /* About */
 .about-content {
-    padding: 0 400px;
+    padding: 0 370px;
     text-align: justify;
 }
 
@@ -1207,6 +1207,7 @@
     font-size: 32px;
     font-weight: 700;
     color: var(--primary-color);
+    padding-top: 16px;
     padding-bottom: 16px;
 }
 
