@@ -1,7 +1,7 @@
 @extends('layout.post.post_layout')
 @section('content')
     <div class="d-flex upload-main-bg">
-        <div class="d-flex detail-info-bg">
+        <div class="d-flex shadow detail-info-bg">
             <div class="img-frame" style="max-width: 68%; min-width: 30%">
                 <img src="{{ asset('img/home-img/' . $post->img_path) }}" alt="Full Image" width="100%" height="100%" style="object-fit: cover; border-radius: 8px;">
             </div>
@@ -25,8 +25,6 @@
                                     @endif
                                 </ul>
                             </div>
-
-                            {{-- <label for="pickCollectionSave">Chọn bộ sưu tập</label> --}}
 
                             @php
                                 $selectedCollectionId = !empty($_COOKIE['selectedCollectionId']) ? $_COOKIE['selectedCollectionId'] : null;
@@ -141,6 +139,21 @@
             </div>
         </div>
     </div>
+
+    @if($similarPosts->count() > 0)
+        <div class="recommend-title">Các ảnh tương tự bạn có thể thích</div>
+
+        <main class="img-wrapper">
+            @foreach($similarPosts as $post)
+            <div class="img-item">
+                <a href="{{ route('detailPost', ['postId' => $post->id]) }}">
+                    <img src="{{ asset('img/home-img/' . $post->img_path) }}" alt="image">
+                </a>
+            </div>
+            @endforeach
+            <div class="img-item"></div>
+        </main>
+    @endif
 
     {{-- Modal chỉnh sửa post --}}
     <div class="modal fade" id="updatePostModal" data-bs-backdrop="static">

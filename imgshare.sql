@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 13, 2023 lúc 08:07 PM
+-- Thời gian đã tạo: Th10 14, 2023 lúc 03:02 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -73,7 +73,8 @@ INSERT INTO `collection_post` (`id`, `collection_id`, `post_id`, `created_at`, `
 (30, 8, 13, NULL, NULL),
 (34, 2, 6, NULL, NULL),
 (35, 1, 18, NULL, NULL),
-(56, 2, 34, NULL, NULL);
+(56, 2, 34, NULL, NULL),
+(57, 2, 35, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -120,7 +121,9 @@ INSERT INTO `likes` (`id`, `user_id`, `post_id`, `created_at`, `updated_at`) VAL
 (8, 4, 6, NULL, NULL),
 (17, 4, 17, NULL, NULL),
 (19, 1, 6, NULL, NULL),
-(20, 1, 13, NULL, NULL);
+(20, 1, 13, NULL, NULL),
+(22, 1, 8, NULL, NULL),
+(23, 1, 34, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -180,12 +183,13 @@ CREATE TABLE `posts` (
 INSERT INTO `posts` (`id`, `user_id`, `title`, `description`, `img_path`, `status`, `likequantity`, `created_at`, `updated_at`) VALUES
 (6, 1, 'Mèo', 'Mèo con dễ thương', 'LssvEyPC5mswKD6TzQqZaaXsDlMqpqXzfVfEq6Cr.jpg', NULL, 3, '2023-10-18 18:29:37', '2023-10-30 16:21:56'),
 (7, 1, 'Chó', 'Chú chó đáng yêu của tôi !', 'ziKdFNBS1letTFv765mPqjNyuNiIcHsBanpRqn0U.jpg', NULL, 1, '2023-10-18 19:03:42', '2023-10-30 13:35:55'),
-(8, 4, 'MonaLisa', 'Một bức chân dung thế kỷ 16 được vẽ bằng chất liệu sơn dầu trên một tấm gỗ dương tại Florence bởi Leonardo da Vinci trong thời kì Phục Hưng Ý.', 'P3I0dezA6g3c9WYmXEIjwQ1wNlkkNmwdi1CpyCo5.jpg', NULL, 0, '2023-10-18 19:10:40', '2023-10-21 20:02:57'),
+(8, 4, 'MonaLisa', 'Một bức chân dung thế kỷ 16 được vẽ bằng chất liệu sơn dầu trên một tấm gỗ dương tại Florence bởi Leonardo da Vinci trong thời kì Phục Hưng Ý.', 'P3I0dezA6g3c9WYmXEIjwQ1wNlkkNmwdi1CpyCo5.jpg', NULL, 1, '2023-10-18 19:10:40', '2023-11-14 12:42:54'),
 (13, 4, 'Sneaker', 'Đôi giày của tôi <3', 'PtJ1QBQDWMQp6eo0dR5yo1q2njNwHzfbP3OtrSTm.jpg', NULL, 1, '2023-10-20 12:48:31', '2023-10-30 16:51:55'),
 (16, 1, 'Đại bàng', 'Loài chim to lớn đại diện của tự do và quyền lực', 'kShJiArnPtftBWstQ5kIZKTJxTr3gIBKHhVpqees.jpg', NULL, 0, '2023-10-21 22:15:23', '2023-10-21 22:15:23'),
 (17, 1, 'Núi Fuji', 'Ngọn núi tuyệt đẹp của xứ sở mặt trời mọc', 'fuji.jpg', NULL, 1, '2023-10-21 22:16:13', '2023-10-24 15:41:25'),
 (18, 1, 'Digital Art', 'Ảnh vẽ kỹ thuật số', 'LcGLLh64KARPh62Eofq7ECNhT9fEtgMhwEWeWAwe.jpg', NULL, 0, '2023-10-30 16:45:14', '2023-10-30 16:45:14'),
-(34, 1, 'Becgie', 'Chú chó becgie mạnh mẽ và nhanh nhẹn', '7GXCCQsdgcXzP6eTXxZTU2HcTdDC5roTfMcYqzMm.jpg', NULL, 0, '2023-11-13 19:00:47', '2023-11-13 19:00:47');
+(34, 1, 'Becgie', 'Chú chó becgie mạnh mẽ và nhanh nhẹn', '7GXCCQsdgcXzP6eTXxZTU2HcTdDC5roTfMcYqzMm.jpg', NULL, 1, '2023-11-13 19:00:47', '2023-11-14 13:51:55'),
+(35, 1, 'My Dog', 'Chú chó của tôi trong buổi dã ngoại cuối tuần qua', 'kWlCniqt9x4abKfncm2udcqct5ZDX8IEUDcRVwaw.jpg', NULL, 0, '2023-11-14 13:48:35', '2023-11-14 13:48:35');
 
 -- --------------------------------------------------------
 
@@ -208,7 +212,8 @@ CREATE TABLE `post_topic` (
 INSERT INTO `post_topic` (`id`, `post_id`, `topic_id`, `created_at`, `updated_at`) VALUES
 (1, 6, 8, NULL, NULL),
 (2, 7, 15, NULL, NULL),
-(7, 34, 15, NULL, NULL);
+(7, 34, 15, NULL, NULL),
+(8, 35, 15, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -386,7 +391,7 @@ ALTER TABLE `collections`
 -- AUTO_INCREMENT cho bảng `collection_post`
 --
 ALTER TABLE `collection_post`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT cho bảng `comments`
@@ -398,7 +403,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT cho bảng `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT cho bảng `migrations`
@@ -410,13 +415,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT cho bảng `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT cho bảng `post_topic`
 --
 ALTER TABLE `post_topic`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `topics`

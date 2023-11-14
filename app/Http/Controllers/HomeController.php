@@ -28,7 +28,24 @@ class HomeController extends Controller
 
         $comments = Comment::where('post_id', $postId)->get(); // Lấy tất cả các comment có post_id trùng với post_id đang xem
 
-        return view('post.detail', ['post' => $post, 'collections' => $collections, 'user'=> $user, 'comments'=> $comments, 'defaultCollectionId' => $defaultCollectionId, 'defaultCollection' => $defaultCollection, 'collection_contain'=> $collection_contain]);
+        $topic = $post->topic->first();
+
+        // Tìm các post tương tự
+        $similarPosts = $topic->post()
+                        ->where('posts.id', '!=', $postId) // Trừ post đang xem ra
+                        ->get();
+
+        return view('post.detail', [
+            'post' => $post,
+            'collections' => $collections,
+            'user'=> $user,
+            'comments'=> $comments,
+            'defaultCollectionId' => $defaultCollectionId,
+            'defaultCollection' => $defaultCollection,
+            'collection_contain'=> $collection_contain,
+            'topic' => $topic,
+            'similarPosts' => $similarPosts,
+        ]);
     }
 
     public function detailCollection($collectionId) {

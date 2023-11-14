@@ -64,11 +64,6 @@ class PostController extends Controller
         return redirect()->route('home');
     }
 
-    public function detail()
-    {
-        return view('post.detail');
-    }
-
     public function savePost(Request $request)
     {
         $post_id = $request->input('post_id');
