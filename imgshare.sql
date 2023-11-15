@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 14, 2023 at 07:46 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th10 15, 2023 lúc 04:43 PM
+-- Phiên bản máy phục vụ: 10.4.28-MariaDB
+-- Phiên bản PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `imgshare`
+-- Cơ sở dữ liệu: `imgshare`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `collections`
+-- Cấu trúc bảng cho bảng `collections`
 --
 
 CREATE TABLE `collections` (
@@ -36,7 +36,7 @@ CREATE TABLE `collections` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `collections`
+-- Đang đổ dữ liệu cho bảng `collections`
 --
 
 INSERT INTO `collections` (`id`, `user_id`, `title`, `created_at`, `updated_at`) VALUES
@@ -51,7 +51,7 @@ INSERT INTO `collections` (`id`, `user_id`, `title`, `created_at`, `updated_at`)
 -- --------------------------------------------------------
 
 --
--- Table structure for table `collection_post`
+-- Cấu trúc bảng cho bảng `collection_post`
 --
 
 CREATE TABLE `collection_post` (
@@ -63,7 +63,7 @@ CREATE TABLE `collection_post` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `collection_post`
+-- Đang đổ dữ liệu cho bảng `collection_post`
 --
 
 INSERT INTO `collection_post` (`id`, `collection_id`, `post_id`, `created_at`, `updated_at`) VALUES
@@ -75,14 +75,13 @@ INSERT INTO `collection_post` (`id`, `collection_id`, `post_id`, `created_at`, `
 (34, 2, 6, NULL, NULL),
 (35, 1, 18, NULL, NULL),
 (56, 2, 34, NULL, NULL),
-(57, 2, 35, NULL, NULL),
 (59, 11, 17, NULL, NULL),
 (60, 2, 36, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comments`
+-- Cấu trúc bảng cho bảng `comments`
 --
 
 CREATE TABLE `comments` (
@@ -95,7 +94,7 @@ CREATE TABLE `comments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `comments`
+-- Đang đổ dữ liệu cho bảng `comments`
 --
 
 INSERT INTO `comments` (`id`, `post_id`, `user_id`, `comment`, `created_at`, `updated_at`) VALUES
@@ -105,7 +104,7 @@ INSERT INTO `comments` (`id`, `post_id`, `user_id`, `comment`, `created_at`, `up
 -- --------------------------------------------------------
 
 --
--- Table structure for table `likes`
+-- Cấu trúc bảng cho bảng `likes`
 --
 
 CREATE TABLE `likes` (
@@ -117,7 +116,7 @@ CREATE TABLE `likes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `likes`
+-- Đang đổ dữ liệu cho bảng `likes`
 --
 
 INSERT INTO `likes` (`id`, `user_id`, `post_id`, `created_at`, `updated_at`) VALUES
@@ -132,7 +131,7 @@ INSERT INTO `likes` (`id`, `user_id`, `post_id`, `created_at`, `updated_at`) VAL
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Cấu trúc bảng cho bảng `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -142,7 +141,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `migrations`
+-- Đang đổ dữ liệu cho bảng `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -165,7 +164,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `posts`
+-- Cấu trúc bảng cho bảng `posts`
 --
 
 CREATE TABLE `posts` (
@@ -181,7 +180,7 @@ CREATE TABLE `posts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `posts`
+-- Đang đổ dữ liệu cho bảng `posts`
 --
 
 INSERT INTO `posts` (`id`, `user_id`, `title`, `description`, `img_path`, `status`, `likequantity`, `created_at`, `updated_at`) VALUES
@@ -193,13 +192,12 @@ INSERT INTO `posts` (`id`, `user_id`, `title`, `description`, `img_path`, `statu
 (17, 1, 'Núi Fuji', 'Ngọn núi tuyệt đẹp của xứ sở mặt trời mọc', 'fuji.jpg', NULL, 1, '2023-10-21 22:16:13', '2023-11-14 14:50:51'),
 (18, 1, 'Digital Art', 'Ảnh vẽ kỹ thuật số', 'LcGLLh64KARPh62Eofq7ECNhT9fEtgMhwEWeWAwe.jpg', NULL, 0, '2023-10-30 16:45:14', '2023-10-30 16:45:14'),
 (34, 1, 'Becgie', 'Chú chó becgie mạnh mẽ và nhanh nhẹn', '7GXCCQsdgcXzP6eTXxZTU2HcTdDC5roTfMcYqzMm.jpg', NULL, 1, '2023-11-13 19:00:47', '2023-11-14 13:51:55'),
-(35, 1, 'My Dog', 'Chú chó của tôi trong buổi dã ngoại cuối tuần qua', 'kWlCniqt9x4abKfncm2udcqct5ZDX8IEUDcRVwaw.jpg', NULL, 0, '2023-11-14 13:48:35', '2023-11-14 13:48:35'),
 (36, 1, 'Shiba Inu', 'Chú chó với các biểu cảm thú vị', 'nd0DD2SBaxF95uZzBrkN6shN8qmeyAamD4DRG0Gu.jpg', NULL, 0, '2023-11-14 17:46:02', '2023-11-14 17:46:02');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `post_topic`
+-- Cấu trúc bảng cho bảng `post_topic`
 --
 
 CREATE TABLE `post_topic` (
@@ -211,33 +209,32 @@ CREATE TABLE `post_topic` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `post_topic`
+-- Đang đổ dữ liệu cho bảng `post_topic`
 --
 
 INSERT INTO `post_topic` (`id`, `post_id`, `topic_id`, `created_at`, `updated_at`) VALUES
 (1, 6, 8, NULL, NULL),
 (2, 7, 15, NULL, NULL),
 (7, 34, 15, NULL, NULL),
-(8, 35, 15, NULL, NULL),
 (9, 17, 31, NULL, NULL),
 (10, 36, 15, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `topics`
+-- Cấu trúc bảng cho bảng `topics`
 --
 
 CREATE TABLE `topics` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `title` varchar(255) NOT NULL,
-  `description` text NOT NULL,
+  `description` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `topics`
+-- Đang đổ dữ liệu cho bảng `topics`
 --
 
 INSERT INTO `topics` (`id`, `title`, `description`, `created_at`, `updated_at`) VALUES
@@ -285,12 +282,13 @@ INSERT INTO `topics` (`id`, `title`, `description`, `created_at`, `updated_at`) 
 (42, 'truck', '', NULL, NULL),
 (43, 'tshirt', '', NULL, NULL),
 (44, 'tulips', '', NULL, NULL),
-(45, 'airplane', '', NULL, NULL);
+(45, 'airplane', '', NULL, NULL),
+(46, 'another', 'Những chủ đề chưa train', '2023-11-15 14:42:47', '2023-11-15 15:36:42');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Cấu trúc bảng cho bảng `users`
 --
 
 CREATE TABLE `users` (
@@ -306,28 +304,27 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `users`
+-- Đang đổ dữ liệu cho bảng `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `avatar`, `permission`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Hà Trung Nghĩa', 'nghia@gmail.com', '$2y$10$tDvp/mxQ24rmro7qc3bDh.nFDnanx5yELGLVbRbMp3iPT./lqssN2', '1698173575.jpg', 0, NULL, '2023-10-15 09:05:44', '2023-10-30 12:21:36'),
 (4, 'Hoàng Duy', 'duy@gmail.com', '$2y$10$GHK9A8E/qFl.bhtJZqT0geII2DOfuibUohZ86ypWIZsvrcu9qed9S', '1698173410.jpg', 0, NULL, '2023-10-15 12:23:51', '2023-10-24 18:50:10'),
-(7, 'Admin', 'admin@gmail.com', '$2y$10$kyd9KvWO/k3SBZ8l/qpBeu3UMM2RMWp65BctNknnogFCj.DJCvR.S', 'adminavt.jpeg', 1, NULL, '2023-11-06 18:10:22', NULL),
-(8, 'Thông Thái', 'thai@gmail.com', '$2y$10$tN3eZvMfvgEqleUWJD3y7uR4bPBKVS0U32wUXxsbEAUFk.SdYpkVW', 'gundam.jpg', 0, NULL, '2023-11-06 18:10:22', NULL);
+(7, 'Admin', 'admin@gmail.com', '$2y$10$kyd9KvWO/k3SBZ8l/qpBeu3UMM2RMWp65BctNknnogFCj.DJCvR.S', 'adminavt.jpeg', 1, NULL, '2023-11-06 18:10:22', NULL);
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `collections`
+-- Chỉ mục cho bảng `collections`
 --
 ALTER TABLE `collections`
   ADD PRIMARY KEY (`id`),
   ADD KEY `collections_user_id_foreign` (`user_id`);
 
 --
--- Indexes for table `collection_post`
+-- Chỉ mục cho bảng `collection_post`
 --
 ALTER TABLE `collection_post`
   ADD PRIMARY KEY (`id`),
@@ -335,7 +332,7 @@ ALTER TABLE `collection_post`
   ADD KEY `collection_post_post_id_foreign` (`post_id`);
 
 --
--- Indexes for table `comments`
+-- Chỉ mục cho bảng `comments`
 --
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`),
@@ -343,7 +340,7 @@ ALTER TABLE `comments`
   ADD KEY `comments_user_id_foreign` (`user_id`);
 
 --
--- Indexes for table `likes`
+-- Chỉ mục cho bảng `likes`
 --
 ALTER TABLE `likes`
   ADD PRIMARY KEY (`id`),
@@ -351,20 +348,20 @@ ALTER TABLE `likes`
   ADD KEY `likes_post_id_foreign` (`post_id`);
 
 --
--- Indexes for table `migrations`
+-- Chỉ mục cho bảng `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `posts`
+-- Chỉ mục cho bảng `posts`
 --
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`),
   ADD KEY `posts_user_id_foreign` (`user_id`);
 
 --
--- Indexes for table `post_topic`
+-- Chỉ mục cho bảng `post_topic`
 --
 ALTER TABLE `post_topic`
   ADD PRIMARY KEY (`id`),
@@ -372,115 +369,115 @@ ALTER TABLE `post_topic`
   ADD KEY `post_topic_topic_id_foreign` (`topic_id`);
 
 --
--- Indexes for table `topics`
+-- Chỉ mục cho bảng `topics`
 --
 ALTER TABLE `topics`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `collections`
+-- AUTO_INCREMENT cho bảng `collections`
 --
 ALTER TABLE `collections`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `collection_post`
+-- AUTO_INCREMENT cho bảng `collection_post`
 --
 ALTER TABLE `collection_post`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
--- AUTO_INCREMENT for table `comments`
+-- AUTO_INCREMENT cho bảng `comments`
 --
 ALTER TABLE `comments`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `likes`
+-- AUTO_INCREMENT cho bảng `likes`
 --
 ALTER TABLE `likes`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT for table `migrations`
+-- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `posts`
+-- AUTO_INCREMENT cho bảng `posts`
 --
 ALTER TABLE `posts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
--- AUTO_INCREMENT for table `post_topic`
+-- AUTO_INCREMENT cho bảng `post_topic`
 --
 ALTER TABLE `post_topic`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `topics`
+-- AUTO_INCREMENT cho bảng `topics`
 --
 ALTER TABLE `topics`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- Constraints for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `collections`
+-- Các ràng buộc cho bảng `collections`
 --
 ALTER TABLE `collections`
   ADD CONSTRAINT `collections_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `collection_post`
+-- Các ràng buộc cho bảng `collection_post`
 --
 ALTER TABLE `collection_post`
   ADD CONSTRAINT `collection_post_collection_id_foreign` FOREIGN KEY (`collection_id`) REFERENCES `collections` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `collection_post_post_id_foreign` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `comments`
+-- Các ràng buộc cho bảng `comments`
 --
 ALTER TABLE `comments`
   ADD CONSTRAINT `comments_post_id_foreign` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `comments_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `likes`
+-- Các ràng buộc cho bảng `likes`
 --
 ALTER TABLE `likes`
   ADD CONSTRAINT `likes_post_id_foreign` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `likes_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `posts`
+-- Các ràng buộc cho bảng `posts`
 --
 ALTER TABLE `posts`
   ADD CONSTRAINT `posts_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
--- Constraints for table `post_topic`
+-- Các ràng buộc cho bảng `post_topic`
 --
 ALTER TABLE `post_topic`
   ADD CONSTRAINT `post_topic_post_id_foreign` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE,

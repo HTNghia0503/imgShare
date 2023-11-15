@@ -29,7 +29,7 @@
                                             <td class="column-name">{{ $item->likequantity }}</td>
                                             <td class="column-content">
                                                 <ul class="d-flex justify-content-center">
-                                                    <li><a href=""
+                                                    <li><a href="{{ route('deletePostUser', $item->id) }}"
                                                             class="text-danger"><i class="ti-trash"></i></a></li>
                                                 </ul>
                                             </td>

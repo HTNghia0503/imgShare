@@ -80,3 +80,17 @@
     text-overflow: ellipsis;
     max-width: 300px; /* Độ dài tối đa trước khi ẩn */
 }
+
+.btn-modal-ctopic button {
+    font-size: 16px;
+}
+
+.btn-modal-ctopic-primary button {
+    background: var(--main-primary-color);
+    color: #fff;
+    font-size: 16px;
+}
+
+.btn-modal-ctopic-primary button:hover {
+    background: #4748d1;
+}

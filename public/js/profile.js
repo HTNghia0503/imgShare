@@ -28,7 +28,7 @@ if (activeTab) {
 }
 // Hiển thị tab Bộ sưu tập - End
 
-// Hiển thị form Tạo bảng lưu khi nhấn nút
+// Hiển thị form Tạo bộ sưu tập khi nhấn nút
 var showCreateCollection = document.getElementById("collectionLink");
 
 if (showCreateCollection) {
@@ -39,7 +39,7 @@ if (showCreateCollection) {
     });
 }
 
-// Hiển thị form Chỉnh sửa bảng lưu khi nhấn nút
+// Hiển thị form Chỉnh sửa bộ sưu tập khi nhấn nút
 var showUpdateCollection = document.getElementById("updateCollectionLink");
 
 if (showUpdateCollection) {

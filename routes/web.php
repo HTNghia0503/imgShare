@@ -37,6 +37,14 @@ Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'admin', 'middl
     Route::get('/topic', 'AdminController@manageTopic')->name('topic');
 
     Route::get('/delete-account/{id}', 'AdminController@deleteAccount')->name('deleteAccount');
+    Route::get('/delete-post-user/{id}', 'AdminController@deletePostUser')->name('deletePostUser');
+
+    Route::get('/create-topic', 'AdminController@showCreateTopic')->name('showCreateTopic');
+    Route::post('/create-topic', 'AdminController@createTopic')->name('createTopic');
+
+    Route::get('/update-topic/{id}', 'AdminController@showUpdateTopic')->name('showUpdateTopic');
+    Route::post('/update-topic/{id}', 'AdminController@updateTopic')->name('updateTopic');
+
 });
 
 // Các route khi đăng nhập với quyền USER
