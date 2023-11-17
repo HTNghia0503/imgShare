@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Collection\CollectionRequest;
 use Illuminate\Http\Request;
 use App\Models\Collection;
+use App\Models\Collection_Post;
+use App\Models\Post;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -43,6 +45,15 @@ class CollectionController extends Controller
             return redirect()->route('detailCollection', $id);
         }
         return redirect()->route('detailCollection', $id);
+    }
+
+    public function detailCollection($collectionId) {
+
+        $collection = Collection::find($collectionId);
+        $posts = Post::all();
+        $posts_in = Collection_Post::where('collection_id', $collectionId)->get(); // Lấy tất cả các comment có collection_id trùng với collection_id đang xem
+
+        return view('collection.detail', ['collection' => $collection, 'posts_in'=> $posts_in, 'posts' => $posts]);
     }
 
     public function deleteCollection(Request $request, $id){

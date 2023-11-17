@@ -6,6 +6,7 @@ use App\Http\Requests\Post\PostRequest;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Collection;
+use App\Models\Comment;
 use App\Models\Topic;
 use App\Models\User;
 use Illuminate\Support\Carbon;
@@ -62,6 +63,38 @@ class PostController extends Controller
             return redirect()->route('createPost');
         }
         return redirect()->route('home');
+    }
+
+    public function detailPost($postId) {
+
+        $post = Post::find($postId);
+        $collections = Collection::where('user_id', auth()->user()->id)->get(); // Xác định các Collections thuộc sở hữu của người đang Đăng nhập
+        $user = Auth::user();
+        $defaultCollection = $post->collection->first(); // Lấy phần tử đầu tiên trong collection
+        $defaultCollectionId = $defaultCollection ? $defaultCollection->id : null; // Lấy ID nếu tồn tại, nếu không tồn tại thì gán null
+
+        $collection_contain = $post->collection;
+
+        $comments = Comment::where('post_id', $postId)->get(); // Lấy tất cả các comment có post_id trùng với post_id đang xem
+
+        $topic = $post->topic->first();
+
+        // Tìm các post tương tự
+        $similarPosts = $topic->post()
+                        ->where('posts.id', '!=', $postId) // Trừ post đang xem ra
+                        ->get();
+
+        return view('post.detail', [
+            'post' => $post,
+            'collections' => $collections,
+            'user'=> $user,
+            'comments'=> $comments,
+            'defaultCollectionId' => $defaultCollectionId,
+            'defaultCollection' => $defaultCollection,
+            'collection_contain'=> $collection_contain,
+            'topic' => $topic,
+            'similarPosts' => $similarPosts,
+        ]);
     }
 
     public function savePost(Request $request)
