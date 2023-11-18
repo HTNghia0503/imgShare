@@ -18,7 +18,6 @@
                                     <i class="fa-solid fa-bars"></i>
                                 </a>
                                 <ul class="dropdown-menu tools-dropdown" aria-labelledby="tools-dropdown">
-                                    <li><a class="dropdown-item" href="#">Tìm kiếm các ảnh tương tự</a></li>
                                     @if (Auth::check() && $post->user_id == Auth::user()->id)
                                         <li><a class="dropdown-item" href="#" id="updatePostLink">Chỉnh sửa bài đăng</a></li>
                                         <li><a class="dropdown-item delete-post" data-id="{{ $post->id }}" href="#">Xóa bài đăng</a></li>

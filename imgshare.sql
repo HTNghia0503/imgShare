@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 15, 2023 lúc 04:43 PM
+-- Thời gian đã tạo: Th10 18, 2023 lúc 01:09 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -40,13 +40,13 @@ CREATE TABLE `collections` (
 --
 
 INSERT INTO `collections` (`id`, `user_id`, `title`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Phong Cảnh', '2023-10-18 10:17:20', NULL),
-(2, 1, 'Động Vật', '2023-10-18 10:21:05', '2023-10-30 12:21:49'),
+(1, 1, 'Phong cảnh', '2023-10-18 10:17:20', '2023-11-17 18:12:39'),
+(2, 1, 'Động vật', '2023-10-18 10:21:05', '2023-11-17 23:23:25'),
 (3, 4, 'Hội họa', '2023-10-18 10:22:58', NULL),
 (8, 4, 'Giày thể thao', '2023-10-30 15:18:22', '2023-10-30 15:18:22'),
 (9, 4, 'Thú cưng', '2023-10-30 15:19:46', '2023-10-30 15:19:46'),
-(10, 1, 'Thời trang', '2023-10-30 16:47:24', '2023-10-30 16:47:24'),
-(11, 4, 'Nhật Bản', '2023-11-14 14:50:35', '2023-11-14 14:50:35');
+(11, 4, 'Nhật Bản', '2023-11-14 14:50:35', '2023-11-14 14:50:35'),
+(12, 1, 'Giày thể thao', '2023-11-17 23:23:15', '2023-11-17 23:23:15');
 
 -- --------------------------------------------------------
 
@@ -73,7 +73,6 @@ INSERT INTO `collection_post` (`id`, `collection_id`, `post_id`, `created_at`, `
 (12, 1, 17, NULL, NULL),
 (30, 8, 13, NULL, NULL),
 (34, 2, 6, NULL, NULL),
-(35, 1, 18, NULL, NULL),
 (56, 2, 34, NULL, NULL),
 (59, 11, 17, NULL, NULL),
 (60, 2, 36, NULL, NULL);
@@ -99,7 +98,8 @@ CREATE TABLE `comments` (
 
 INSERT INTO `comments` (`id`, `post_id`, `user_id`, `comment`, `created_at`, `updated_at`) VALUES
 (2, 6, 4, 'Cute quá :3', '2023-10-21 17:33:02', NULL),
-(8, 17, 4, 'Thật đẹp', '2023-11-14 14:51:37', NULL);
+(8, 17, 4, 'Thật đẹp', '2023-11-14 14:51:37', NULL),
+(9, 6, 1, 'Cảm ơn bạn <3', '2023-11-17 18:07:08', NULL);
 
 -- --------------------------------------------------------
 
@@ -122,11 +122,11 @@ CREATE TABLE `likes` (
 INSERT INTO `likes` (`id`, `user_id`, `post_id`, `created_at`, `updated_at`) VALUES
 (4, 4, 7, NULL, NULL),
 (8, 4, 6, NULL, NULL),
-(19, 1, 6, NULL, NULL),
-(20, 1, 13, NULL, NULL),
 (22, 1, 8, NULL, NULL),
 (23, 1, 34, NULL, NULL),
-(24, 4, 17, NULL, NULL);
+(24, 4, 17, NULL, NULL),
+(26, 1, 7, NULL, NULL),
+(27, 1, 6, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -184,13 +184,12 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `user_id`, `title`, `description`, `img_path`, `status`, `likequantity`, `created_at`, `updated_at`) VALUES
-(6, 1, 'Mèo', 'Mèo con dễ thương', 'LssvEyPC5mswKD6TzQqZaaXsDlMqpqXzfVfEq6Cr.jpg', NULL, 3, '2023-10-18 18:29:37', '2023-10-30 16:21:56'),
-(7, 1, 'Chó', 'Chú chó đáng yêu của tôi !', 'ziKdFNBS1letTFv765mPqjNyuNiIcHsBanpRqn0U.jpg', NULL, 1, '2023-10-18 19:03:42', '2023-10-30 13:35:55'),
+(6, 1, 'Mèo', 'Mèo con dễ thương', 'LssvEyPC5mswKD6TzQqZaaXsDlMqpqXzfVfEq6Cr.jpg', NULL, 3, '2023-10-18 18:29:37', '2023-11-17 23:15:18'),
+(7, 1, 'Chó', 'Chú chó đáng yêu của tôi !', 'ziKdFNBS1letTFv765mPqjNyuNiIcHsBanpRqn0U.jpg', NULL, 2, '2023-10-18 19:03:42', '2023-11-17 18:16:58'),
 (8, 4, 'MonaLisa', 'Một bức chân dung thế kỷ 16 được vẽ bằng chất liệu sơn dầu trên một tấm gỗ dương tại Florence bởi Leonardo da Vinci trong thời kì Phục Hưng Ý.', 'P3I0dezA6g3c9WYmXEIjwQ1wNlkkNmwdi1CpyCo5.jpg', NULL, 1, '2023-10-18 19:10:40', '2023-11-14 12:42:54'),
-(13, 4, 'Sneaker', 'Đôi giày của tôi <3', 'PtJ1QBQDWMQp6eo0dR5yo1q2njNwHzfbP3OtrSTm.jpg', NULL, 1, '2023-10-20 12:48:31', '2023-10-30 16:51:55'),
+(13, 4, 'Sneaker', 'Đôi giày của tôi <3', 'PtJ1QBQDWMQp6eo0dR5yo1q2njNwHzfbP3OtrSTm.jpg', NULL, 0, '2023-10-20 12:48:31', '2023-11-17 23:23:46'),
 (16, 1, 'Đại bàng', 'Loài chim to lớn đại diện của tự do và quyền lực', 'kShJiArnPtftBWstQ5kIZKTJxTr3gIBKHhVpqees.jpg', NULL, 0, '2023-10-21 22:15:23', '2023-10-21 22:15:23'),
 (17, 1, 'Núi Fuji', 'Ngọn núi tuyệt đẹp của xứ sở mặt trời mọc', 'fuji.jpg', NULL, 1, '2023-10-21 22:16:13', '2023-11-14 14:50:51'),
-(18, 1, 'Digital Art', 'Ảnh vẽ kỹ thuật số', 'LcGLLh64KARPh62Eofq7ECNhT9fEtgMhwEWeWAwe.jpg', NULL, 0, '2023-10-30 16:45:14', '2023-10-30 16:45:14'),
 (34, 1, 'Becgie', 'Chú chó becgie mạnh mẽ và nhanh nhẹn', '7GXCCQsdgcXzP6eTXxZTU2HcTdDC5roTfMcYqzMm.jpg', NULL, 1, '2023-11-13 19:00:47', '2023-11-14 13:51:55'),
 (36, 1, 'Shiba Inu', 'Chú chó với các biểu cảm thú vị', 'nd0DD2SBaxF95uZzBrkN6shN8qmeyAamD4DRG0Gu.jpg', NULL, 0, '2023-11-14 17:46:02', '2023-11-14 17:46:02');
 
@@ -217,7 +216,10 @@ INSERT INTO `post_topic` (`id`, `post_id`, `topic_id`, `created_at`, `updated_at
 (2, 7, 15, NULL, NULL),
 (7, 34, 15, NULL, NULL),
 (9, 17, 31, NULL, NULL),
-(10, 36, 15, NULL, NULL);
+(10, 36, 15, NULL, NULL),
+(11, 8, 16, NULL, NULL),
+(12, 13, 38, NULL, NULL),
+(13, 16, 17, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -238,7 +240,7 @@ CREATE TABLE `topics` (
 --
 
 INSERT INTO `topics` (`id`, `title`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'anime', '', NULL, NULL),
+(1, 'anime', 'Những hình ảnh hoạt hình theo phong cách Nhật Bản', NULL, '2023-11-17 12:21:33'),
 (2, 'beach', '', NULL, NULL),
 (3, 'bear', '', NULL, NULL),
 (4, 'bicycle', '', NULL, NULL),
@@ -310,7 +312,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `avatar`, `permission`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Hà Trung Nghĩa', 'nghia@gmail.com', '$2y$10$tDvp/mxQ24rmro7qc3bDh.nFDnanx5yELGLVbRbMp3iPT./lqssN2', '1698173575.jpg', 0, NULL, '2023-10-15 09:05:44', '2023-10-30 12:21:36'),
 (4, 'Hoàng Duy', 'duy@gmail.com', '$2y$10$GHK9A8E/qFl.bhtJZqT0geII2DOfuibUohZ86ypWIZsvrcu9qed9S', '1698173410.jpg', 0, NULL, '2023-10-15 12:23:51', '2023-10-24 18:50:10'),
-(7, 'Admin', 'admin@gmail.com', '$2y$10$kyd9KvWO/k3SBZ8l/qpBeu3UMM2RMWp65BctNknnogFCj.DJCvR.S', 'adminavt.jpeg', 1, NULL, '2023-11-06 18:10:22', NULL);
+(7, 'Admin', 'admin@gmail.com', '$2y$10$kyd9KvWO/k3SBZ8l/qpBeu3UMM2RMWp65BctNknnogFCj.DJCvR.S', 'adminavt.jpeg', 1, NULL, '2023-11-06 18:10:22', NULL),
+(11, 'Thông Thái', 'thai@gmail.com', '$2y$10$gjk7x71bOkftjHWndAGxh.sPe5j/s8p93..dwas46QtXAEHGmylJ6', 'gundam.jpg', 0, NULL, '2023-11-17 23:43:26', NULL);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -389,7 +392,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `collections`
 --
 ALTER TABLE `collections`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT cho bảng `collection_post`
@@ -401,13 +404,13 @@ ALTER TABLE `collection_post`
 -- AUTO_INCREMENT cho bảng `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT cho bảng `migrations`
@@ -425,7 +428,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT cho bảng `post_topic`
 --
 ALTER TABLE `post_topic`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT cho bảng `topics`
@@ -437,7 +440,7 @@ ALTER TABLE `topics`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

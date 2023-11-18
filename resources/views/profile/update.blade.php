@@ -1,7 +1,7 @@
 @extends('layout.profile.profile')
 @section('content')
     <div class="d-flex upload-main-bg">
-        <div class="upload-main-area update-frame">
+        <div class="upload-main-area update-frame shadow">
             <div class="update-title">Chỉnh sửa thông tin cá nhân</div>
             <div class="update-warning">Thông tin bạn thêm vào đây hiển thị cho bất kỳ ai có thể xem hồ sơ của bạn. Cân nhắc trước khi thực hiện các thay đổi !</div>
             <form action="" method="POST" enctype="multipart/form-data">
