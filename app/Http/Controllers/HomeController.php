@@ -16,4 +16,12 @@ class HomeController extends Controller
         return view('content.home', ['posts' => $posts]);
     }
 
+    public function search(Request $request)
+    {
+        $key = $request->input('key');
+        $posts = Post::where('title', 'like', "%$key%")->get();
+
+        return view('content.search', compact('posts', 'key'));
+    }
+
 }

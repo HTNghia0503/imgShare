@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 18, 2023 lúc 01:09 AM
--- Phiên bản máy phục vụ: 10.4.28-MariaDB
--- Phiên bản PHP: 8.2.4
+-- Thời gian đã tạo: Th12 08, 2023 lúc 06:12 PM
+-- Phiên bản máy phục vụ: 10.4.32-MariaDB
+-- Phiên bản PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -75,7 +75,8 @@ INSERT INTO `collection_post` (`id`, `collection_id`, `post_id`, `created_at`, `
 (34, 2, 6, NULL, NULL),
 (56, 2, 34, NULL, NULL),
 (59, 11, 17, NULL, NULL),
-(60, 2, 36, NULL, NULL);
+(60, 2, 36, NULL, NULL),
+(63, 2, 37, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -191,7 +192,8 @@ INSERT INTO `posts` (`id`, `user_id`, `title`, `description`, `img_path`, `statu
 (16, 1, 'Đại bàng', 'Loài chim to lớn đại diện của tự do và quyền lực', 'kShJiArnPtftBWstQ5kIZKTJxTr3gIBKHhVpqees.jpg', NULL, 0, '2023-10-21 22:15:23', '2023-10-21 22:15:23'),
 (17, 1, 'Núi Fuji', 'Ngọn núi tuyệt đẹp của xứ sở mặt trời mọc', 'fuji.jpg', NULL, 1, '2023-10-21 22:16:13', '2023-11-14 14:50:51'),
 (34, 1, 'Becgie', 'Chú chó becgie mạnh mẽ và nhanh nhẹn', '7GXCCQsdgcXzP6eTXxZTU2HcTdDC5roTfMcYqzMm.jpg', NULL, 1, '2023-11-13 19:00:47', '2023-11-14 13:51:55'),
-(36, 1, 'Shiba Inu', 'Chú chó với các biểu cảm thú vị', 'nd0DD2SBaxF95uZzBrkN6shN8qmeyAamD4DRG0Gu.jpg', NULL, 0, '2023-11-14 17:46:02', '2023-11-14 17:46:02');
+(36, 1, 'Shiba Inu', 'Chú chó với các biểu cảm thú vị', 'nd0DD2SBaxF95uZzBrkN6shN8qmeyAamD4DRG0Gu.jpg', NULL, 0, '2023-11-14 17:46:02', '2023-11-14 17:46:02'),
+(37, 1, 'Mèo <3', 'Chú mèo này có làm bạn rung động ?', 'biCRTGTbjEvEyrjITFAWq4uyhI2Gl1tgZBI89WW7.jpg', NULL, 0, '2023-12-08 15:21:48', '2023-12-08 15:21:48');
 
 -- --------------------------------------------------------
 
@@ -219,7 +221,8 @@ INSERT INTO `post_topic` (`id`, `post_id`, `topic_id`, `created_at`, `updated_at
 (10, 36, 15, NULL, NULL),
 (11, 8, 16, NULL, NULL),
 (12, 13, 38, NULL, NULL),
-(13, 16, 17, NULL, NULL);
+(13, 16, 17, NULL, NULL),
+(14, 37, 8, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -398,7 +401,7 @@ ALTER TABLE `collections`
 -- AUTO_INCREMENT cho bảng `collection_post`
 --
 ALTER TABLE `collection_post`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT cho bảng `comments`
@@ -422,13 +425,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT cho bảng `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT cho bảng `post_topic`
 --
 ALTER TABLE `post_topic`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT cho bảng `topics`

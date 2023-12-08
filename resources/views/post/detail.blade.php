@@ -17,12 +17,13 @@
                                 <a href="#" id="tools-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa-solid fa-bars"></i>
                                 </a>
-                                <ul class="dropdown-menu tools-dropdown" aria-labelledby="tools-dropdown">
-                                    @if (Auth::check() && $post->user_id == Auth::user()->id)
+                                @if (Auth::check() && $post->user_id == Auth::user()->id)
+                                    <ul class="dropdown-menu tools-dropdown" aria-labelledby="tools-dropdown">
                                         <li><a class="dropdown-item" href="#" id="updatePostLink">Chỉnh sửa bài đăng</a></li>
                                         <li><a class="dropdown-item delete-post" data-id="{{ $post->id }}" href="#">Xóa bài đăng</a></li>
-                                    @endif
-                                </ul>
+                                    </ul>
+                                @else
+                                @endif
                             </div>
 
                             @php

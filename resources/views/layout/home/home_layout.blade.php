@@ -34,11 +34,14 @@
                         </li>
                     </ul>
                 </div>
+
                 <div class="home-search flex-grow-1">
-                    <form class="d-flex">
-                        <input class="form-control me-2 home-search-bar" type="search" placeholder="&#xF002;  Nhập từ khóa tìm kiếm" style="font-family:Arial, FontAwesome" aria-label="Search">
+                    <form class="d-flex" action="{{ route('search') }}" method="GET">
+                        <input class="form-control me-2 home-search-bar" name="key" type="text" placeholder="&#xF002;  Nhập từ khóa tìm kiếm" style="font-family:Arial, FontAwesome" aria-label="Search">
+                        {{-- <button type="submit">Tìm kiếm</button> --}}
                     </form>
                 </div>
+
                 <div class="home-profile">
                     @if (Auth::check())
                         <div class="dropdown">
