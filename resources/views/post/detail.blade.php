@@ -20,7 +20,7 @@
                                 @if (Auth::check() && $post->user_id == Auth::user()->id)
                                     <ul class="dropdown-menu tools-dropdown" aria-labelledby="tools-dropdown">
                                         <li><a class="dropdown-item" href="#" id="updatePostLink">Chỉnh sửa bài đăng</a></li>
-                                        <li><a class="dropdown-item delete-post" data-id="{{ $post->id }}" href="#">Xóa bài đăng</a></li>
+                                        <li><a class="dropdown-item delete-post" href="{{ route('deletePost', ['id' => $post->id]) }}">Xóa bài đăng</a></li>
                                     </ul>
                                 @else
                                 @endif
@@ -98,7 +98,24 @@
                             <div class="d-flex comment-section">
                                 <img src="{{ asset('img/avt-user/' . $comment->user->avatar) }}" alt="Avatar" width="45px" height="45px" style="object-fit: cover; border-radius: 50%;">
                                 <div class="d-flex name-and-content">
-                                    <a class="user-comment-name" href="#">{{ $comment->user->name }}</a>
+                                    <div class="d-flex">
+                                        <a class="user-comment-name" href="#">{{ $comment->user->name }}</a>
+
+                                        @if (Auth::check() && $comment->user_id == Auth::user()->id)
+                                            <div class="dropdown dropdown-cmt">
+                                                <a href="#" id="cmt-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <i class="fa-solid fa-ellipsis"></i>
+                                                </a>
+                                                <ul class="dropdown-menu cmt-dropdown" aria-labelledby="cmt-dropdown">
+                                                    <li><a class="dropdown-item" href="#" id="updateCmtLink">Chỉnh sửa bình luận</a></li>
+                                                    <li><a class="dropdown-item delete-comment" data-id="{{ $comment->id }}" href="#">Xóa bình luận</a></li>
+                                                </ul>
+                                            </div>
+                                        @else
+
+                                        @endif
+
+                                    </div>
                                     <span class="user-comment-content">{{ $comment->comment }}</span>
                                 </div>
                             </div>
@@ -166,7 +183,7 @@
                     <div>
                         <h5 class="modal-title modal-title-collection" id="updatePostModalLabel">Chỉnh sửa bài đăng cá nhân</h5>
                     </div>
-                    <!-- Form bộ sưu tập - Start -->
+                    <!-- Form bài đăng - Start -->
                     <form id="updatePostForm" method="POST" action="{{ route('updatePost', ['id' => $post->id]) }}">
                         @csrf
                         <div class="mb-2 update-post-att">
@@ -212,7 +229,7 @@
                         @enderror
                         <button type="submit" id="updatePostBtn" class="btn btn-primary btn-submit-login btn-collection"><b>Lưu thay đổi</b></button>
                     </form>
-                    <!-- Form bộ sưu tập - End -->
+                    <!-- Form bài đăng - End -->
                 </div>
             </div>
         </div>
@@ -220,7 +237,7 @@
     {{-- Modal end --}}
 
     {{-- Modal xác nhận Xóa --}}
-    <div class="modal fade" id="confirmDeletePostModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
+    {{-- <div class="modal fade" id="confirmDeletePostModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content modal-content-delete">
                 <div class="modal-header modal-header-delete">
@@ -241,16 +258,80 @@
                 </div>
             </div>
         </div>
+    </div> --}}
+    {{-- Modal end --}}
+
+    {{-- Modal chỉnh sửa comment --}}
+    <div class="modal fade" id="updateCmtModal" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close btn-close-form" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body modal-body-collection">
+                    <div>
+                        <h5 class="modal-title modal-title-collection cmt-title" id="updateCmtModalLabel">Chỉnh sửa bình luận</h5>
+                    </div>
+                    @if ($comments->count() > 0)
+                        <form id="updateCmtForm" method="POST" action="{{ route('updateComment', ['id' => $comment->id, 'postId' => $post->id]) }}">
+                            @csrf
+                            <div class="mb-2 update-comment-att">
+                                <label for="comment_content" class="form-label form-label-format subtitle-cmt">Nội dung bình luận</label>
+                                <input type="text" name="comment" class="form-control form-control-format" value="{{ old('comment', $comment->comment ?? '') }}" id="comment_content" required>
+                            </div>
+                            @error('comment')
+                                <small id="" class="form-text text-danger">{{ $errors->first('comment') }}</small>
+                            @enderror
+
+                            <button type="submit" id="updateCmtBtn" class="btn btn-primary btn-submit-login btn-collection btn-cmt"><b>Lưu thay đổi</b></button>
+                        </form>
+                    @else
+                    @endif
+                </div>
+            </div>
+        </div>
     </div>
     {{-- Modal end --}}
-    <script>
+
+    {{-- Modal xác nhận Xóa bình luận--}}
+    {{-- <div class="modal fade" id="confirmDeleteCmtModal" tabindex="-1" aria-labelledby="cmtModalLabel" aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-content-delete">
+                <div class="modal-header modal-header-delete">
+                    <h5 class="modal-title modal-title-delete" id="updateCollectionModalLabel">Xác nhận xóa</h5>
+                    <button type="button" class="btn-close btn-close-form" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body modal-body-collection modal-body-delete-coll">
+                    <div class="warning-text">
+                        Bạn có chắc chắn muốn xóa bình luận này?
+                    </div>
+                <div class="modal-footer">
+                    <a href="{{ route('detailPost', ['postId' => $post->id]) }}">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy bỏ</button>
+                    </a>
+                    {{ route('deleteCmt', ['id' => $comment->id]) }}
+                    <a href="">
+                        <button type="button" class="btn btn-danger" id="confirmDeleteCmtButton">Xóa</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div> --}}
+    {{-- Modal end --}}
+
+    {{-- <script>
         $(document).ready(function () {
-            $('.delete-post').click(function (e) {
+            // $('.delete-post').click(function (e) {
+            //     e.preventDefault();
+            //     $('#confirmDeletePostModal').modal('show');
+            // });
+
+            $('.delete-comment').click(function (e) {
                 e.preventDefault();
-                $('#confirmDeletePostModal').modal('show');
+                $('#confirmDeleteCmtModal').modal('show');
             });
         });
-    </script>
+    </script> --}}
 
     {{-- Xử lý Like --}}
     <script>

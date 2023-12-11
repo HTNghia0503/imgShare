@@ -77,4 +77,7 @@ Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'user', 'middle
     Route::post('/update-collection/{id}', 'CollectionController@updateCollection')->name('updateCollection');
     Route::get('/delete-collection/{id}', 'CollectionController@deleteCollection')->name('deleteCollection');
 
+    // Comment (Bình luận)
+    Route::post('/update-comment/{id}/{postId}', 'PostController@updateComment')->name('updateComment');
+
 });

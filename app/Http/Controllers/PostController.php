@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Comment\CommentRequest;
 use App\Http\Requests\Post\PostRequest;
 use Illuminate\Http\Request;
 use App\Models\Post;
@@ -194,6 +195,21 @@ class PostController extends Controller
         $user->comment()->attach($post_id, ['comment' => $comments, 'created_at' => $created_at]);
 
         return redirect()->route('detailPost', ['postId' => $post_id]);
+    }
+
+    public function updateComment(CommentRequest $request, $id, $postId){
+        try {
+            $data = $request->all();
+            $data['updated_at'] = Carbon::now();
+
+            Comment::find($id)->update($data);
+            toastr()->success('Cập nhật thành công!', 'Thông báo', ['timeOut' => 2000]);
+        } catch (\Exception $exception) {
+            Log::error("ERROR => CommentController@updateComment => ". $exception->getMessage());
+            toastr()->error('Cập nhật thất bại!', 'Thông báo', ['timeOut' => 2000]);
+            return redirect()->route('detailPost', $postId);
+        }
+        return redirect()->route('detailPost', $postId);
     }
 
 }
