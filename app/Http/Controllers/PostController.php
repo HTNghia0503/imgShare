@@ -212,4 +212,18 @@ class PostController extends Controller
         return redirect()->route('detailPost', $postId);
     }
 
+    public function deleteComment(Request $request, $id, $postId){
+        try {
+            $comment = Comment::findOrFail($id);
+            if($comment) $comment->delete();
+
+            toastr()->success('Xóa thành công!', 'Thông báo', ['timeOut' => 2000]);
+        } catch (\Exception $exception) {
+            toastr()->error('Xóa thất bại!', 'Thông báo', ['timeOut' => 2000]);
+            Log::error("ERROR => PostController@deleteComment => ". $exception->getMessage());
+            return redirect()->route('detailPost', $postId);
+        }
+        return redirect()->route('detailPost', $postId);
+    }
+
 }

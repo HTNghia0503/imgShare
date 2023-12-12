@@ -79,5 +79,6 @@ Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'user', 'middle
 
     // Comment (Bình luận)
     Route::post('/update-comment/{id}/{postId}', 'PostController@updateComment')->name('updateComment');
+    Route::get('/delete-comment/{id}/{postId}', 'PostController@deleteComment')->name('deleteComment');
 
 });

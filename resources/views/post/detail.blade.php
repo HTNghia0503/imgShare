@@ -108,7 +108,7 @@
                                                 </a>
                                                 <ul class="dropdown-menu cmt-dropdown" aria-labelledby="cmt-dropdown">
                                                     <li><a class="dropdown-item" href="#" id="updateCmtLink">Chỉnh sửa bình luận</a></li>
-                                                    <li><a class="dropdown-item delete-comment" data-id="{{ $comment->id }}" href="#">Xóa bình luận</a></li>
+                                                    <li><a class="dropdown-item delete-comment" href="{{ route('deleteComment', ['id' => $comment->id, 'postId' => $post->id]) }}">Xóa bình luận</a></li>
                                                 </ul>
                                             </div>
                                         @else

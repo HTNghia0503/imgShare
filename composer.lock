@@ -2574,7 +2574,7 @@
         },
         {
             "name": "php-flasher/flasher",
-            "version": "v1.15.6",
+            "version": "v1.15.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-flasher/flasher.git",
@@ -2636,7 +2636,7 @@
                 "yoeunes"
             ],
             "support": {
-                "source": "https://github.com/php-flasher/flasher/tree/v1.15.6"
+                "source": "https://github.com/php-flasher/flasher/tree/v1.15.7"
             },
             "funding": [
                 {
@@ -2664,16 +2664,16 @@
         },
         {
             "name": "php-flasher/flasher-laravel",
-            "version": "v1.15.6",
+            "version": "v1.15.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-flasher/flasher-laravel.git",
-                "reference": "56147d7b69275078420c2dd611778626e6a76164"
+                "reference": "f3fb0cb4941a55ae6bf5199ad45c3ebb85977024"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-flasher/flasher-laravel/zipball/56147d7b69275078420c2dd611778626e6a76164",
-                "reference": "56147d7b69275078420c2dd611778626e6a76164",
+                "url": "https://api.github.com/repos/php-flasher/flasher-laravel/zipball/f3fb0cb4941a55ae6bf5199ad45c3ebb85977024",
+                "reference": "f3fb0cb4941a55ae6bf5199ad45c3ebb85977024",
                 "shasum": ""
             },
             "require": {
@@ -2735,7 +2735,7 @@
                 "yoeunes"
             ],
             "support": {
-                "source": "https://github.com/php-flasher/flasher-laravel/tree/v1.15.6"
+                "source": "https://github.com/php-flasher/flasher-laravel/tree/v1.15.7"
             },
             "funding": [
                 {
@@ -2759,7 +2759,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2023-12-09T20:04:59+00:00"
+            "time": "2023-12-11T23:15:40+00:00"
         },
         {
             "name": "phpoption/phpoption",
